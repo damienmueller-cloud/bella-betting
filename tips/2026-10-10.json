@@ -17,7 +17,11 @@
       "confidence": "High (4/5)",
       "best_odds": "$1.22 win / $1.05 place (fixed)",
       "odds_source": "VicBet",
-      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
+      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)",
+      "result": {
+        "outcome": "lost",
+        "recorded_at": "2026-10-10T20:44:37+11:00"
+      }
     },
     {
       "event": "Caulfield (VIC) – Race 8, Caulfield Guineas (G1, 1600m, 3yo set weights, 11 runners)",
@@ -28,7 +32,12 @@
       "confidence": "Medium (3/5)",
       "best_odds": "$2.15 win (fixed; opened $2.15, low $2.10)",
       "odds_source": "VicBet",
-      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
+      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)",
+      "result": {
+        "outcome": "won",
+        "recorded_at": "2026-10-10T20:44:42+11:00",
+        "settled_odds": 2.15
+      }
     },
     {
       "event": "Rosehill (NSW) – Race 7, Hill Stakes (G2, 1900m, weight-for-age)",
@@ -39,7 +48,11 @@
       "confidence": "Medium (3/5)",
       "best_odds": "$1.80 win / $1.05 place (fixed)",
       "odds_source": "TABtouch",
-      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
+      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)",
+      "result": {
+        "outcome": "lost",
+        "recorded_at": "2026-10-10T20:44:46+11:00"
+      }
     },
     {
       "event": "Rosehill (NSW) – Race 8, Alan Brown Stakes (G3, 1400m, quality handicap)",
@@ -50,7 +63,11 @@
       "confidence": "Low–Medium (2/5)",
       "best_odds": "$5.00 win / $1.95 place (fixed)",
       "odds_source": "TABtouch",
-      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
+      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)",
+      "result": {
+        "outcome": "lost",
+        "recorded_at": "2026-10-10T20:44:50+11:00"
+      }
     },
     {
       "event": "Caulfield (VIC) – Race 9, Toorak Handicap (G1, 1600m)",
@@ -61,7 +78,11 @@
       "confidence": "Low–Medium (2/5)",
       "best_odds": "$6.50 win (fixed)",
       "odds_source": "VicBet",
-      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
+      "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)",
+      "result": {
+        "outcome": "lost",
+        "recorded_at": "2026-10-10T20:44:55+11:00"
+      }
     }
   ],
   "responsible_gambling": [
