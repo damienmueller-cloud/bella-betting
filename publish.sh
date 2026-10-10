@@ -3,7 +3,7 @@
 # Usage: ./publish.sh [YYYY-MM-DD]     (default: today in Australia/Sydney)
 #        ./publish.sh --no-update      (just commit & push whatever changed, e.g. after recording results)
 # Repo:  https://github.com/damienmueller-cloud/bella-betting  (this site/ folder is the repo root)
-# Live:  https://damienmueller-cloud.github.io/bella-betting/
+# Live:  https://bellabetting.com.au/  (GitHub Pages custom domain; old URL https://damienmueller-cloud.github.io/bella-betting/ redirects)
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -24,14 +24,15 @@ if [[ "$(git rev-list --count origin/main..HEAD)" == "0" ]]; then
   echo "Nothing changed; nothing to publish."
   exit 0
 fi
+git pull -q --rebase origin main   # other workers may push to this repo; never force-push
 git push -q origin main
 echo "Pushed: $(git log -1 --format=%s)"
 
 # Wait (up to ~3 min) for GitHub Pages to rebuild and serve the pushed commit's tips/index.json.
 want=$(sha1sum tips/index.json | cut -d' ' -f1)
 for i in $(seq 1 36); do
-  live=$(curl -fsS "https://damienmueller-cloud.github.io/bella-betting/tips/index.json?nocache=$RANDOM" 2>/dev/null | sha1sum | cut -d' ' -f1 || true)
-  if [[ "$live" == "$want" ]]; then echo "Live site updated: https://damienmueller-cloud.github.io/bella-betting/"; exit 0; fi
+  live=$(curl -fsSL "https://bellabetting.com.au/tips/index.json?nocache=$RANDOM" 2>/dev/null | sha1sum | cut -d' ' -f1 || true)
+  if [[ "$live" == "$want" ]]; then echo "Live site updated: https://bellabetting.com.au/"; exit 0; fi
   sleep 5
 done
-echo "Pushed, but the live site has not refreshed yet (Pages/CDN can take a few minutes). Check https://damienmueller-cloud.github.io/bella-betting/"
+echo "Pushed, but the live site has not refreshed yet (Pages/CDN can take a few minutes). Check https://bellabetting.com.au/"

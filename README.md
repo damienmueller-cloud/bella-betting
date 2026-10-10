@@ -1,6 +1,6 @@
 # Bella Betting – static site
 
-Live: https://damienmueller-cloud.github.io/bella-betting/ · Repo: https://github.com/damienmueller-cloud/bella-betting (this `site/` folder is the repo root, branch `main`, Pages from `/`).
+Live: https://bellabetting.com.au/ (custom domain via `CNAME`; www.bellabetting.com.au and bellabetting.com redirect here; old https://damienmueller-cloud.github.io/bella-betting/ also redirects) · Repo: https://github.com/damienmueller-cloud/bella-betting (this `site/` folder is the repo root, branch `main`, Pages from `/`).
 
 Plain HTML/CSS/JS, no build step, no external requests (no web fonts, analytics, trackers or bookmaker links).
 
@@ -56,9 +56,12 @@ Approved logo: concept B (BB monogram tile) – source in ../artwork-proposals/a
 ## Daily publish workflow
 ```
 cd /workspace/project-vaults/Betting-Tips/site
-./publish.sh                 # today's (Sydney) card: update_tips.py -> git commit -> push -> waits for the live site to refresh
+./publish.sh                 # today's (Sydney) card: update_tips.py -> git commit -> pull --rebase -> push -> waits for https://bellabetting.com.au to refresh
 ./publish.sh 2026-10-11      # a specific date
 python3 update_tips.py result 2026-10-10 "Sheza Alibi" won 1.22 && ./publish.sh --no-update   # after recording results
 ```
 Requires `gh` to be logged in as damienmueller-cloud (git uses `gh auth git-credential`). The commit identity is set in this repo's local git config (noreply address). publish.sh refuses nothing on its own – the compliance lint lives in update_tips.py, so always go through it.
 Before publishing each day: recheck scratchings/odds, keep the RG footer untouched, and only quote odds from Australian-licensed bookmakers (see ../compliance-notes.md).
+
+## Domain
+`CNAME` (repo root) = `bellabetting.com.au` – do not delete it, or GitHub Pages drops the custom domain. DNS is at GoDaddy (A @ → 185.199.108-111.153, CNAME www → damienmueller-cloud.github.io). Details: ../domain-research.md.
