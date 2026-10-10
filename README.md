@@ -66,8 +66,8 @@ Before publishing each day: recheck scratchings/odds, keep the RG footer untouch
 ## Domain
 `CNAME` (repo root) = `bellabetting.com.au` – do not delete it, or GitHub Pages drops the custom domain. DNS is at GoDaddy (A @ → 185.199.108-111.153, CNAME www → damienmueller-cloud.github.io). Details: ../domain-research.md.
 
-## Membership (branch `membership`, NOT live)
-- `join.html` (free members form, 18+ and consent checkboxes, mobile required, normalised to +614…), `privacy.html`, `members-terms.html`, "Join free" in nav and a CTA on the home page.
-- `assets/members-config.js`: `LIVE:false`. While not live, the submit button is disabled unless the URL has `?preview=1`.
-- The form posts to the Twilio Function `https://bella-betting-members-6300-prod.twil.io/join` (separate service `bella-betting-members`; members are stored in Twilio Sync map `members`, keyed by E.164). Source, deploy and tests: `/workspace/project-vaults/Betting-Tips/members/`.
-- Before merging: legal check (NSW s 30), a real contact email in privacy/terms, the email provider set up, then set `LIVE:true`.
+## Membership (LIVE since 10 Oct 2026)
+- `join.html` (free members form: 18+ and consent checkboxes, mobile required and normalised to +614…), `privacy.html`, `members-terms.html`, "Join free" in the nav and a CTA on the home page. Contact: hello@bellabetting.com.au.
+- The form posts to the Twilio Function `https://bella-betting-members-6300-prod.twil.io/join`. Members are stored in Twilio Sync map `members`, keyed by E.164. Twilio Verify (`VA03f59755e29556169a50f066517f9027`) texts a 6-digit code; `/verify-check` marks the member `verified`. Only verified numbers are recognised on the tips line. ACMA fictitious test numbers (0491 570 xxx) never get a real SMS.
+- No email platform yet (beehiiv planned): members are stored only.
+- Source, deploy and tests: `/workspace/project-vaults/Betting-Tips/members/`.

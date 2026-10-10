@@ -8,15 +8,6 @@
   var done = document.getElementById("join-done");
   var lastMobile = "";
 
-  if (!cfg.LIVE) {
-    var b = document.createElement("p");
-    b.className = "preview-banner";
-    b.innerHTML = "<strong>Preview only.</strong> Membership sign-ups are not open yet. This page is on a test branch and is not published.";
-    form.parentNode.insertBefore(b, form.parentNode.querySelector(".card"));
-    // Not live: only allow test submissions from a preview URL (?preview=1).
-    if (!/[?&]preview=1/.test(location.search)) { var sb = document.getElementById("join-submit"); sb.disabled = true; sb.textContent = "Join free (opens soon)"; }
-  }
-
   function normMobile(v) {
     var s = String(v || "").replace(/[\s\-().]/g, "");
     if (/^04\d{8}$/.test(s)) return "+61" + s.slice(1);
@@ -57,7 +48,7 @@
         } else if (res.j.error === "invalid") {
           show(err, "Please check: " + (res.j.fields || []).map(function (k) { return LABELS[k] || k; }).join(", ") + ".");
         } else if (res.j.error === "number_already_registered") {
-          show(err, "That mobile is already linked to a membership. To change details, call the tips line or email us.");
+          show(err, "That mobile is already linked to a membership. To change details, email hello@bellabetting.com.au.");
         } else {
           show(err, "Sorry, something went wrong. Please try again later.");
         }
