@@ -1,0 +1,92 @@
+/* Bella Betting – plain CSS, mobile-first, no external assets */
+:root{
+  --ink:#1b1f24; --muted:#4f5864; --bg:#f7f7f5; --card:#ffffff; --line:#d9dcd6;
+  --brand:#14432f; --brand-ink:#ffffff; --accent:#8a6d1d; --warn-bg:#fff6dd; --warn-line:#e2c56b;
+  --rg-bg:#111417; --rg-ink:#ffffff; --focus:#1a5fd0;
+  --radius:10px; --maxw:1200px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.55;color:var(--ink);background:var(--bg)}
+a{color:var(--brand);text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:.5rem 1rem;z-index:10}
+.skip:focus{left:.5rem;top:.5rem}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+
+/* 18+ strip */
+.age-strip{background:var(--rg-bg);color:var(--rg-ink);font-size:.9rem;text-align:center;padding:.4rem 1rem}
+.age-strip strong{letter-spacing:.02em}
+
+/* header + text wordmark */
+.site-header{background:var(--brand);color:var(--brand-ink)}
+.site-header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-top:.85rem;padding-bottom:.85rem}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--brand-ink)}
+.brand-tile{display:block;width:44px;height:44px;flex:none;border-radius:7px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.wordmark{color:var(--brand-ink);text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;font-weight:700;letter-spacing:.01em;line-height:1}
+.wordmark{display:block}
+.wordmark span{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-top:.3rem;opacity:.85}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem}
+nav a{display:block;color:var(--brand-ink);text-decoration:none;padding:.45rem .7rem;border-radius:6px;font-weight:500}
+nav a:hover{background:rgba(255,255,255,.12)}
+nav a[aria-current="page"]{background:rgba(255,255,255,.2)}
+
+main{padding:1.5rem 0 2.5rem;flex:1 0 auto;width:100%}
+h1{font-size:1.6rem;line-height:1.25;margin:.2rem 0 .4rem}
+h2{font-size:1.25rem;margin:2rem 0 .6rem}
+h3{font-size:1.05rem;margin:1.2rem 0 .4rem}
+.meta{color:var(--muted);margin:0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.1rem;margin:1rem 0}
+.notice{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:var(--radius);padding:.8rem 1rem;margin:1rem 0}
+.notice p{margin:.25rem 0}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+
+/* tips table: cards on mobile, table on wide screens */
+table.tips{width:100%;border-collapse:collapse}
+table.tips caption{text-align:left;font-weight:600;padding:.25rem 0 .6rem}
+table.tips thead{position:absolute;left:-9999px}
+table.tips tr{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem 1rem;margin-bottom:.9rem}
+table.tips td{display:block;padding:.2rem 0;border:0}
+table.tips td::before{content:attr(data-label);display:block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.sel{font-size:1.1rem;font-weight:700}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.05rem .55rem;font-size:.85rem;background:#f1f3ef;white-space:nowrap}
+.odds-src{display:block;color:var(--muted);font-size:.85rem}
+
+@media (min-width:860px){
+  h1{font-size:1.9rem}
+  table.tips thead{position:static}
+  table.tips{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  table.tips tr{display:table-row;border:0;border-radius:0;padding:0;margin:0}
+  table.tips th,table.tips td{display:table-cell;text-align:left;vertical-align:top;padding:.7rem .75rem;border-bottom:1px solid var(--line)}
+  table.tips th{background:#eef1ec;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+  table.tips td::before{display:none}
+  table.tips tbody tr:last-child td{border-bottom:0}
+  td.sel{font-size:1rem}
+  td.reason{min-width:16rem}
+  td.odds{min-width:9.5rem}
+  td.time{white-space:nowrap}
+  td.chance{min-width:7.5rem}
+}
+
+/* generic data tables (archive/results) */
+table.data{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+table.data th,table.data td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+table.data th{background:#eef1ec;font-size:.85rem}
+.table-scroll{overflow-x:auto}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.75rem;margin:1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.75rem}
+.stat b{display:block;font-size:1.3rem}
+
+/* responsible gambling footer */
+.rg-footer{background:var(--rg-bg);color:var(--rg-ink);padding:1.6rem 0 2rem;border-top:6px solid var(--accent)}
+.rg-footer a{color:#fff}
+.rg-tagline{font-size:1.35rem;font-weight:700;margin:0 0 .6rem;line-height:1.3}
+.rg-cta{font-size:1.05rem;margin:.3rem 0}
+.rg-footer p{margin:.45rem 0}
+.rg-footer .disclaimer{font-size:.88rem;opacity:.9;border-top:1px solid #3a4047;margin-top:1rem;padding-top:.9rem}
+.age18{display:inline-block;border:2px solid #fff;border-radius:6px;font-weight:800;padding:0 .35rem;margin-right:.35rem}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{.site-header nav,.skip{display:none}}
+.card > h2:first-child{margin-top:0}
+.notice-risk{background:#fdeeee;border-color:#d99a9a}

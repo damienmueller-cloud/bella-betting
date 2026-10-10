@@ -1,0 +1,246 @@
+/* Bella Betting – renders tips from tips/index.json + tips/YYYY-MM-DD.json. No dependencies. */
+(function () {
+  "use strict";
+
+  // Six DSS taglines permitted for website advertising (exact wording, DSS factsheet).
+  // Rotated by day so each is used about equally; the HTML default is shown without JS.
+  var TAGLINES = [
+    "Chances are you’re about to lose.",
+    "Think. Is this a bet you really want to place?",
+    "What’s gambling really costing you?",
+    "What are you prepared to lose today? Set a deposit limit.",
+    "Imagine what you could be buying instead.",
+    "What are you really gambling with?"
+  ];
+
+  function sydneyToday() {
+    // en-CA gives YYYY-MM-DD
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Australia/Sydney", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  }
+  function rotateTagline() {
+    var el = document.getElementById("rg-tagline");
+    if (!el) return;
+    var d = sydneyToday().split("-").map(Number);
+    var dayNum = Math.floor(Date.UTC(d[0], d[1] - 1, d[2]) / 86400000);
+    el.textContent = TAGLINES[dayNum % TAGLINES.length];
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function getJSON(url) {
+    return fetch(url, { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error(url + " returned " + r.status);
+      return r.json();
+    });
+  }
+  function fmtDate(iso) {
+    var p = iso.split("-").map(Number);
+    var dt = new Date(Date.UTC(p[0], p[1] - 1, p[2], 12));
+    return new Intl.DateTimeFormat("en-AU", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(dt);
+  }
+  function fmt12(hhmm) {
+    var m = /^(\d{1,2}):(\d{2})/.exec(hhmm || "");
+    if (!m) return esc(hhmm);
+    var h = +m[1], ap = h >= 12 ? "pm" : "am";
+    h = h % 12 || 12;
+    return h + ":" + m[2] + ap;
+  }
+  function fmtChecked(s) {
+    // e.g. "2026-10-10T13:55+11:00 (approx.)"
+    var m = /T(\d{2}:\d{2})(?::\d{2})?([+-]\d{2}:?\d{2}|Z)?(.*)$/.exec(s || "");
+    if (!m) return esc(s);
+    var zone = m[2] === "+11:00" || m[2] === "+1100" ? "AEDT" : (m[2] === "+10:00" || m[2] === "+1000" ? "AEST" : (m[2] || ""));
+    return fmt12(m[1]) + " " + zone + (m[3] ? " " + esc(m[3].trim()) : "");
+  }
+  // Drop footer duplicates (taglines, helpline, BetStop) from per-card RG notes
+  function cardNotes(list) {
+    return (list || []).filter(function (t) {
+      return TAGLINES.indexOf(t.replace(/'/g, "’")) === -1 && !/1800 858 858|betstop/i.test(t);
+    });
+  }
+  function qsDate() {
+    var m = /[?&]date=(\d{4}-\d{2}-\d{2})/.exec(location.search);
+    return m ? m[1] : null;
+  }
+
+  /* ---------- Today / single day ---------- */
+  function renderDay(manifest) {
+    var root = document.getElementById("tips-root");
+    var meta = document.getElementById("tips-meta");
+    var heading = document.getElementById("tips-heading");
+    var dates = manifest.dates || [];
+    if (!dates.length) { meta.textContent = "No tips have been published yet."; return; }
+    var wanted = qsDate();
+    var date = wanted && dates.indexOf(wanted) !== -1 ? wanted : dates[0];
+    var today = sydneyToday();
+
+    return getJSON("tips/" + date + ".json").then(function (day) {
+      if (wanted) heading.textContent = "Tips for " + fmtDate(date);
+      else if (date === today) heading.textContent = "Today’s tips";
+      else heading.textContent = "Latest tips";
+      document.title = heading.textContent + " | Bella Betting";
+
+      var gen = day.generated_at ? " Published " + fmtChecked(day.generated_at).replace(/ \(.*$/, "") + "." : "";
+      meta.innerHTML = esc(fmtDate(date)) + ". All times are Sydney time (AEDT)." + esc(gen) +
+        (date !== today && !wanted ? " <strong>No tips have been published for today yet; this is the most recent card.</strong>" : "") +
+        (date < today ? " <strong>These races have already been run.</strong>" : "");
+
+      var sels = (day.selections || []).slice().sort(function (a, b) {
+        return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
+      });
+
+      var html = "";
+      if (day.track_conditions) {
+        html += '<p class="small"><strong>Track conditions:</strong> ' + Object.keys(day.track_conditions).map(function (k) {
+          return esc(k) + " – " + esc(day.track_conditions[k]);
+        }).join("; ") + ".</p>";
+      }
+      html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + ", in race order</caption>" +
+        '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th></tr></thead><tbody>';
+      sels.forEach(function (s) {
+        html += "<tr>" +
+          '<td data-label="Time (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
+          '<td data-label="Race">' + esc(s.event) + (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + "</td>" +
+          '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
+          '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + "</td>" +
+          '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
+          '<td data-label="Odds (at time checked)" class="odds">' + esc(s.best_odds) +
+            '<span class="odds-src">Source: ' + esc(s.odds_source) + "</span>" +
+            '<span class="odds-src">Checked: ' + fmtChecked(s.odds_checked_at) + "</span></td>" +
+          "</tr>";
+      });
+      html += "</tbody></table>";
+      html += '<p class="small muted">Odds change. Prices are from a single bookmaker at the time shown, are not a recommendation of that bookmaker, and may no longer be available.</p>';
+
+      html += renderRoughies(day);
+      if (day.sport_notes) html += '<h2>Sport</h2><p>' + esc(day.sport_notes) + "</p>";
+      var notes = cardNotes(day.responsible_gambling);
+      if (notes.length) html += '<div class="notice" role="note">' + notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") + "</div>";
+      if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
+      root.innerHTML = html;
+    });
+  }
+
+
+  /* ---------- Roughies (longer-priced, higher-risk runners) ---------- */
+  function pct(n) {
+    var v = parseFloat(n);
+    return isNaN(v) ? "" : (Math.round(v * 10) / 10).toFixed(1) + "%";
+  }
+  function money(n) {
+    var v = parseFloat(n);
+    return isNaN(v) ? esc(n) : "$" + v.toFixed(2);
+  }
+  function renderRoughies(day) {
+    var list = (day.roughies || []).slice();
+    if (!list.length) return "";
+    list.sort(function (a, b) {
+      return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "") || (a.rank || 0) - (b.rank || 0);
+    });
+    var h = '<section aria-labelledby="roughies-h"><h2 id="roughies-h">Roughies</h2>' +
+      '<div class="notice notice-risk" role="note"><p><strong>Higher risk: most roughies lose.</strong> These are longer-priced runners (about $8 or more). ' +
+      "Longer odds mean a lower chance of winning, so expect most of them to lose, sometimes for weeks at a time.</p>" +
+      "<p><strong>Implied chance</strong> is simply 1 ÷ the win odds shown (before the bookmaker’s margin). <strong>Our estimate</strong> is a rough personal judgement, not a model, " +
+      "and is often wrong. A higher estimate than the implied chance is our opinion only; it does not mean a bet will pay off.</p>" +
+      (day.roughies_notes ? '<p class="small">' + esc(day.roughies_notes) + "</p>" : "") + "</div>";
+    h += '<table class="tips roughies"><caption>' + list.length + " roughie" + (list.length === 1 ? "" : "s") +
+      (day.roughies_generated_at ? ", prices checked " + fmtChecked(day.roughies_generated_at) : "") + ", in race order</caption>" +
+      '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Implied vs our estimate</th></tr></thead><tbody>';
+    list.forEach(function (r) {
+      var implied = r.implied_prob_pct != null ? pct(r.implied_prob_pct) : (parseFloat(r.win_odds) > 1 ? pct(100 / parseFloat(r.win_odds)) : "");
+      var est = r.est_chance_pct != null ? String(r.est_chance_pct).replace("-", "–") + "%" : "–";
+      var who = [r.barrier != null ? "barrier " + r.barrier : "", r.jockey || ""].filter(Boolean).join(", ");
+      h += "<tr>" +
+        '<td data-label="Time (AEDT)" class="time">' + fmt12(r.start_time_aedt) + "</td>" +
+        '<td data-label="Race">' + esc(r.event) + "</td>" +
+        '<td data-label="Selection" class="sel">' + esc(r.horse) + (who ? '<br><span class="muted small">' + esc(who) + "</span>" : "") + "</td>" +
+        '<td data-label="Reasoning" class="reason">' + esc(r.reasoning) + (r.note ? '<br><span class="muted small">Note: ' + esc(r.note) + "</span>" : "") + "</td>" +
+        '<td data-label="Confidence"><span class="badge">' + esc(r.confidence) + "</span></td>" +
+        '<td data-label="Odds (at time checked)" class="odds">' + money(r.win_odds) + " win" + (r.place_odds != null ? " / " + money(r.place_odds) + " place" : "") + " (fixed)" +
+          '<span class="odds-src">Source: ' + esc(r.odds_source) + "</span>" +
+          '<span class="odds-src">Checked: ' + fmtChecked(r.odds_checked_at) + "</span></td>" +
+        '<td data-label="Implied vs our estimate" class="chance">Implied ' + esc(implied) + '<br><span class="muted small">Our estimate ' + esc(est) + "</span></td>" +
+        "</tr>";
+    });
+    h += '</tbody></table><p class="small muted">Odds change. Roughie prices move a lot and may no longer be available. Only bet what you can afford to lose.</p></section>';
+    return h;
+  }
+
+  /* ---------- Archive ---------- */
+  function renderArchive(manifest) {
+    var root = document.getElementById("archive-root");
+    var days = manifest.days || (manifest.dates || []).map(function (d) { return { date: d }; });
+    if (!days.length) { root.innerHTML = "<p>No tips published yet.</p>"; return; }
+    var html = '<div class="table-scroll"><table class="data"><caption class="muted small" style="text-align:left;padding:.4rem 0">' + days.length + " card" + (days.length === 1 ? "" : "s") + '</caption><thead><tr><th scope="col">Date</th><th scope="col">Selections</th><th scope="col">Results recorded</th></tr></thead><tbody>';
+    days.forEach(function (d) {
+      html += '<tr><td><a href="index.html?date=' + esc(d.date) + '">' + esc(fmtDate(d.date)) + "</a></td><td>" +
+        (d.selections != null ? esc(d.selections) : "–") + "</td><td>" +
+        (d.results_recorded ? esc(d.results_recorded) + " of " + esc(d.selections) : "Not yet") + "</td></tr>";
+    });
+    root.innerHTML = html + "</tbody></table></div>";
+  }
+
+  /* ---------- Results / ROI ---------- */
+  // A selection's result is recorded as: "result": {"outcome": "won"|"lost"|"placed"|"scratched", "settled_odds": 2.15}
+  // "placed" counts as a loss for the win-only, level-stake tracker.
+  function renderResults(manifest) {
+    var root = document.getElementById("results-root");
+    var dates = manifest.dates || [];
+    Promise.all(dates.map(function (d) { return getJSON("tips/" + d + ".json").catch(function () { return null; }); }))
+      .then(function (daysData) {
+        var rows = [], staked = 0, wins = 0, pl = 0;
+        daysData.forEach(function (day) {
+          if (!day) return;
+          (day.selections || []).forEach(function (s) {
+            var r = s.result;
+            if (!r || !r.outcome) return;
+            var o = String(r.outcome).toLowerCase();
+            var odds = parseFloat(r.settled_odds);
+            var rowPL = null;
+            if (o === "scratched") rowPL = null;
+            else if (o === "won" && odds > 1) { staked += 1; wins += 1; rowPL = odds - 1; }
+            else if (o === "won") { return; } // no valid odds recorded: skip rather than guess
+            else { staked += 1; rowPL = -1; }
+            if (rowPL !== null) pl += rowPL;
+            rows.push({ date: day.date, time: s.start_time_aedt, sel: String(s.selection).replace(/\s*\(.*\)\s*$/, ""), ev: String(s.event).replace(/\s*\(G\d.*$|\s*\((?!VIC|NSW|QLD|SA|WA|TAS|ACT|NT)[^)]*\)\s*$/, ""), outcome: o, odds: isNaN(odds) ? "" : odds.toFixed(2), pl: rowPL });
+          });
+        });
+        if (!staked) {
+          root.innerHTML = '<div class="notice"><p><strong>No results recorded yet.</strong> Strike rate and ROI will appear here once results for published selections have been recorded. We don’t show estimates or projections.</p></div>';
+          return;
+        }
+        var sr = (wins / staked) * 100, roi = (pl / staked) * 100;
+        var sign = function (n) { return (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toFixed(2); };
+        var html = '<div class="stats">' +
+          '<div class="stat"><span class="muted small">Settled selections</span><b>' + staked + "</b></div>" +
+          '<div class="stat"><span class="muted small">Winners</span><b>' + wins + "</b></div>" +
+          '<div class="stat"><span class="muted small">Strike rate</span><b>' + sr.toFixed(1) + "%</b></div>" +
+          '<div class="stat"><span class="muted small">Profit/loss (units)</span><b>' + sign(pl) + "</b></div>" +
+          '<div class="stat"><span class="muted small">ROI</span><b>' + sign(roi) + "%</b></div></div>";
+        html += '<div class="table-scroll"><table class="data"><caption class="muted small" style="text-align:left;padding:.4rem 0">Recorded results (1 unit win stake each)</caption><thead><tr><th scope="col">Date</th><th scope="col">Selection</th><th scope="col">Race</th><th scope="col">Outcome</th><th scope="col">Odds</th><th scope="col">P/L (units)</th></tr></thead><tbody>';
+        rows.forEach(function (r) {
+          html += "<tr><td>" + esc(r.date) + "</td><td>" + esc(r.sel) + "</td><td>" + esc(r.ev) + "</td><td>" + esc(r.outcome) +
+            "</td><td>" + esc(r.odds) + "</td><td>" + (r.pl === null ? "Excluded" : sign(r.pl)) + "</td></tr>";
+        });
+        root.innerHTML = html + "</tbody></table></div>";
+      });
+  }
+
+  function fail(rootId, err) {
+    var el = document.getElementById(rootId);
+    if (el) el.innerHTML = '<div class="notice"><p>Sorry, the tips data could not be loaded (' + esc(err.message) + ").</p></div>";
+    var meta = document.getElementById("tips-meta");
+    if (meta) meta.textContent = "";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    rotateTagline();
+    var page = document.body.getAttribute("data-page");
+    var map = { index: ["tips-root", renderDay], archive: ["archive-root", renderArchive], results: ["results-root", renderResults] };
+    if (!map[page]) return;
+    getJSON("tips/index.json").then(map[page][1]).catch(function (e) { fail(map[page][0], e); });
+  });
+})();
