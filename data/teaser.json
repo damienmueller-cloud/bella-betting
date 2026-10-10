@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-10-10T20:44:55+11:00",
+  "generated_at": "2026-10-11T09:21:34+11:00",
   "days": [
+    {
+      "date": "2026-10-11",
+      "racing_selections": 3,
+      "roughies": 1,
+      "sport_selections": 0,
+      "meetings": [
+        "Seymour (VIC)"
+      ],
+      "generated_at": "2026-10-11T09:50:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-10",
       "racing_selections": 5,
