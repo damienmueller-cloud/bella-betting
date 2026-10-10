@@ -24,12 +24,11 @@ git commit -q -m "$MSG"
 git push -q origin main
 echo "Pushed: $MSG"
 
-# Wait (up to ~3 min) for GitHub Pages to rebuild and serve the new manifest.
-want=$(python3 -c "import json;print(json.load(open('tips/index.json'))['generated_at'])")
+# Wait (up to ~3 min) for GitHub Pages to rebuild and serve the pushed commit's tips/index.json.
+want=$(sha1sum tips/index.json | cut -d' ' -f1)
 for i in $(seq 1 36); do
-  live=$(curl -fsS "https://damienmueller-cloud.github.io/bella-betting/tips/index.json?nocache=$RANDOM" 2>/dev/null \
-         | python3 -c "import json,sys;print(json.load(sys.stdin).get('generated_at',''))" 2>/dev/null || true)
-  if [[ "$live" == "$want" ]]; then echo "Live site updated."; exit 0; fi
+  live=$(curl -fsS "https://damienmueller-cloud.github.io/bella-betting/tips/index.json?nocache=$RANDOM" 2>/dev/null | sha1sum | cut -d' ' -f1 || true)
+  if [[ "$live" == "$want" ]]; then echo "Live site updated: https://damienmueller-cloud.github.io/bella-betting/"; exit 0; fi
   sleep 5
 done
 echo "Pushed, but the live site has not refreshed yet (Pages/CDN can take a few minutes). Check https://damienmueller-cloud.github.io/bella-betting/"

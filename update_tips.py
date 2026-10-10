@@ -107,8 +107,17 @@ def reindex():
             "generated_at": d.get("generated_at"),
         })
     days.sort(key=lambda x: x["date"], reverse=True)
-    manifest = {"generated_at": now_syd().isoformat(timespec="seconds"), "dates": [d["date"] for d in days], "days": days}
-    save(SITE_TIPS / "index.json", manifest)
+    stamp = now_syd().isoformat(timespec="seconds")
+    idx = SITE_TIPS / "index.json"
+    if idx.exists():
+        try:
+            prev = load(idx)
+            if prev.get("days") == days:
+                stamp = prev.get("generated_at", stamp)  # nothing changed: keep the stamp so publish.sh sees no diff
+        except Exception:
+            pass
+    manifest = {"generated_at": stamp, "dates": [d["date"] for d in days], "days": days}
+    save(idx, manifest)
     print(f"index.json rebuilt: {len(days)} day(s); newest {days[0]['date'] if days else '-'}")
 
 
