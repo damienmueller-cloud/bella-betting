@@ -16,13 +16,16 @@ else
 fi
 
 git add -A
-if git diff --cached --quiet; then
+if ! git diff --cached --quiet; then
+  git commit -q -m "$MSG"
+fi
+git fetch -q origin main
+if [[ "$(git rev-list --count origin/main..HEAD)" == "0" ]]; then
   echo "Nothing changed; nothing to publish."
   exit 0
 fi
-git commit -q -m "$MSG"
 git push -q origin main
-echo "Pushed: $MSG"
+echo "Pushed: $(git log -1 --format=%s)"
 
 # Wait (up to ~3 min) for GitHub Pages to rebuild and serve the pushed commit's tips/index.json.
 want=$(sha1sum tips/index.json | cut -d' ' -f1)
