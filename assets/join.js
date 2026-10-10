@@ -7,6 +7,7 @@
   var vform = document.getElementById("verify-form");
   var done = document.getElementById("join-done");
   var lastMobile = "";
+  var loadedAt = Date.now();
 
   function normMobile(v) {
     var s = String(v || "").replace(/[\s\-().]/g, "");
@@ -35,6 +36,7 @@
       return;
     }
     fd.set("mobile", m); lastMobile = m;
+    fd.set("fill_ms", String(Date.now() - loadedAt));
     var btn = document.getElementById("join-submit"); btn.disabled = true; btn.textContent = "Joining…";
     fetch(cfg.joinEndpoint, { method: "POST", body: new URLSearchParams(fd) })
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
@@ -43,7 +45,12 @@
         if (res.j.ok) {
           form.hidden = true;
           if (res.j.verify) { document.getElementById("verify-mobile").textContent = res.j.mobile_masked; vform.hidden = false; }
-          else { done.hidden = false; if (res.j.status === "updated") document.getElementById("join-done-text").textContent = "You were already on the list, so we've updated your details."; }
+          else {
+            done.hidden = false;
+            var txt = document.getElementById("join-done-text");
+            if (res.j.verify_deferred) txt.textContent = "Your free membership is saved. We couldn't send a confirmation code right now, so we'll confirm your number later (or you can confirm it next time you call the tips line).";
+            else if (res.j.status === "updated") txt.textContent = "You were already on the list, so we've updated your details.";
+          }
           window.scrollTo(0, 0);
         } else if (res.j.error === "invalid") {
           show(err, "Please check: " + (res.j.fields || []).map(function (k) { return LABELS[k] || k; }).join(", ") + ".");
