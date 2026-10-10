@@ -114,4 +114,4 @@ nav a.nav-join[aria-current="page"]{background:#eef1ec}
 /* members gate */
 .member-bar{background:#eef6f1;border:1px solid #cfe3d7;padding:.4rem .7rem;border-radius:6px;margin:.6rem 0}
 .gate form.login label{display:block;font-weight:600;margin:.6rem 0 .2rem}
-.gate form.login input[type=tel],.gate form.login input[inputmode=numeric]{font-size:1.05rem;padding:.45rem .6rem;max-width:16rem;width:100%;border:1px solid #9bb;border-radius:6px}
+.gate form.login input[type=tel],.gate form.login input[type=email],.gate form.login input[inputmode=numeric]{font-size:1.05rem;padding:.45rem .6rem;max-width:22rem;width:100%;border:1px solid #9bb;border-radius:6px}
