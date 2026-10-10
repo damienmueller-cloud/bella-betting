@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join free | Bella Betting</title>
+  <meta name="description" content="Join the free Bella Betting members list (18+). Daily tips card by email, honest results digest. Free until 10 December 2026; never auto-converted to paid.">
+  <meta name="theme-color" content="#14432f">
+  <link rel="icon" href="assets/brand/bb-monogram.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+  <script src="assets/members-config.js" defer></script>
+  <script src="assets/join.js" defer></script>
+</head>
+<body data-page="about">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="age-strip" role="note"><strong>18+ only.</strong> Free tips are general opinion only. Betting involves risk of loss.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Bella Betting home"><img class="brand-tile" src="assets/brand/bb-monogram.svg" alt="" width="44" height="44"><span class="wordmark">Bella Betting<span>Free daily racing &amp; sport tips</span></span></a>
+      <nav aria-label="Main">
+        <ul>
+        <li><a href="index.html">Today’s tips</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="about.html">About &amp; Responsible Gambling</a></li>
+        <li><a class="nav-join" href="join.html" aria-current="page">Join free</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <h1>Join the free Bella Betting members list</h1>
+    <p class="meta">Free membership until 10 December 2026 · 18+ only · Cancel any time</p>
+    <div class="card">
+      <h2>What members get</h2>
+      <ul>
+        <li>The daily tips card by email each morning: the same selections, reasoning, confidence and odds-checked times as the website.</li>
+        <li>A results digest that includes every selection, winners and losers, at level 1-unit stakes.</li>
+        <li>Recognition on the tips line (0495 040 400) when you call from the mobile you joined with.</li>
+      </ul>
+      <p>Membership is to our tips content only. It is not a bet, a bonus or a bookmaker offer. There are no prizes, no promotions and no bookmaker links. Tips are general opinion only and most bets lose.</p>
+      <p><strong>After 10 December 2026:</strong> we may offer an optional paid membership. You will never be moved onto a paid plan automatically. You would only pay if you choose a paid plan yourself, after we have told you the price and terms. If you do nothing, your free membership simply ends or continues on a free basis; it never converts to paid.</p>
+    </div>
+
+    <form id="join-form" class="card join-form" novalidate>
+      <h2>Your details</h2>
+      <div class="field">
+        <label for="first_name">First name</label>
+        <input id="first_name" name="first_name" autocomplete="given-name" maxlength="40" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+      </div>
+      <div class="field">
+        <label for="mobile">Australian mobile number</label>
+        <input id="mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" maxlength="16" required aria-describedby="mobile-help">
+        <p id="mobile-help" class="small muted">Your membership is linked to this mobile. We use it to recognise you when you call the tips line. If phone verification is switched on, we text you a one-time code to confirm the number is yours.</p>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+      <fieldset>
+        <legend>Please confirm</legend>
+        <label class="check"><input type="checkbox" name="age18" value="yes" required> <span><strong>I am 18 or over.</strong> Bella Betting is for adults only.</span></label>
+        <label class="check"><input type="checkbox" name="consent_email" value="yes" required> <span>Email me the daily tips card and results digest from Bella Betting. Every email has an unsubscribe link.</span></label>
+        <label class="check"><input type="checkbox" name="consent_calls" value="yes" required> <span>Use my mobile number to identify me as a member when I call the Bella Betting tips line.</span></label>
+        <label class="check"><input type="checkbox" name="consent_sms" value="yes"> <span>Optional: also send me occasional SMS updates about the tips card and my membership. Reply STOP to opt out any time.</span></label>
+        <label class="check"><input type="checkbox" name="terms" value="yes" required> <span>I agree to the <a href="members-terms.html">members terms</a> and have read the <a href="privacy.html">privacy policy</a>.</span></label>
+      </fieldset>
+
+      <p class="small muted">Collection notice: Bella Betting collects your name, email and mobile to run your membership, send the messages you agree to, recognise you on the tips line, and count anonymous usage for our 10 December review. Your details are stored with our service providers (Twilio, and our email service provider), which may hold data outside Australia. We do not sell or share your details, and never with bookmakers. See the <a href="privacy.html">privacy policy</a> for access, correction and complaints.</p>
+      <p id="join-error" class="notice notice-risk" role="alert" hidden></p>
+      <button type="submit" class="btn" id="join-submit">Join free</button>
+    </form>
+
+    <form id="verify-form" class="card join-form" hidden>
+      <h2>Confirm your mobile</h2>
+      <p>We have texted a one-time code to <span id="verify-mobile"></span>. Enter it below to finish joining.</p>
+      <div class="field"><label for="code">Code</label><input id="code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required></div>
+      <p id="verify-error" class="notice notice-risk" role="alert" hidden></p>
+      <button type="submit" class="btn">Confirm</button>
+    </form>
+
+    <div id="join-done" class="card" hidden role="status">
+      <h2>Thanks, you're on the list</h2>
+      <p id="join-done-text">Your free membership is set up. Daily emails will start once our email service is switched on.</p>
+      <p>You can cancel any time: use the unsubscribe link in any email, call the tips line, or email us.</p>
+    </div>
+
+    <div class="notice" role="note">
+      <p><strong>Thinking about your gambling?</strong> If betting is costing you more than you want, you don't need tips. Call Gambling Help Online on <a href="tel:1800858858">1800 858 858</a> (free, confidential, 24/7) or self-exclude from all licensed Australian bookmakers at <a href="https://www.betstop.gov.au" rel="noopener">BetStop</a>.</p>
+    </div>
+  </main>
+  <footer class="rg-footer" aria-label="Responsible gambling">
+    <div class="wrap">
+      <p class="rg-tagline" id="rg-tagline">Chances are you’re about to lose.</p>
+      <p class="rg-cta">For free and confidential support call <a href="tel:1800858858"><strong>1800 858 858</strong></a> or visit <a href="https://www.gamblinghelponline.org.au" rel="noopener">gamblinghelponline.org.au</a></p>
+      <p>BetStop – the National Self-Exclusion Register: <a href="https://www.betstop.gov.au" rel="noopener">betstop.gov.au</a></p>
+      <p><span class="age18" aria-hidden="true">18+</span>Gambling is for adults 18 and over. Only bet what you can afford to lose.</p>
+      <p class="small"><a href="privacy.html">Privacy policy</a> · <a href="members-terms.html">Members terms</a></p>
+      <p class="disclaimer">Tips on this site are general opinion only. They are not financial advice and not a guarantee of any result. Betting is not a way to make money or improve your finances. Bella Betting is not a bookmaker or wagering service: we do not take bets, hold funds, or receive any payment, commission or referral fee from bookmakers. Bookmakers are named only as the source of quoted odds. Odds, scratchings and track conditions change; always check current information yourself.</p>
+    </div>
+  </footer>
+</body>
+</html>

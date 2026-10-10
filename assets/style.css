@@ -90,3 +90,23 @@ table.data th{background:#eef1ec;font-size:.85rem}
 @media print{.site-header nav,.skip{display:none}}
 .card > h2:first-child{margin-top:0}
 .notice-risk{background:#fdeeee;border-color:#d99a9a}
+
+/* membership */
+nav a.nav-join{background:#fff;color:var(--brand);font-weight:700}
+nav a.nav-join:hover{background:#eef1ec}
+nav a.nav-join[aria-current="page"]{background:#eef1ec}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;border-radius:8px;padding:.7rem 1.3rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.btn:hover{background:#0f3524}
+.btn[disabled]{opacity:.6;cursor:wait}
+.join-form .field{margin:0 0 1rem}
+.join-form label{display:block;font-weight:600;margin-bottom:.25rem}
+.join-form input[type=text],.join-form input:not([type]),.join-form input[type=email],.join-form input[type=tel]{width:100%;max-width:28rem;font:inherit;padding:.6rem .7rem;border:1px solid #9aa39b;border-radius:8px;background:#fff}
+.join-form input[aria-invalid="true"]{border-color:#b3261e;box-shadow:0 0 0 1px #b3261e}
+.join-form fieldset{border:1px solid var(--line);border-radius:var(--radius);padding:.6rem 1rem 1rem;margin:0 0 1rem}
+.join-form legend{font-weight:700;padding:0 .3rem}
+.join-form label.check{display:flex;gap:.6rem;align-items:flex-start;font-weight:400;margin:.6rem 0}
+.join-form label.check input{width:1.2rem;height:1.2rem;margin-top:.2rem;flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.placeholder{background:#fff6dd;border:1px dashed var(--warn-line);padding:0 .25rem;border-radius:4px}
+.join-cta{border-left:6px solid var(--brand)}
+.preview-banner{background:#fff6dd;border:2px dashed var(--warn-line);padding:.6rem 1rem;border-radius:var(--radius);margin:0 0 1rem}

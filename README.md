@@ -65,3 +65,9 @@ Before publishing each day: recheck scratchings/odds, keep the RG footer untouch
 
 ## Domain
 `CNAME` (repo root) = `bellabetting.com.au` – do not delete it, or GitHub Pages drops the custom domain. DNS is at GoDaddy (A @ → 185.199.108-111.153, CNAME www → damienmueller-cloud.github.io). Details: ../domain-research.md.
+
+## Membership (branch `membership`, NOT live)
+- `join.html` (free members form, 18+ and consent checkboxes, mobile required, normalised to +614…), `privacy.html`, `members-terms.html`, "Join free" in nav and a CTA on the home page.
+- `assets/members-config.js`: `LIVE:false`. While not live, the submit button is disabled unless the URL has `?preview=1`.
+- The form posts to the Twilio Function `https://bella-betting-members-6300-prod.twil.io/join` (separate service `bella-betting-members`; members are stored in Twilio Sync map `members`, keyed by E.164). Source, deploy and tests: `/workspace/project-vaults/Betting-Tips/members/`.
+- Before merging: legal check (NSW s 30), a real contact email in privacy/terms, the email provider set up, then set `LIVE:true`.
