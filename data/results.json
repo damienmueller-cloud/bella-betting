@@ -1,5 +1,57 @@
 {
-  "generated_at": "2026-10-10T14:05:32+11:00",
+  "generated_at": "2026-10-10T20:44:55+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
-  "days": []
+  "days": [
+    {
+      "date": "2026-10-10",
+      "selections": [
+        {
+          "event": "Caulfield (VIC) – Race 7, Might And Power (G1, 2000m, weight-for-age, 6 runners)",
+          "start_time_aedt": "15:50",
+          "selection": "Sheza Alibi (barrier 6, Luke Nolen, Peter Moody & Katherine Coleman)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-10T20:44:37+11:00"
+          }
+        },
+        {
+          "event": "Caulfield (VIC) – Race 8, Caulfield Guineas (G1, 1600m, 3yo set weights, 11 runners)",
+          "start_time_aedt": "16:30",
+          "selection": "Warwoven (barrier 6, Rachel King, Bjorn Baker)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-10T20:44:42+11:00",
+            "settled_odds": 2.15
+          }
+        },
+        {
+          "event": "Rosehill (NSW) – Race 7, Hill Stakes (G2, 1900m, weight-for-age)",
+          "start_time_aedt": "16:10",
+          "selection": "Lindermann (barrier 8, Nash Rawiller, Chris Waller)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-10T20:44:46+11:00"
+          }
+        },
+        {
+          "event": "Rosehill (NSW) – Race 8, Alan Brown Stakes (G3, 1400m, quality handicap)",
+          "start_time_aedt": "16:50",
+          "selection": "Headley Grange (barrier 3, Adam Hyeronimus, Joseph Pride)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-10T20:44:50+11:00"
+          }
+        },
+        {
+          "event": "Caulfield (VIC) – Race 9, Toorak Handicap (G1, 1600m)",
+          "start_time_aedt": "17:10",
+          "selection": "Changing Colours (barrier 8, Luke Cartwright, Lucy Yeomans)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-10T20:44:55+11:00"
+          }
+        }
+      ]
+    }
+  ]
 }
