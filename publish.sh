@@ -16,6 +16,15 @@ else
 fi
 
 git add -A
+# Members-only guard: full cards must never reach the public repo (they live in ../cards and the members store).
+if git ls-files | grep -Eq '^(tips|cards)/|^data/.*(card|tips)'; then
+  echo "ABORT: tip card files are staged for the PUBLIC repo; unstaging. Cards belong in ../cards only." >&2
+  git rm -rq --cached tips cards 2>/dev/null || true
+  exit 1
+fi
+if git diff --cached -U0 -- data/teaser.json | grep -Eq '"(selection|horse|best_odds|win_odds|odds)"'; then
+  echo "ABORT: data/teaser.json contains selections or odds." >&2; exit 1
+fi
 if ! git diff --cached --quiet; then
   git commit -q -m "$MSG"
 fi
