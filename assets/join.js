@@ -44,6 +44,14 @@
         btn.disabled = false; btn.textContent = "Join free";
         if (res.j.ok) {
           form.hidden = true;
+          if (res.j.token) { // interim: new members get a 30-day session on this device straight away
+            try { localStorage.setItem("bb_member_session", res.j.token); } catch (e2) {}
+            done.hidden = false;
+            document.getElementById("join-done-text").innerHTML = "You're in" + (res.j.first_name ? ", " + res.j.first_name.replace(/[<>&"]/g, "") : "") +
+              ". Your free membership is active and you're logged in on this device for 30 days. <a href=\"index.html\">See today's tips</a>." +
+              " On another device, log in with your mobile and this email.";
+            window.scrollTo(0, 0); return;
+          }
           if (res.j.verify) { document.getElementById("verify-mobile").textContent = res.j.mobile_masked; vform.hidden = false; }
           else {
             done.hidden = false;

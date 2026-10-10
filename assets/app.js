@@ -282,6 +282,30 @@
       return null;
     });
   }
+  // Interim login (AU SMS blocked): mobile + the email you joined with. SMS-code login returns when CFG.loginMode = "sms".
+  var EMAIL_LOGIN = CFG.loginMode === "email";
+  function emailLoginForm() {
+    return '<form id="login-form" class="login" novalidate>' +
+      '<label for="login-mobile">Your mobile number</label><input id="login-mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required>' +
+      '<label for="login-email">The email you joined with</label><input id="login-email" name="email" type="email" autocomplete="email" required>' +
+      '<input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">' +
+      '<p><button class="btn" type="submit" id="login-btn">Log in</button></p>' +
+      '<p id="login-msg" class="small" role="status" aria-live="polite"></p></form>' +
+      '<p class="small muted">You stay logged in on this device for 30 days. Logging in with a code texted to your mobile is coming soon.</p>';
+  }
+  function bindEmailLogin() {
+    var form = document.getElementById("login-form"), msg = document.getElementById("login-msg"), btn = document.getElementById("login-btn");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      btn.disabled = true; msg.textContent = "Please wait…";
+      member({ action: "login_email", mobile: form.mobile.value, email: form.email.value, website: form.website.value }).then(function (j) {
+        btn.disabled = false;
+        if (j.ok && j.token) { setToken(j.token); location.reload(); }
+        else if (j.error === "rate_limited") msg.textContent = "Too many attempts. Please try again later.";
+        else msg.innerHTML = 'That mobile and email don’t match a membership. Check both, or <a href="join.html">join free</a>.';
+      }).catch(function () { btn.disabled = false; msg.textContent = "Sorry, something went wrong. Please try again."; });
+    });
+  }
   function memberBar(name) {
     var el = document.getElementById("member-bar");
     if (!el) return;
@@ -303,16 +327,17 @@
     }
     h += "<p>Membership is free until 10 December 2026 and is never auto-converted to paid. 18+ only. Our full record, wins and losses, is public on the <a href=\"results.html\">Results</a> page.</p>" +
       '<p><a class="btn" href="join.html">Join free</a></p>' +
-      '<h3>Already a member? Log in</h3>' +
+      '<h3>Already a member? Log in</h3>' + (EMAIL_LOGIN ? emailLoginForm() :
       '<form id="login-form" class="login" novalidate>' +
       '<label for="login-mobile">Your mobile number</label><input id="login-mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required>' +
       '<input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">' +
       '<div id="login-code-row" hidden><label for="login-code">6-digit code we texted you</label><input id="login-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10"></div>' +
       '<p><button class="btn" type="submit" id="login-btn">Text me a code</button></p>' +
       '<p id="login-msg" class="small" role="status" aria-live="polite"></p></form>' +
-      '<p class="small muted">We text a one-time code to your member mobile. You stay logged in on this device for 30 days.</p></section>';
+      '<p class="small muted">We text a one-time code to your member mobile. You stay logged in on this device for 30 days.</p>') + '</section>';
     root.innerHTML = h;
     if (meta) meta.textContent = t ? fmtDate(t.date) + ". Log in to see the selections." : "";
+    if (EMAIL_LOGIN) return bindEmailLogin();
     var form = document.getElementById("login-form"), msg = document.getElementById("login-msg"), btn = document.getElementById("login-btn");
     var stage = "start";
     form.addEventListener("submit", function (e) {
