@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-10-10T14:05:32+11:00",
+  "days": [
+    {
+      "date": "2026-10-10",
+      "racing_selections": 5,
+      "roughies": 5,
+      "sport_selections": 2,
+      "meetings": [
+        "Caulfield (VIC)",
+        "Rosehill (NSW)"
+      ],
+      "generated_at": "2026-10-10T13:55:28+11:00",
+      "results_recorded": 0
+    }
+  ]
+}

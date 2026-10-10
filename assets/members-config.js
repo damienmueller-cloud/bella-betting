@@ -4,6 +4,7 @@
 window.BB_MEMBERS = {
   LIVE: true,
   joinEndpoint: "https://bella-betting-members-6300-prod.twil.io/join",
+  memberEndpoint: "https://bella-betting-members-6300-prod.twil.io/member",   // login (SMS code) + members-only tips
   verifyEndpoint: "https://bella-betting-members-6300-prod.twil.io/verify-check",
   // Email provider (recommended: beehiiv). Needs Damien's account; the members service will push sign-ups to it via API once set.
   emailProvider: "none-yet (beehiiv planned)"

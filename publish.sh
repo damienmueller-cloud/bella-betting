@@ -11,7 +11,7 @@ if [[ "${1:-}" == "--no-update" ]]; then
   MSG="Update site $(TZ=Australia/Sydney date +%F' '%H:%M) AEDT"
 else
   DATE="${1:-$(TZ=Australia/Sydney date +%F)}"
-  python3 update_tips.py "$DATE"          # validates + compliance-lints the card, rebuilds tips/index.json
+  python3 update_tips.py "$DATE"          # validates + lints the card, uploads it to the members store, writes public data/*.json
   MSG="Tips for $DATE"
 fi
 
@@ -28,10 +28,11 @@ git pull -q --rebase origin main   # other workers may push to this repo; never 
 git push -q origin main
 echo "Pushed: $(git log -1 --format=%s)"
 
-# Wait (up to ~3 min) for GitHub Pages to rebuild and serve the pushed commit's tips/index.json.
-want=$(sha1sum tips/index.json | cut -d' ' -f1)
+# Wait (up to ~3 min) for GitHub Pages to rebuild and serve the pushed commit's public data/teaser.json.
+# (Full cards are members-only: update_tips.py uploads them to the members store; nothing private is committed.)
+want=$(sha1sum data/teaser.json | cut -d' ' -f1)
 for i in $(seq 1 36); do
-  live=$(curl -fsSL "https://bellabetting.com.au/tips/index.json?nocache=$RANDOM" 2>/dev/null | sha1sum | cut -d' ' -f1 || true)
+  live=$(curl -fsSL "https://bellabetting.com.au/data/teaser.json?nocache=$RANDOM" 2>/dev/null | sha1sum | cut -d' ' -f1 || true)
   if [[ "$live" == "$want" ]]; then echo "Live site updated: https://bellabetting.com.au/"; exit 0; fi
   sleep 5
 done

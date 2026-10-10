@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """Bella Betting – daily site updater (no dependencies, Python 3.8+).
 
+MEMBERS-ONLY (since 10 Oct 2026): full cards are NOT published in this public repo any more.
+  * Full cards (with results) are kept privately in ../cards/YYYY-MM-DD.json and uploaded to the members store
+    (Twilio Sync map 'tips' + doc 'tips_index' in service bella-betting-members), served to logged-in members by /member.
+  * The public site only gets data/teaser.json (date, counts, meetings; no selections) and data/results.json
+    (settled main selections only, after results are recorded) for the public Results/ROI page.
+
 Usage
-  python3 update_tips.py                      # copy today's (Sydney) ../tips/YYYY-MM-DD.json into site/tips/
+  python3 update_tips.py                      # today's (Sydney) ../tips/YYYY-MM-DD.json -> ../cards/, Sync, public teaser/results
   python3 update_tips.py 2026-10-11           # copy a specific date from ../tips/
   python3 update_tips.py path/to/file.json    # copy a specific file (its "date" field names it)
   python3 update_tips.py --reindex            # only rebuild site/tips/index.json
@@ -12,10 +18,10 @@ Usage
 Behaviour
   * Validates the JSON (date, selections with required fields).
   * Keeps any results already recorded in the site copy when a card is re-copied.
-  * Rebuilds site/tips/index.json: {"generated_at", "dates": [newest first], "days": [...]}
-  * Never publishes or pushes anything; it only edits files under site/tips/.
+  * Rebuilds the manifest {"generated_at", "dates": [newest first], "days": [...]} (uploaded as Sync doc 'tips_index').
+  * Never pushes git; it edits ../cards/, site/data/ and the members store (Sync) only.
 """
-import json, re, shutil, sys
+import base64, gzip, json, re, shutil, sys, urllib.error, urllib.parse, urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -26,7 +32,10 @@ except Exception:  # pragma: no cover
     SYD = None
 
 SITE = Path(__file__).resolve().parent
-SITE_TIPS = SITE / "tips"
+SITE_TIPS = SITE.parent / "cards"          # PRIVATE (vault, not in the public repo)
+SITE_DATA = SITE / "data"                   # public: teaser.json + results.json
+TWILIO_ENV = Path("/workspace/project-vaults/MatchMyAgent/secrets/twilio-api.env")
+MEMBERS_DEPLOY = SITE.parent / "members" / "last_deploy.json"
 VAULT_TIPS = SITE.parent / "tips"
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 REQUIRED = ["event", "start_time_aedt", "selection", "reasoning", "confidence", "best_odds", "odds_source", "odds_checked_at"]
@@ -133,6 +142,70 @@ def reindex():
     manifest = {"generated_at": stamp, "dates": [d["date"] for d in days], "days": days}
     save(idx, manifest)
     print(f"index.json rebuilt: {len(days)} day(s); newest {days[0]['date'] if days else '-'}")
+    write_public(manifest)
+    return manifest
+
+
+# ---------- public outputs (no selections before results) ----------
+def write_public(manifest):
+    SITE_DATA.mkdir(parents=True, exist_ok=True)
+    teaser = {"generated_at": manifest["generated_at"], "days": []}
+    rdays = []
+    for d in manifest["days"]:
+        card = load(SITE_TIPS / f"{d['date']}.json")
+        sels = card.get("selections", [])
+        meetings = sorted({re.split(r"\s+[–-]\s+|\s+R(?:ace)?\s*\d", s.get("event", ""))[0].strip() for s in sels if s.get("event")})
+        teaser["days"].append({"date": d["date"], "racing_selections": len(sels), "roughies": len(card.get("roughies") or []),
+                               "sport_selections": len(card.get("sports") or []), "meetings": meetings, "generated_at": card.get("generated_at"),
+                               "results_recorded": d["results_recorded"]})
+        settled = [{"event": s.get("event"), "start_time_aedt": s.get("start_time_aedt"), "selection": s.get("selection"), "result": s["result"]}
+                   for s in sels if (s.get("result") or {}).get("outcome")]
+        if settled:
+            rdays.append({"date": d["date"], "selections": settled})
+    teaser["days"] = teaser["days"][:30]
+    save(SITE_DATA / "teaser.json", teaser)
+    save(SITE_DATA / "results.json", {"generated_at": manifest["generated_at"], "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.", "days": rdays})
+    print(f"public data/teaser.json + data/results.json written ({len(rdays)} day(s) with results)")
+
+
+# ---------- members store (Twilio Sync) ----------
+def _twilio_auth():
+    v = {}
+    for line in TWILIO_ENV.read_text().splitlines():
+        m = re.match(r"^(TWILIO_ACCOUNT_SID|TWILIO_AUTH_TOKEN)=(.*)$", line.strip())
+        if m: v[m.group(1)] = m.group(2).strip().strip("\"'")
+    return v["TWILIO_ACCOUNT_SID"], v["TWILIO_AUTH_TOKEN"]
+
+
+def _tw(method, url, data=None):
+    sid, tok = _twilio_auth()
+    req = urllib.request.Request(url, data=urllib.parse.urlencode(data).encode() if data else None, method=method)
+    req.add_header("Authorization", "Basic " + base64.b64encode(f"{sid}:{tok}".encode()).decode())
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.status
+    except urllib.error.HTTPError as e:
+        return e.code
+
+
+def sync_upload(dates, manifest):
+    """Upload cards (gzip+base64, Sync item limit is 16 KB) and the manifest to the members store."""
+    ss = json.loads(MEMBERS_DEPLOY.read_text())["sync_service_sid"]
+    base = f"https://sync.twilio.com/v1/Services/{ss}"
+    for date in dates:
+        card = load(SITE_TIPS / f"{date}.json")
+        z = base64.b64encode(gzip.compress(json.dumps(card, ensure_ascii=False, separators=(",", ":")).encode())).decode()
+        data = json.dumps({"z": z, "date": date})
+        if len(data) > 15500: die(f"card {date} too large for Sync even compressed ({len(data)} bytes)")
+        st = _tw("POST", f"{base}/Maps/tips/Items/{date}", {"Data": data})
+        if st == 404: st = _tw("POST", f"{base}/Maps/tips/Items", {"Key": date, "Data": data})
+        if st >= 300: die(f"Sync upload of {date} failed: HTTP {st}")
+    data = json.dumps(manifest)
+    st = _tw("POST", f"{base}/Documents/tips_index", {"Data": data})
+    if st == 404: st = _tw("POST", f"{base}/Documents", {"UniqueName": "tips_index", "Data": data})
+    if st >= 300: die(f"Sync upload of tips_index failed: HTTP {st}")
+    if _tw("GET", f"{base}/Documents/tips_index") != 200: die("tips_index not readable after upload")
+    print(f"members store updated: {', '.join(dates)} + tips_index (verified)")
 
 
 def copy_card(arg):
@@ -155,8 +228,8 @@ def copy_card(arg):
         save(dest, data)
     else:
         shutil.copyfile(src, dest)
-    print(f"copied {src} -> {dest}")
-    reindex()
+    print(f"copied {src} -> {dest} (private)")
+    sync_upload([date], reindex())
 
 
 def record_result(date, selection, outcome, odds=None):
@@ -178,7 +251,7 @@ def record_result(date, selection, outcome, odds=None):
     matches[0]["result"] = res
     save(p, data)
     print(f"recorded {outcome} for {matches[0]['selection']} on {date}")
-    reindex()
+    sync_upload([date], reindex())
 
 
 def main(argv):
@@ -186,6 +259,8 @@ def main(argv):
         print(__doc__)
     elif argv and argv[0] == "--reindex":
         reindex()
+    elif argv and argv[0] == "--sync-all":
+        m = reindex(); sync_upload(m["dates"], m)
     elif argv and argv[0] == "result":
         if len(argv) not in (4, 5):
             die('usage: update_tips.py result YYYY-MM-DD "Selection" won|lost|placed|scratched [odds]')

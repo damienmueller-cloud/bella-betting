@@ -14,9 +14,17 @@ site/
   assets/brand/    approved BB monogram (SVG + PNG) and favicons / apple-touch / manifest icons
   site.webmanifest, .nojekyll
   publish.sh       daily update + commit + push
-  tips/index.json         manifest {generated_at, dates[newest first], days[{date, selections, results_recorded, generated_at}]}
-  tips/YYYY-MM-DD.json    copies of the vault cards (same schema as ../tips/*.json)
+  data/teaser.json        PUBLIC teaser: per day date, counts, meetings (no selections)
+  data/results.json       PUBLIC results: settled main selections only (written once results are recorded)
   update_tips.py          daily updater (see below)
+
+## Members-only tips (since 10 Oct 2026)
+Full cards are no longer published in this repo. `update_tips.py` keeps them privately in `../cards/` and uploads them
+(gzip, Sync map `tips` + doc `tips_index`) to the `bella-betting-members` Twilio service. `index.html`/`archive.html`
+show a teaser + login (mobile -> SMS code via Twilio Verify, same rate limits as /join) to visitors, and the full card
+to members with a valid 30-day session (`/member`, token in localStorage). Results/ROI stay public (`data/results.json`).
+The old `tips/*.json` files were deleted in a normal commit; **cards up to 2026-10-10 remain visible in git history**
+(no history rewrite). The phone agent reads tips from the same members store.
 ```
 
 ## Preview locally
@@ -28,9 +36,10 @@ cd /workspace/project-vaults/Betting-Tips/site && python3 -m http.server 8765
 
 ## Daily routine
 ```
-python3 update_tips.py              # copies ../tips/<today Sydney>.json, validates it, rebuilds tips/index.json
+python3 update_tips.py              # ../tips/<today Sydney>.json -> ../cards/ + members store + public data/*.json
 python3 update_tips.py 2026-10-11   # a specific date
-python3 update_tips.py --reindex    # rebuild the manifest only
+python3 update_tips.py --reindex    # rebuild manifest + public data only
+python3 update_tips.py --sync-all   # re-upload every card + manifest to the members store
 ```
 The updater refuses cards with prohibited wording (e.g. "lock", "sure thing", "bonus bet", "sign up", "risk-free", "make money" other than the standard "not a way to make money" disclaimer) and keeps already-recorded results if a card is re-copied.
 

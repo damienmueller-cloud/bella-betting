@@ -110,3 +110,8 @@ nav a.nav-join[aria-current="page"]{background:#eef1ec}
 .placeholder{background:#fff6dd;border:1px dashed var(--warn-line);padding:0 .25rem;border-radius:4px}
 .join-cta{border-left:6px solid var(--brand)}
 .preview-banner{background:#fff6dd;border:2px dashed var(--warn-line);padding:.6rem 1rem;border-radius:var(--radius);margin:0 0 1rem}
+
+/* members gate */
+.member-bar{background:#eef6f1;border:1px solid #cfe3d7;padding:.4rem .7rem;border-radius:6px;margin:.6rem 0}
+.gate form.login label{display:block;font-weight:600;margin:.6rem 0 .2rem}
+.gate form.login input[type=tel],.gate form.login input[inputmode=numeric]{font-size:1.05rem;padding:.45rem .6rem;max-width:16rem;width:100%;border:1px solid #9bb;border-radius:6px}
