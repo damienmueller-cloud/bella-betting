@@ -21,7 +21,7 @@ site/
 ## Members-only tips (since 10 Oct 2026)
 Full cards are no longer published in this repo. `update_tips.py` keeps them privately in `../cards/` and uploads them
 (gzip, Sync map `tips` + doc `tips_index`) to the `bella-betting-members` Twilio service. `index.html`/`archive.html`
-show a teaser + login (mobile -> SMS code via Twilio Verify, same rate limits as /join) to visitors, and the full card
+show a teaser + login (INTERIM 11 Oct 2026: mobile + joined email, rate-limited; SMS-code login returns once Twilio AU SMS is approved; a new sign-up is logged in at once) to visitors, and the full card
 to members with a valid 30-day session (`/member`, token in localStorage). Results/ROI stay public (`data/results.json`).
 The old `tips/*.json` files were deleted in a normal commit; **cards up to 2026-10-10 remain visible in git history**
 (no history rewrite). The phone agent reads tips from the same members store.
