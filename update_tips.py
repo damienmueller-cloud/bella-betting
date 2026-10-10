@@ -59,6 +59,20 @@ def validate(data, src):
         missing = [k for k in ("event", "start_time_aedt", "horse", "win_odds", "odds_source", "odds_checked_at") if r.get(k) in (None, "")]
         if missing:
             die(f"{src}: roughie {i} missing {', '.join(missing)}")
+    SPORT_REQ = ("sport", "competition", "event", "start_time_aedt", "market", "selection", "reasoning",
+                 "confidence", "best_odds", "odds_source", "odds_checked_at")
+    sports = data.get("sports")
+    if sports is not None and not isinstance(sports, list):
+        die(f"{src}: 'sports' must be a list")
+    for i, s in enumerate(sports or [], 1):
+        missing = [k for k in SPORT_REQ if s.get(k) in (None, "")]
+        if missing:
+            die(f"{src}: sport selection {i} missing {', '.join(missing)}")
+        if not re.match(r"^\d{1,2}:\d{2}$", str(s["start_time_aedt"])):
+            die(f"{src}: sport selection {i} start_time_aedt must be HH:MM (AEDT)")
+        mk = (s.get("market", "") + " " + s.get("selection", "")).lower()
+        if re.search(r"in[- ]?play|\blive\b|cash ?out", mk):
+            die(f"{src}: sport selection {i} looks like an in-play/live market; sport tips must be pre-match only")
     # Compliance lint: block obvious prohibited wording before it reaches the site.
     text = json.dumps(data, ensure_ascii=False).lower()
     text = re.sub(r"(is )?not a (way|means) to make money", "", text)  # allow the standard disclaimer

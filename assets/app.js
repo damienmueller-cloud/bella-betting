@@ -116,7 +116,7 @@
       html += '<p class="small muted">Odds change. Prices are from a single bookmaker at the time shown, are not a recommendation of that bookmaker, and may no longer be available.</p>';
 
       html += renderRoughies(day);
-      if (day.sport_notes) html += '<h2>Sport</h2><p>' + esc(day.sport_notes) + "</p>";
+      html += renderSports(day);
       var notes = cardNotes(day.responsible_gambling);
       if (notes.length) html += '<div class="notice" role="note">' + notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") + "</div>";
       if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
@@ -124,6 +124,39 @@
     });
   }
 
+
+  /* ---------- Sport (pre-match only) ---------- */
+  function renderSports(day) {
+    var list = (day.sports || []).slice();
+    var note = day.sports_notes || day.sport_notes;  // sport_notes: older cards
+    if (!list.length && !note) return "";
+    list.sort(function (a, b) { return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || ""); });
+    var h = '<section aria-labelledby="sport-h"><h2 id="sport-h">Sport</h2>' +
+      '<div class="notice" role="note"><p><strong>Pre-match only.</strong> These are tips for markets before the game starts. We never tip in-play or live markets, and we don’t update prices once a game has started. ' +
+      "Online in-play betting on sport is illegal in Australia.</p></div>";
+    if (list.length) {
+      h += '<table class="tips sports"><caption>' + list.length + " sport selection" + (list.length === 1 ? "" : "s") +
+        (day.sports_generated_at ? ", checked " + fmtChecked(day.sports_generated_at) : "") + ", in start-time order</caption>" +
+        '<thead><tr><th scope="col">Start (AEDT)</th><th scope="col">Event</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th></tr></thead><tbody>';
+      list.forEach(function (s) {
+        h += "<tr>" +
+          '<td data-label="Start (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
+          '<td data-label="Event">' + esc(s.event) + '<br><span class="muted small">' + esc([s.sport, s.competition].filter(Boolean).join(" · ")) + "</span>" +
+            (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + "</td>" +
+          '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
+          '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + (s.note ? '<br><span class="muted small">Note: ' + esc(s.note) + "</span>" : "") + "</td>" +
+          '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
+          '<td data-label="Odds (at time checked)" class="odds">' + esc(s.best_odds) +
+            '<span class="odds-src">Source: ' + esc(s.odds_source) + "</span>" +
+            '<span class="odds-src">Checked: ' + fmtChecked(s.odds_checked_at) + "</span></td>" +
+          "</tr>";
+      });
+      h += "</tbody></table>";
+    }
+    if (note) h += '<p class="small">' + esc(note) + "</p>";
+    h += '<p class="small muted">Odds change. Sport prices are pre-match, from an Australian-licensed bookmaker at the time shown, and are not a recommendation of that bookmaker. Check team news before the start.</p></section>';
+    return h;
+  }
 
   /* ---------- Roughies (longer-priced, higher-risk runners) ---------- */
   function pct(n) {

@@ -64,7 +64,6 @@
       "odds_checked_at": "2026-10-10T13:55+11:00 (approx.)"
     }
   ],
-  "sport_notes": "NBL: South East Melbourne Phoenix v Melbourne United, 7:30pm AEDT (John Cain Arena); Perth Wildcats v NZ Breakers, 9:30pm AEDT (RAC Arena). No sport selection made because there wasn't enough data and odds weren't checked. No Sheffield Shield or A-League Men fixture was verified for today.",
   "responsible_gambling": [
     "18+ only. Gambling is for adults.",
     "Chances are you're about to lose.",
@@ -161,5 +160,37 @@
     }
   ],
   "roughies_generated_at": "2026-10-10T13:59+11:00",
-  "roughies_notes": "Roughies are runners at about $8 or longer. Estimated chances are rough personal judgments, not model outputs. Prices are the best shown on RaceHub's comparison at about 13:58 AEDT and move constantly. Higher prices mean lower strike rates. Expect most of these to lose."
+  "roughies_notes": "Roughies are runners at about $8 or longer. Estimated chances are rough personal judgments, not model outputs. Prices are the best shown on RaceHub's comparison at about 13:58 AEDT and move constantly. Higher prices mean lower strike rates. Expect most of these to lose.",
+  "sports": [
+    {
+      "sport": "Rugby union",
+      "competition": "Bledisloe Cup, 1st Test (Eden Park, Auckland)",
+      "event": "New Zealand v Australia",
+      "start_time_aedt": "17:10",
+      "market": "Line (handicap), pre-match",
+      "selection": "Australia (Wallabies) with the start",
+      "reasoning": "The Wallabies are unbeaten in their last 6 Tests, including a 42-38 win over South Africa in Perth. The All Blacks have lost their last 3 Tests (a 3-1 series loss to the Springboks) and are without Richie Mo'unga (calf) and Fehi Fineanganofo. Against that, New Zealand are unbeaten in 53 Tests at Eden Park since 1994 and have won their last 11 against Australia, so we prefer the start to the head-to-head. The line has already shortened from about +14.5 toward +11.5/12.5, and the value shrinks as it does.",
+      "confidence": "Low–Medium (2/5)",
+      "best_odds": "Odds unavailable at time of check",
+      "odds_source": "No Australian-licensed bookmaker price could be read live. Last published AU-licensed reference: Neds blog (9 Oct), All Blacks -13.5 at $1.90 (Australia side not shown). Market reports since show the line at about Australia +11.5 to +12.5.",
+      "odds_checked_at": "2026-10-10T14:15+11:00 (approx.)",
+      "note": "Pre-match only. Check the current line before kick-off; skip it if the start has dropped below +10."
+    },
+    {
+      "sport": "Basketball",
+      "competition": "NBL, Round 4 (RAC Arena, Perth)",
+      "event": "Perth Wildcats v New Zealand Breakers",
+      "start_time_aedt": "21:30",
+      "market": "Head to head, pre-match",
+      "selection": "New Zealand Breakers",
+      "reasoning": "Parker Jackson-Cartwright is averaging 26.6 points and 9.4 assists and scored 29 against Perth two weeks ago. The Breakers have won their last two, including 88-72 at Adelaide. Perth are without starting centre Jo Lual-Acuil Jr (calf, 14.3 ppg) and Blake Nielsen (ACL), and Brandon Knight debuts on restricted minutes. Against that, Perth are 3-1 at home, have won 6 of the last 7 meetings, and beat the Breakers 97-93 here on 26 Sep.",
+      "confidence": "Low–Medium (2/5)",
+      "best_odds": "$2.35 (H2H, fixed)",
+      "odds_source": "Next2Go (price shown on its NBL preview board; Perth $1.60)",
+      "odds_checked_at": "2026-10-10T14:16+11:00",
+      "note": "Implied chance 42.6%. Our rough estimate is 45–48%. Opinion only."
+    }
+  ],
+  "sports_notes": "Pre-match tips only. We never tip in-play or live markets (online in-play sports betting is illegal in Australia). No selection in Phoenix v United (7:30pm AEDT, John Cain Arena). United have won 10 straight night games against the Phoenix and beat them by 25 earlier this season, but are without Chris Goulding (calf), and the Phoenix have firmed to about $2.05 at Next2Go (United $1.78, 2:16pm). We see no value either way. No A-League fixtures today (the season starts 16 Oct).",
+  "sports_generated_at": "2026-10-10T14:20+11:00"
 }
