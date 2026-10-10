@@ -1,4 +1,4 @@
-/* Bella Betting – renders tips from tips/index.json + tips/YYYY-MM-DD.json. No dependencies. */
+/* Bella Betting – members-only tips (via the members service /member with a 30-day session), public teaser + results. No dependencies. */
 (function () {
   "use strict";
 
@@ -67,7 +67,7 @@
   }
 
   /* ---------- Today / single day ---------- */
-  function renderDay(manifest) {
+  function renderDay(manifest, dayData) {
     var root = document.getElementById("tips-root");
     var meta = document.getElementById("tips-meta");
     var heading = document.getElementById("tips-heading");
@@ -77,7 +77,7 @@
     var date = wanted && dates.indexOf(wanted) !== -1 ? wanted : dates[0];
     var today = sydneyToday();
 
-    return getJSON("tips/" + date + ".json").then(function (day) {
+    return Promise.resolve(dayData).then(function (day) {
       if (wanted) heading.textContent = "Tips for " + fmtDate(date);
       else if (date === today) heading.textContent = "Today’s tips";
       else heading.textContent = "Latest tips";
@@ -219,10 +219,9 @@
   /* ---------- Results / ROI ---------- */
   // A selection's result is recorded as: "result": {"outcome": "won"|"lost"|"placed"|"scratched", "settled_odds": 2.15}
   // "placed" counts as a loss for the win-only, level-stake tracker.
-  function renderResults(manifest) {
+  function renderResults(pub) {
     var root = document.getElementById("results-root");
-    var dates = manifest.dates || [];
-    Promise.all(dates.map(function (d) { return getJSON("tips/" + d + ".json").catch(function () { return null; }); }))
+    Promise.resolve(pub.days || [])
       .then(function (daysData) {
         var rows = [], staked = 0, wins = 0, pl = 0;
         daysData.forEach(function (day) {
@@ -262,6 +261,81 @@
       });
   }
 
+
+  /* ---------- Members: session, login, teaser ---------- */
+  var CFG = window.BB_MEMBERS || {};
+  var TOKEN_KEY = "bb_member_session";
+  function token() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
+  function setToken(t) { try { t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); } catch (e) {} }
+  function member(params) {
+    var body = new URLSearchParams(params);
+    if (CFG.testToken) body.set("test", CFG.testToken);
+    return fetch(CFG.memberEndpoint, { method: "POST", body: body }).then(function (r) {
+      return r.json().then(function (j) { j._status = r.status; return j; });
+    });
+  }
+  function loadMemberTips(date) {
+    if (!token() || !CFG.memberEndpoint) return Promise.resolve(null);
+    return member({ action: "tips", token: token(), date: date || "" }).then(function (j) {
+      if (j.ok) return j;
+      if (j._status === 401) setToken("");
+      return null;
+    });
+  }
+  function memberBar(name) {
+    var el = document.getElementById("member-bar");
+    if (!el) return;
+    el.hidden = false;
+    el.innerHTML = "Logged in as a member" + (name ? ", " + esc(name) : "") + '. <a href="#" id="logout">Log out</a>';
+    document.getElementById("logout").addEventListener("click", function (e) { e.preventDefault(); setToken(""); location.reload(); });
+  }
+  function renderGate(rootId, teaser) {
+    var root = document.getElementById(rootId);
+    var meta = document.getElementById("tips-meta");
+    var t = teaser && teaser.days && teaser.days[0];
+    var today = sydneyToday();
+    var h = '<section class="card gate" aria-labelledby="gate-h"><h2 id="gate-h">Tips are for members</h2>';
+    if (t) {
+      h += "<p><strong>" + (t.date === today ? "Today" : esc(fmtDate(t.date))) + ":</strong> " + esc(t.racing_selections) + " racing selection" + (t.racing_selections === 1 ? "" : "s") +
+        (t.meetings && t.meetings.length ? " at " + esc(t.meetings.join(", ")) : "") +
+        (t.roughies ? ", " + esc(t.roughies) + " roughie" + (t.roughies === 1 ? "" : "s") : "") +
+        (t.sport_selections ? " and " + esc(t.sport_selections) + " pre-match sport tip" + (t.sport_selections === 1 ? "" : "s") : "") + ".</p>";
+    }
+    h += "<p>Membership is free until 10 December 2026 and is never auto-converted to paid. 18+ only. Our full record, wins and losses, is public on the <a href=\"results.html\">Results</a> page.</p>" +
+      '<p><a class="btn" href="join.html">Join free</a></p>' +
+      '<h3>Already a member? Log in</h3>' +
+      '<form id="login-form" class="login" novalidate>' +
+      '<label for="login-mobile">Your mobile number</label><input id="login-mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required>' +
+      '<input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">' +
+      '<div id="login-code-row" hidden><label for="login-code">6-digit code we texted you</label><input id="login-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10"></div>' +
+      '<p><button class="btn" type="submit" id="login-btn">Text me a code</button></p>' +
+      '<p id="login-msg" class="small" role="status" aria-live="polite"></p></form>' +
+      '<p class="small muted">We text a one-time code to your member mobile. You stay logged in on this device for 30 days.</p></section>';
+    root.innerHTML = h;
+    if (meta) meta.textContent = t ? fmtDate(t.date) + ". Log in to see the selections." : "";
+    var form = document.getElementById("login-form"), msg = document.getElementById("login-msg"), btn = document.getElementById("login-btn");
+    var stage = "start";
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var mobile = form.mobile.value;
+      btn.disabled = true; msg.textContent = "Please wait…";
+      var p = stage === "start" ? member({ action: "login_start", mobile: mobile, website: form.website.value })
+                                : member({ action: "login_check", mobile: mobile, code: form.code.value });
+      p.then(function (j) {
+        btn.disabled = false;
+        if (stage === "start") {
+          if (j.ok && j.sent) { stage = "check"; document.getElementById("login-code-row").hidden = false; btn.textContent = "Log in"; msg.textContent = "Code sent. Enter it above."; form.code.focus(); }
+          else if (j.not_member) msg.innerHTML = 'We couldn’t find a membership for that number. <a href="join.html">Join free</a>.';
+          else if (j.error === "rate_limited") msg.textContent = "Too many codes requested. Please try again later.";
+          else msg.textContent = "Please check the mobile number (Australian mobile, e.g. 0412 345 678).";
+        } else {
+          if (j.ok && j.token) { setToken(j.token); location.reload(); }
+          else msg.textContent = "That code didn’t work. Check it and try again.";
+        }
+      }).catch(function () { btn.disabled = false; msg.textContent = "Sorry, something went wrong. Please try again."; });
+    });
+  }
+
   function fail(rootId, err) {
     var el = document.getElementById(rootId);
     if (el) el.innerHTML = '<div class="notice"><p>Sorry, the tips data could not be loaded (' + esc(err.message) + ").</p></div>";
@@ -272,8 +346,18 @@
   document.addEventListener("DOMContentLoaded", function () {
     rotateTagline();
     var page = document.body.getAttribute("data-page");
-    var map = { index: ["tips-root", renderDay], archive: ["archive-root", renderArchive], results: ["results-root", renderResults] };
-    if (!map[page]) return;
-    getJSON("tips/index.json").then(map[page][1]).catch(function (e) { fail(map[page][0], e); });
+    if (page === "results") {
+      getJSON("data/results.json").then(renderResults).catch(function (e) { fail("results-root", e); });
+      return;
+    }
+    if (page !== "index" && page !== "archive") return;
+    var rootId = page === "index" ? "tips-root" : "archive-root";
+    loadMemberTips(page === "index" ? qsDate() : "").then(function (j) {
+      if (j && j.card) {
+        memberBar(j.first_name);
+        return page === "index" ? renderDay(j.index, j.card) : renderArchive(j.index);
+      }
+      return getJSON("data/teaser.json").catch(function () { return null; }).then(function (t) { renderGate(rootId, t); });
+    }).catch(function (e) { fail(rootId, e); });
   });
 })();

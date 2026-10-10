@@ -32,10 +32,7 @@ except Exception:  # pragma: no cover
     SYD = None
 
 SITE = Path(__file__).resolve().parent
-# MEMBERS_ONLY=False (main, until Twilio AU SMS registration is approved): cards stay public in site/tips/ as before,
-# AND are uploaded to the members store so the phone agent has them. Branch 'members-only-tips' sets True.
-MEMBERS_ONLY = False
-SITE_TIPS = (SITE.parent / "cards") if MEMBERS_ONLY else (SITE / "tips")
+SITE_TIPS = SITE.parent / "cards"          # PRIVATE (vault, not in the public repo)
 SITE_DATA = SITE / "data"                   # public: teaser.json + results.json
 TWILIO_ENV = Path("/workspace/project-vaults/MatchMyAgent/secrets/twilio-api.env")
 MEMBERS_DEPLOY = SITE.parent / "members" / "last_deploy.json"
@@ -145,8 +142,7 @@ def reindex():
     manifest = {"generated_at": stamp, "dates": [d["date"] for d in days], "days": days}
     save(idx, manifest)
     print(f"index.json rebuilt: {len(days)} day(s); newest {days[0]['date'] if days else '-'}")
-    if MEMBERS_ONLY:
-        write_public(manifest)
+    write_public(manifest)
     return manifest
 
 
