@@ -1,7 +1,87 @@
 {
-  "generated_at": "2026-10-11T13:18:04+11:00",
+  "generated_at": "2026-10-11T20:44:06+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
   "days": [
+    {
+      "date": "2026-10-11",
+      "selections": [
+        {
+          "event": "Seymour (VIC) – Race 6, Bezzy Eldo (BM62 Handicap, 1000m)",
+          "start_time_aedt": "15:10",
+          "selection": "Parcae (barrier 9, Michael Dee, Anthony & Sam Freedman)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-11T20:43:37+11:00",
+            "settled_odds": 3.0
+          }
+        },
+        {
+          "event": "Seymour (VIC) – Race 8, Seymour Park (BM74 Handicap, 1100m)",
+          "start_time_aedt": "16:20",
+          "selection": "Educated (barrier 15, Celine Gaudray)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-11T20:43:41+11:00",
+            "settled_odds": 4.0
+          }
+        },
+        {
+          "event": "Seymour (VIC) – Race 9, bet365 Seymour Cup (Listed, 1600m, 14 runners after scratchings)",
+          "start_time_aedt": "16:55",
+          "selection": "Detonator Jack (barrier 5, John Allen, Ciaron Maher)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-11T20:43:45+11:00"
+          }
+        },
+        {
+          "event": "Coonamble (NSW) – Race 4, Nalder Family Country Boosted Showcase Handicap (Class 3, 1600m)",
+          "start_time_aedt": "14:55",
+          "selection": "Snow Dog (barrier 1, Jake Pracey-Holmes, Connie Greig)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-11T20:43:50+11:00"
+          }
+        },
+        {
+          "event": "Queanbeyan (NSW) – Race 4, TAB Pump Handicap (BM74, 1600m)",
+          "start_time_aedt": "15:05",
+          "selection": "Miss Stalwart (barrier 5, Deon Le Roux (a2), Nick Olive)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-11T20:43:54+11:00",
+            "settled_odds": 2.8
+          }
+        },
+        {
+          "event": "Cairns (QLD) – Race 5, Great Northern Brewing Co Handicap (Rating 0-55, 950m)",
+          "start_time_aedt": "15:50",
+          "selection": "Speedy Target (barrier 1, Ben Kennedy, Alex Malliff)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-11T20:43:58+11:00"
+          }
+        },
+        {
+          "event": "Mindarie-Halidon (SA) – Race 7, Redden Electrical/WSB Distributors/Sandalwood Poll Merinos Benchmark 64 Handicap (1200m)",
+          "start_time_aedt": "17:45",
+          "selection": "Flirt (barrier 4, Jackson Murphy, Aaron Bain & Ned Taylor)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-11T20:44:01+11:00"
+          }
+        },
+        {
+          "event": "Geraldton (WA) – Race 6, Great Western Insurance Brokers Ladies Day Sprint (Rating 58+, 1200m)",
+          "start_time_aedt": "19:54",
+          "selection": "In Situ (barrier 9, Natasha Faithfull, Bonnie Stokes)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-11T20:44:06+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-10",
       "selections": [
