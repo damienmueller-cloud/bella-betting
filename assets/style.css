@@ -122,3 +122,84 @@ nav a.nav-call:hover{background:rgba(255,255,255,.15)}
 .tipsline a,.phone-members a,.phone-join a{white-space:nowrap}
 .rg-footer .tipsline a{color:inherit;font-weight:700}
 @media (max-width:520px){nav ul{gap:.2rem}nav a{padding:.4rem .55rem}nav li:has(.nav-call),nav li:has(.nav-join){order:-1}}
+
+
+/* =====================================================================
+   NIGHT RACING theme (v2, Oct 2026) + thin silks-stripe accent.
+   Overrides the base palette above. All text pairs WCAG AA (checked).
+   ===================================================================== */
+:root{
+  --ink:#e9edf5; --muted:#b4bdd0; --bg:#0b1020; --card:#141b33; --line:#2b3658;
+  --brand:#0b1020; --brand-ink:#ffffff; --accent:#f2c14e; --warn-bg:#231f12; --warn-line:#8a7130;
+  --rg-bg:#05070e; --rg-ink:#ffffff; --focus:#3ee08f;
+  --gold:#f2c14e; --gold-hi:#ffd978; --green:#3ee08f;
+  --silks:repeating-linear-gradient(135deg,#0b6b4b 0 14px,#c2185b 14px 28px,#1f4fbf 28px 42px,#f2c14e 42px 48px);
+}
+body{background:var(--bg);color:var(--ink)}
+a{color:#f5cf6e}
+a:hover{color:var(--gold-hi)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.skip{background:#fff;color:#0b1020}
+
+.age-strip{background:#05070e;color:#fff;border-bottom:1px solid #1c2440}
+.site-header{background:linear-gradient(90deg,#0b1020,#141d3f)}
+/* thin silks stripe: decorative only, never behind text */
+.site-header::after,.rg-footer::before{content:"";display:block;height:6px;background:var(--silks)}
+.brand-tile{width:50px;height:50px;border-radius:9px;box-shadow:0 0 16px rgba(242,193,78,.3)}
+.wordmark{letter-spacing:.02em}
+.wordmark span{color:var(--gold);opacity:1}
+nav a:hover{background:rgba(255,255,255,.1)}
+nav a[aria-current="page"]{background:rgba(255,255,255,.14);box-shadow:inset 0 -2px 0 var(--gold)}
+nav a.nav-join{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#0b1020}
+nav a.nav-join:hover,nav a.nav-join[aria-current="page"]{background:var(--gold-hi);color:#0b1020}
+nav a.nav-call{border:1px solid var(--green);color:#fff}
+nav a.nav-call:hover{background:rgba(62,224,143,.14)}
+
+h1{color:#fff}
+h1::after{content:"";display:block;width:64px;height:4px;margin-top:.45rem;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:2px}
+h2,h3{color:#fff}
+.meta,.muted,.odds-src{color:var(--muted)}
+.card,.stat{background:var(--card);border-color:var(--line);box-shadow:0 10px 28px rgba(0,0,0,.32)}
+.notice{background:var(--warn-bg);border-color:var(--warn-line);color:#f4ead0}
+.notice strong{color:#ffe7a6}
+.notice-risk{background:#2a1419;border-color:#8a3a48;color:#f6dde1}
+.badge{background:#1f2947;border-color:#3a4770;color:var(--ink)}
+.btn{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#0b1020}
+.btn:hover{background:var(--gold-hi);color:#0b1020}
+.gate{border-top:3px solid var(--gold)}
+.join-cta{border-left:6px solid var(--green)}
+.member-bar{background:#10261c;border-color:#2d6b4c;color:var(--ink)}
+.placeholder,.preview-banner{background:#231f12;color:#f4ead0}
+
+/* tables */
+table.tips tr{background:var(--card);border-color:var(--line)}
+table.data,table.tips{color:var(--ink)}
+table.data th{background:#1b2440;color:#fff}
+@media (min-width:860px){ table.tips th{background:#1b2440;color:#fff} }
+
+/* forms: light fields for legibility */
+.join-form input[type=text],.join-form input:not([type]),.join-form input[type=email],.join-form input[type=tel],
+.gate form.login input[type=tel],.gate form.login input[type=email],.gate form.login input[inputmode=numeric]{background:#fff;color:#111;border-color:#6b7898}
+.join-form fieldset{border-color:var(--line)}
+.join-form label.check input{accent-color:var(--gold)}
+
+/* homepage hero (index only) */
+.hero{background:#0b1020 url(hero-night.svg) center/cover no-repeat;color:#fff}
+.hero .wrap{padding-top:2.2rem;padding-bottom:2.4rem}
+.hero-kicker{margin:0 0 .4rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--green)}
+.hero-title{margin:0 0 .6rem;font-size:2.1rem;line-height:1.1;font-weight:900;max-width:22ch;color:#fff}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{margin:0 0 1.2rem;font-size:1.05rem;max-width:44ch;color:#e9edf5}
+.hero .btn{margin:0 .5rem .5rem 0}
+.hero .btn.ghost{background:transparent;border:2px solid var(--green);color:#fff}
+.hero .btn.ghost:hover{background:rgba(62,224,143,.14)}
+@media (min-width:860px){.hero-title{font-size:3.1rem}.hero .wrap{padding-top:3.2rem;padding-bottom:3.4rem}}
+@media (max-width:859px){.hero{background:#0b1020 url(hero-night.svg) center bottom/260% auto no-repeat}.hero .wrap{padding-bottom:4.5rem}}
+
+/* RG footer */
+.rg-footer{border-top:0;padding-top:0}
+.rg-footer::before{margin-bottom:1.6rem}
+.rg-footer a{color:#fff}
+.rg-footer .disclaimer{border-top-color:#2b3658;opacity:1;color:#d6dbe6}
+@media print{body{background:#fff;color:#000}.hero,.site-header::after,.rg-footer::before{display:none}}
+.is-member .hero{display:none}

@@ -310,6 +310,7 @@
     var el = document.getElementById("member-bar");
     if (!el) return;
     el.hidden = false;
+    document.body.classList.add("is-member");
     el.innerHTML = "Logged in as a member" + (name ? ", " + esc(name) : "") + '. <a href="#" id="logout">Log out</a>';
     document.getElementById("logout").addEventListener("click", function (e) { e.preventDefault(); setToken(""); location.reload(); });
   }
