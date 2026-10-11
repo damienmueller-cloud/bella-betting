@@ -203,3 +203,14 @@ table.data th{background:#1b2440;color:#fff}
 .rg-footer .disclaimer{border-top-color:#2b3658;opacity:1;color:#d6dbe6}
 @media print{body{background:#fff;color:#000}.hero,.site-header::after,.rg-footer::before{display:none}}
 .is-member .hero{display:none}
+
+/* member card status + top-up tag */
+.status{display:inline-block;border-radius:999px;padding:.08rem .6rem;font-size:.85rem;font-weight:700;white-space:nowrap;border:1px solid}
+.status-upcoming{color:#3ee08f;border-color:#3ee08f;background:rgba(62,224,143,.08)}
+.status-pending{color:#e9edf5;border-color:#6b7898;background:#1f2947}
+.status-won{color:#0b1020;border-color:#f2c14e;background:#f2c14e}
+.status-done{color:#e9edf5;border-color:#3a4770;background:#1b2440}
+.tag-topup{display:inline-block;margin-top:.25rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f5cf6e}
+.run-summary{margin:.4rem 0 .8rem}
+.archive-day{border-top:6px solid transparent;border-image:var(--silks) 6;margin-top:2.2rem;padding-top:.6rem}
+.archive-date{margin-top:.4rem}

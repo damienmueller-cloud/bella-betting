@@ -55,6 +55,30 @@
     var zone = m[2] === "+11:00" || m[2] === "+1100" ? "AEDT" : (m[2] === "+10:00" || m[2] === "+1000" ? "AEST" : (m[2] || ""));
     return fmt12(m[1]) + " " + zone + (m[3] ? " " + esc(m[3].trim()) : "");
   }
+  /* Race/game status for members: recorded result, run (result pending), or upcoming (Sydney time). */
+  function sydneyNowHM() {
+    return new Intl.DateTimeFormat("en-GB", { timeZone: "Australia/Sydney", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date());
+  }
+  function itemStatus(item, date) {
+    var r = item && item.result;
+    if (r && r.outcome) {
+      var o = String(r.outcome).toLowerCase();
+      var label = o === "won" ? "Won" + (r.settled_odds ? " at $" + Number(r.settled_odds).toFixed(2) : "") : o === "placed" ? "Placed" : o === "scratched" ? "Scratched" : o === "lost" ? "Lost" : esc(r.outcome);
+      return { key: o === "won" ? "won" : "done", label: label };
+    }
+    var today = sydneyToday(), m = /^(\d{1,2}):(\d{2})/.exec(item.start_time_aedt || "");
+    var hm = m ? (m[1].length === 1 ? "0" + m[1] : m[1]) + ":" + m[2] : null;
+    var run = date < today || (date === today && hm && hm <= sydneyNowHM());
+    return run ? { key: "pending", label: "Run, result pending" } : { key: "upcoming", label: "Upcoming" };
+  }
+  function statusCell(item, date) {
+    var st = itemStatus(item, date);
+    return '<td data-label="Status"><span class="status status-' + st.key + '">' + st.label + "</span></td>";
+  }
+  function isTopUp(day, s) {
+    var mt = (day.top_up && day.top_up.meetings) || [];
+    return mt.some(function (m) { return String(s.event || "").indexOf(m) === 0; });
+  }
   // Drop footer duplicates (taglines, helpline, BetStop) from per-card RG notes
   function cardNotes(list) {
     return (list || []).filter(function (t) {
@@ -88,56 +112,67 @@
         (date !== today && !wanted ? " <strong>No tips have been published for today yet; this is the most recent card.</strong>" : "") +
         (date < today ? " <strong>These races have already been run.</strong>" : "");
 
-      var sels = (day.selections || []).slice().sort(function (a, b) {
-        return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
-      });
-
-      var html = "";
-      if (day.track_conditions) {
-        html += '<p class="small"><strong>Track conditions:</strong> ' + Object.keys(day.track_conditions).map(function (k) {
-          return esc(k) + " – " + esc(day.track_conditions[k]);
-        }).join("; ") + ".</p>";
-      }
-      html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + ", in race order</caption>" +
-        '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th></tr></thead><tbody>';
-      sels.forEach(function (s) {
-        html += "<tr>" +
-          '<td data-label="Time (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
-          '<td data-label="Race">' + esc(s.event) + (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + "</td>" +
-          '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
-          '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + "</td>" +
-          '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
-          '<td data-label="Odds (at time checked)" class="odds">' + esc(s.best_odds) +
-            '<span class="odds-src">Source: ' + esc(s.odds_source) + "</span>" +
-            '<span class="odds-src">Checked: ' + fmtChecked(s.odds_checked_at) + "</span></td>" +
-          "</tr>";
-      });
-      html += "</tbody></table>";
-      html += '<p class="small muted">Odds change. Prices are from a single bookmaker at the time shown, are not a recommendation of that bookmaker, and may no longer be available.</p>';
-
-      html += renderRoughies(day);
-      html += renderSports(day);
-      var notes = cardNotes(day.responsible_gambling);
-      if (notes.length) html += '<div class="notice" role="note">' + notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") + "</div>";
+      var html = cardHtml(day, date);
       if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
       root.innerHTML = html;
     });
   }
 
 
+  function cardHtml(day, date) {
+    var sels = (day.selections || []).slice().sort(function (a, b) {
+      return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
+    });
+
+    var html = "";
+    var all = (day.selections || []).concat(day.roughies || [], day.sports || []);
+    var nRun = all.filter(function (x) { return itemStatus(x, date).key !== "upcoming"; }).length;
+    if (all.length) html += '<p class="run-summary"><strong>' + (all.length - nRun) + " upcoming</strong> · " + nRun + " already run (results shown where recorded)</p>";
+    if (day.notes) html += '<p class="small">' + esc(day.notes) + "</p>";
+    if (day.top_up) html += '<div class="notice" role="note"><p><strong>' + esc(day.top_up.label || "Top-up") + "</strong>" + (day.top_up.added_at ? " (added " + fmtChecked(day.top_up.added_at) + ")" : "") + ": " + esc((day.top_up.meetings || []).join(", ")) + ".</p>" + (day.top_up.notes ? "<p class=\"small\">" + esc(day.top_up.notes) + "</p>" : "") + "</div>";
+    if (day.track_conditions) {
+      html += '<p class="small"><strong>Track conditions:</strong> ' + Object.keys(day.track_conditions).map(function (k) {
+        return esc(k) + " – " + esc(day.track_conditions[k]);
+      }).join("; ") + ".</p>";
+    }
+    var nTop = sels.filter(function (x) { return isTopUp(day, x); }).length;
+    html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + (nTop ? " (" + (sels.length - nTop) + " morning, " + nTop + " " + esc((day.top_up.label || "top-up").toLowerCase()) + ")" : "") + ", in race order</caption>" +
+      '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Status</th></tr></thead><tbody>';
+    sels.forEach(function (s) {
+      html += "<tr>" +
+        '<td data-label="Time (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
+        '<td data-label="Race">' + esc(s.event) + (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + (isTopUp(day, s) ? '<br><span class="tag-topup">' + esc(day.top_up.label || "Top-up") + "</span>" : "") + "</td>" +
+        '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
+        '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + "</td>" +
+        '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
+        '<td data-label="Odds (at time checked)" class="odds">' + esc(s.best_odds) +
+          '<span class="odds-src">Source: ' + esc(s.odds_source) + "</span>" +
+          '<span class="odds-src">Checked: ' + fmtChecked(s.odds_checked_at) + "</span></td>" +
+        statusCell(s, date) + "</tr>";
+    });
+    html += "</tbody></table>";
+    html += '<p class="small muted">Odds change. Prices are from a single bookmaker at the time shown, are not a recommendation of that bookmaker, and may no longer be available.</p>';
+
+    html += renderRoughies(day, date);
+    html += renderSports(day, date);
+    var notes = cardNotes(day.responsible_gambling);
+    if (notes.length) html += '<div class="notice" role="note">' + notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") + "</div>";
+    return html;
+  }
+
   /* ---------- Sport (pre-match only) ---------- */
-  function renderSports(day) {
+  function renderSports(day, date) {
     var list = (day.sports || []).slice();
     var note = day.sports_notes || day.sport_notes;  // sport_notes: older cards
     if (!list.length && !note) return "";
     list.sort(function (a, b) { return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || ""); });
-    var h = '<section aria-labelledby="sport-h"><h2 id="sport-h">Sport</h2>' +
+    var h = '<section aria-labelledby="sport-h-' + date + '"><h2 id="sport-h-' + date + '">Sport</h2>' +
       '<div class="notice" role="note"><p><strong>Pre-match only.</strong> These are tips for markets before the game starts. We never tip in-play or live markets, and we don’t update prices once a game has started. ' +
       "Online in-play betting on sport is illegal in Australia.</p></div>";
     if (list.length) {
       h += '<table class="tips sports"><caption>' + list.length + " sport selection" + (list.length === 1 ? "" : "s") +
         (day.sports_generated_at ? ", checked " + fmtChecked(day.sports_generated_at) : "") + ", in start-time order</caption>" +
-        '<thead><tr><th scope="col">Start (AEDT)</th><th scope="col">Event</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th></tr></thead><tbody>';
+        '<thead><tr><th scope="col">Start (AEDT)</th><th scope="col">Event</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Status</th></tr></thead><tbody>';
       list.forEach(function (s) {
         h += "<tr>" +
           '<td data-label="Start (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
@@ -149,7 +184,7 @@
           '<td data-label="Odds (at time checked)" class="odds">' + esc(s.best_odds) +
             '<span class="odds-src">Source: ' + esc(s.odds_source) + "</span>" +
             '<span class="odds-src">Checked: ' + fmtChecked(s.odds_checked_at) + "</span></td>" +
-          "</tr>";
+          statusCell(s, date) + "</tr>";
       });
       h += "</tbody></table>";
     }
@@ -167,13 +202,13 @@
     var v = parseFloat(n);
     return isNaN(v) ? esc(n) : "$" + v.toFixed(2);
   }
-  function renderRoughies(day) {
+  function renderRoughies(day, date) {
     var list = (day.roughies || []).slice();
     if (!list.length) return "";
     list.sort(function (a, b) {
       return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "") || (a.rank || 0) - (b.rank || 0);
     });
-    var h = '<section aria-labelledby="roughies-h"><h2 id="roughies-h">Roughies</h2>' +
+    var h = '<section aria-labelledby="roughies-h-' + date + '"><h2 id="roughies-h-' + date + '">Roughies</h2>' +
       '<div class="notice notice-risk" role="note"><p><strong>Higher risk: most roughies lose.</strong> These are longer-priced runners (about $8 or more). ' +
       "Longer odds mean a lower chance of winning, so expect most of them to lose, sometimes for weeks at a time.</p>" +
       "<p><strong>Implied chance</strong> is simply 1 ÷ the win odds shown (before the bookmaker’s margin). <strong>Our estimate</strong> is a rough personal judgement, not a model, " +
@@ -181,7 +216,7 @@
       (day.roughies_notes ? '<p class="small">' + esc(day.roughies_notes) + "</p>" : "") + "</div>";
     h += '<table class="tips roughies"><caption>' + list.length + " roughie" + (list.length === 1 ? "" : "s") +
       (day.roughies_generated_at ? ", prices checked " + fmtChecked(day.roughies_generated_at) : "") + ", in race order</caption>" +
-      '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Implied vs our estimate</th></tr></thead><tbody>';
+      '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Implied vs our estimate</th><th scope="col">Status</th></tr></thead><tbody>';
     list.forEach(function (r) {
       var implied = r.implied_prob_pct != null ? pct(r.implied_prob_pct) : (parseFloat(r.win_odds) > 1 ? pct(100 / parseFloat(r.win_odds)) : "");
       var est = r.est_chance_pct != null ? String(r.est_chance_pct).replace("-", "–") + "%" : "–";
@@ -196,7 +231,7 @@
           '<span class="odds-src">Source: ' + esc(r.odds_source) + "</span>" +
           '<span class="odds-src">Checked: ' + fmtChecked(r.odds_checked_at) + "</span></td>" +
         '<td data-label="Implied vs our estimate" class="chance">Implied ' + esc(implied) + '<br><span class="muted small">Our estimate ' + esc(est) + "</span></td>" +
-        "</tr>";
+        statusCell(r, date) + "</tr>";
     });
     h += '</tbody></table><p class="small muted">Odds change. Roughie prices move a lot and may no longer be available. Only bet what you can afford to lose.</p></section>';
     return h;
@@ -214,6 +249,25 @@
         (d.results_recorded ? esc(d.results_recorded) + " of " + esc(d.selections) : "Not yet") + "</td></tr>";
     });
     root.innerHTML = html + "</tbody></table></div>";
+  }
+
+  /* Members' archive: index table plus every day's full card (fetched one at a time from the members service). */
+  function renderMemberArchive(manifest) {
+    renderArchive(manifest);
+    var root = document.getElementById("archive-root");
+    var dates = manifest.dates || [];
+    var box = document.createElement("div"); box.id = "archive-cards"; root.appendChild(box);
+    return dates.reduce(function (p, d) {
+      return p.then(function () {
+        return member({ action: "tips", token: token(), date: d }).then(function (j) {
+          if (!j.ok || !j.card) return;
+          var sec = document.createElement("section");
+          sec.className = "archive-day"; sec.id = "day-" + d;
+          sec.innerHTML = '<h2 class="archive-date">' + esc(fmtDate(d)) + "</h2>" + cardHtml(j.card, d);
+          box.appendChild(sec);
+        });
+      });
+    }, Promise.resolve());
   }
 
   /* ---------- Results / ROI ---------- */
@@ -382,7 +436,7 @@
     loadMemberTips(page === "index" ? qsDate() : "").then(function (j) {
       if (j && j.card) {
         memberBar(j.first_name);
-        return page === "index" ? renderDay(j.index, j.card) : renderArchive(j.index);
+        return page === "index" ? renderDay(j.index, j.card) : renderMemberArchive(j.index);
       }
       return getJSON("data/teaser.json").catch(function () { return null; }).then(function (t) { renderGate(rootId, t); });
     }).catch(function (e) { fail(rootId, e); });
