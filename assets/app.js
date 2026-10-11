@@ -325,6 +325,7 @@
         (t.roughies ? ", " + esc(t.roughies) + " roughie" + (t.roughies === 1 ? "" : "s") : "") +
         (t.sport_selections ? " and " + esc(t.sport_selections) + " pre-match sport tip" + (t.sport_selections === 1 ? "" : "s") : "") + ".</p>";
     }
+    h += '<p class="phone-members">Members can also hear today’s tips by phone: call <a href="tel:+61495040400"><strong>0495 040 400</strong></a>. Not a member? Paul can sign you up free on the call.</p>';
     h += "<p>Membership is free until 10 December 2026 and is never auto-converted to paid. 18+ only. Our full record, wins and losses, is public on the <a href=\"results.html\">Results</a> page.</p>" +
       '<p><a class="btn" href="join.html">Join free</a></p>' +
       '<h3>Already a member? Log in</h3>' + (EMAIL_LOGIN ? emailLoginForm() :
