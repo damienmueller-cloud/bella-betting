@@ -1,7 +1,50 @@
 {
-  "generated_at": "2026-10-12T09:25:12+11:00",
+  "generated_at": "2026-10-12T20:48:06+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
   "days": [
+    {
+      "date": "2026-10-12",
+      "selections": [
+        {
+          "event": "Tamworth (NSW) – Race 1, Barnson Tamworth Handicap (BM82, 2100m)",
+          "start_time_aedt": "13:15",
+          "selection": "Spenzalot (barrier 3, Mikayla Weir, Scott Singleton)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-12T20:47:53+11:00",
+            "settled_odds": 2.9
+          }
+        },
+        {
+          "event": "Bairnsdale (VIC) – Race 2, Bet365 Same Race Multi Maiden Plate (1200m)",
+          "start_time_aedt": "14:00",
+          "selection": "Japanese Moka (barrier 4, Patrick Moloney, Matt Laurie)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-12T20:47:57+11:00",
+            "settled_odds": 2.6
+          }
+        },
+        {
+          "event": "Tamworth (NSW) – Race 2, 92.9 Tamworth Maiden Plate (1400m)",
+          "start_time_aedt": "13:50",
+          "selection": "Usain Boss (barrier 2, Heavelon Van Der Hoven, Annabel & Rob Archibald)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-12T20:48:02+11:00"
+          }
+        },
+        {
+          "event": "Tamworth (NSW) – Race 4, KCE Civil Contractors Maiden Plate (1000m)",
+          "start_time_aedt": "15:05",
+          "selection": "Boa Vista (barrier 7, Rory Hutchings, Brett & Georgie Cavanough)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-12T20:48:06+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-11",
       "selections": [
