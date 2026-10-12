@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-10-12T20:48:06+11:00",
+  "generated_at": "2026-10-13T09:36:01+11:00",
   "days": [
+    {
+      "date": "2026-10-13",
+      "racing_selections": 5,
+      "roughies": 2,
+      "sport_selections": 0,
+      "meetings": [
+        "Grafton (NSW)",
+        "Kilmore (VIC)"
+      ],
+      "generated_at": "2026-10-13T09:55:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-12",
       "racing_selections": 4,
