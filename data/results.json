@@ -1,7 +1,58 @@
 {
-  "generated_at": "2026-10-13T09:36:01+11:00",
+  "generated_at": "2026-10-13T20:49:18+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
   "days": [
+    {
+      "date": "2026-10-13",
+      "selections": [
+        {
+          "event": "Kilmore (VIC) – Race 2, Adroit Countrywide Maiden Plate (3yo fillies, 1207m)",
+          "start_time_aedt": "14:30",
+          "selection": "Nishioka (barrier 7, Luke Currie, Robbie Griffiths)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-13T20:48:59+11:00"
+          }
+        },
+        {
+          "event": "Kilmore (VIC) – Race 3, RMBL Investments Rising Stars Handicap (F&M BM56, 1207m)",
+          "start_time_aedt": "15:00",
+          "selection": "Sugar Schnapps (barrier 2, Nadia Daniels (a2), Ben, Will & JD Hayes)",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-13T20:49:04+11:00",
+            "settled_odds": 3.2
+          }
+        },
+        {
+          "event": "Kilmore (VIC) – Race 4, C&M Build Group Handicap (BM56, 1207m)",
+          "start_time_aedt": "15:30",
+          "selection": "I Said So (barrier 6, Jason Maskiell, Wendy Kelly)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-13T20:49:09+11:00"
+          }
+        },
+        {
+          "event": "Grafton (NSW) – Race 3, CRJC AGM 25 November Handicap (BM58, 2200m)",
+          "start_time_aedt": "15:40",
+          "selection": "Woodland Wonder (barrier 5, Georgina Cartwright, David & Marcus Scanes)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-13T20:49:14+11:00"
+          }
+        },
+        {
+          "event": "Grafton (NSW) – Race 5, Team Aidan Markets @ CRJC 22 November Handicap (Class 1, 1400m)",
+          "start_time_aedt": "16:50",
+          "selection": "Doingiteasy (barrier 7, Andrew Mallyon, Matthew Dunn)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-13T20:49:18+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-12",
       "selections": [
