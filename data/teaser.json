@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-10-14T20:46:43+11:00",
+  "generated_at": "2026-10-15T09:24:08+11:00",
   "days": [
+    {
+      "date": "2026-10-15",
+      "racing_selections": 0,
+      "roughies": 1,
+      "sport_selections": 0,
+      "meetings": [
+        "Warrnambool (VIC)"
+      ],
+      "generated_at": "2026-10-15T09:45:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-14",
       "racing_selections": 3,
@@ -59,7 +70,9 @@
       "roughies": 5,
       "sport_selections": 2,
       "meetings": [
+        "Caulfield",
         "Caulfield (VIC)",
+        "Rosehill",
         "Rosehill (NSW)"
       ],
       "generated_at": "2026-10-10T13:55:28+11:00",

@@ -58,8 +58,11 @@ def validate(data, src):
     if not isinstance(date, str) or not DATE_RE.match(date):
         die(f"{src}: missing/invalid 'date' (YYYY-MM-DD)")
     sels = data.get("selections")
-    if not isinstance(sels, list) or not sels:
-        die(f"{src}: 'selections' must be a non-empty list")
+    if not isinstance(sels, list):
+        die(f"{src}: 'selections' must be a list")
+    if not sels and not (data.get("no_main_selections") and (data.get("notes") or data.get("selections_notes"))):
+        # Method v2 (14 Oct 2026): a no-main day is allowed, but it must be flagged and explained.
+        die(f"{src}: 'selections' is empty; set \"no_main_selections\": true and explain it in 'notes'")
     for i, s in enumerate(sels, 1):
         missing = [k for k in REQUIRED if not s.get(k)]
         if missing:
@@ -154,7 +157,8 @@ def write_public(manifest):
     for d in manifest["days"]:
         card = load(SITE_TIPS / f"{d['date']}.json")
         sels = card.get("selections", [])
-        meetings = sorted({re.split(r"\s+[–-]\s+|\s+R(?:ace)?\s*\d", s.get("event", ""))[0].strip() for s in sels if s.get("event")})
+        meetings = sorted({re.split(r"\s+[–-]\s+|\s+R(?:ace)?\s*\d", s.get("event", ""))[0].strip()
+                           for s in sels + (card.get("roughies") or []) if s.get("event")})
         teaser["days"].append({"date": d["date"], "racing_selections": len(sels), "roughies": len(card.get("roughies") or []),
                                "sport_selections": len(card.get("sports") or []), "meetings": meetings, "generated_at": card.get("generated_at"),
                                "results_recorded": d["results_recorded"]})
