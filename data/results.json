@@ -1,7 +1,42 @@
 {
-  "generated_at": "2026-10-14T09:22:55+11:00",
+  "generated_at": "2026-10-14T20:46:43+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
   "days": [
+    {
+      "date": "2026-10-14",
+      "selections": [
+        {
+          "event": "Caulfield (VIC) – Race 4, Tobin Brothers Celebrating Lives Handicap (BM84, 2400m)",
+          "start_time_aedt": "15:25",
+          "selection": "Leonchroi (barrier 5, Blake Shinn, M Price & M Kent Jnr)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-14T20:46:41+11:00",
+            "settled_odds": 2.6
+          }
+        },
+        {
+          "event": "Rosehill (NSW) – Race 5, Racing and Sports Handicap (BM72, 2400m)",
+          "start_time_aedt": "15:50",
+          "selection": "Grafton Street (barrier 1, Rachel King, Bjorn Baker)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-14T20:46:42+11:00",
+            "settled_odds": 2.8
+          }
+        },
+        {
+          "event": "Caulfield (VIC) – Race 5, Stow Storage Solutions Handicap (BM84, 1440m)",
+          "start_time_aedt": "16:00",
+          "selection": "Jett Smash (barrier 7, Damian Lane, D T O'Brien)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-14T20:46:43+11:00",
+            "settled_odds": 2.9
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-13",
       "selections": [
