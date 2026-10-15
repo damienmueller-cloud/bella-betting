@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-10-15T09:24:55+11:00",
+  "generated_at": "2026-10-16T09:24:48+11:00",
   "days": [
+    {
+      "date": "2026-10-16",
+      "racing_selections": 0,
+      "roughies": 1,
+      "sport_selections": 0,
+      "meetings": [
+        "Taree (NSW)"
+      ],
+      "generated_at": "2026-10-16T09:24:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-15",
       "racing_selections": 0,
