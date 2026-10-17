@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-10-17T09:29:51+11:00",
+  "generated_at": "2026-10-17T20:48:35+11:00",
   "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
   "days": [
+    {
+      "date": "2026-10-17",
+      "selections": [
+        {
+          "event": "Gold Coast (QLD) – Race 3, Bob Marshall Handicap (Open, 1800m)",
+          "start_time_aedt": "15:16",
+          "selection": "Out Of Luck (barrier 5, Benjamin Osmond, Indiana Turner)",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-17T20:48:35+11:00",
+            "settled_odds": 3.9,
+            "finish": "2nd of 7",
+            "margin": "1.3L",
+            "sp": 4.4,
+            "winner": "Awaygoesthebunny ($2.60 SP fav)",
+            "note": "Drifted $3.90 to $4.40 SP (CLV -11%). Beaten 1.3L by the favourite Awaygoesthebunny; La Rosetta 3rd. Track Soft 7. Place paper (pays 1st-2nd in 7) collected: +1.05u at the $2.05 card fixed place price (TAB place dividend $2.30). Source: Racing and Sports / Breednet / TABtouch.",
+            "place_paper": {
+              "outcome": "won",
+              "odds": 2.05,
+              "units": 1.05,
+              "tab_place_dividend": 2.3
+            },
+            "enriched_at": "2026-10-17T20:48:41+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-14",
       "selections": [
