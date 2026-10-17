@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-10-17T20:48:35+11:00",
+  "generated_at": "2026-10-18T09:21:19+11:00",
   "days": [
+    {
+      "date": "2026-10-18",
+      "racing_selections": 0,
+      "roughies": 1,
+      "sport_selections": 0,
+      "meetings": [
+        "Moe (VIC)"
+      ],
+      "generated_at": "2026-10-18T09:30:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-17",
       "racing_selections": 1,
