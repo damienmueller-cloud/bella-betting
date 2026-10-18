@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-18T09:22:26+11:00",
+  "generated_at": "2026-10-19T09:22:45+11:00",
   "days": [
+    {
+      "date": "2026-10-19",
+      "racing_selections": 0,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [],
+      "generated_at": "2026-10-19T09:40:00+11:00",
+      "results_recorded": 0
+    },
     {
       "date": "2026-10-18",
       "racing_selections": 0,
