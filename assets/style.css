@@ -214,3 +214,6 @@ table.data th{background:#1b2440;color:#fff}
 .run-summary{margin:.4rem 0 .8rem}
 .archive-day{border-top:6px solid transparent;border-image:var(--silks) 6;margin-top:2.2rem;padding-top:.6rem}
 .archive-date{margin-top:.4rem}
+.tag-tier{display:inline-block;margin-top:.25rem;padding:.05rem .4rem;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.tier-top{background:#f5cf6e;color:#1a1a1a}
+.tier-bod{border:1px solid #9fb3c8;color:#cfdbe8}

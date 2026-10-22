@@ -119,9 +119,24 @@
   }
 
 
+  /* Tiers (from 23 Oct 2026): Top Rated passes every method rule; Best of the Day is lower confidence. */
+  function tierRank(x) { return x && x.tier === "Best of the Day" ? 1 : 0; }
+  function tierTag(x) {
+    if (!x || !x.tier) return "";
+    var bod = x.tier === "Best of the Day";
+    return '<br><span class="tag-tier ' + (bod ? "tier-bod" : "tier-top") + '">' + (bod ? "Best of the Day · lower confidence" : "Top Rated") + "</span>";
+  }
+  function tierNotice(list) {
+    var nTop = list.filter(function (x) { return x.tier === "Top Rated"; }).length;
+    var nBod = list.filter(function (x) { return x.tier === "Best of the Day"; }).length;
+    if (!nBod && !nTop) return "";
+    return '<div class="notice" role="note"><p><strong>Top Rated:</strong> ' + (nTop ? nTop + " pick" + (nTop === 1 ? "" : "s") + " that pass every rule in our method." : "none today; nothing passed every rule in our method.") +
+      "</p>" + (nBod ? "<p><strong>Best of the Day:</strong> " + nBod + " lower-confidence pick" + (nBod === 1 ? "" : "s") + ". These are the best value we could find, but the edge is small and they did not pass every rule. Treat them as lower confidence; most bets lose.</p>" : "") + "</div>";
+  }
+
   function cardHtml(day, date) {
     var sels = (day.selections || []).slice().sort(function (a, b) {
-      return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
+      return tierRank(a) - tierRank(b) || (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
     });
 
     var html = "";
@@ -135,13 +150,14 @@
         return esc(k) + " – " + esc(day.track_conditions[k]);
       }).join("; ") + ".</p>";
     }
+    html += tierNotice((day.selections || []).concat(day.roughies || [], day.sports || []));
     var nTop = sels.filter(function (x) { return isTopUp(day, x); }).length;
-    html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + (nTop ? " (" + (sels.length - nTop) + " morning, " + nTop + " " + esc((day.top_up.label || "top-up").toLowerCase()) + ")" : "") + ", in race order</caption>" +
+    html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + (nTop ? " (" + (sels.length - nTop) + " morning, " + nTop + " " + esc((day.top_up.label || "top-up").toLowerCase()) + ")" : "") + ", " + (sels.some(function (x) { return x.tier; }) ? "Top Rated first, then race order" : "in race order") + "</caption>" +
       '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Status</th></tr></thead><tbody>';
     sels.forEach(function (s) {
       html += "<tr>" +
         '<td data-label="Time (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
-        '<td data-label="Race">' + esc(s.event) + (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + (isTopUp(day, s) ? '<br><span class="tag-topup">' + esc(day.top_up.label || "Top-up") + "</span>" : "") + "</td>" +
+        '<td data-label="Race">' + esc(s.event) + (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + (isTopUp(day, s) ? '<br><span class="tag-topup">' + esc(day.top_up.label || "Top-up") + "</span>" : "") + tierTag(s) + "</td>" +
         '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
         '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + "</td>" +
         '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
@@ -177,7 +193,7 @@
         h += "<tr>" +
           '<td data-label="Start (AEDT)" class="time">' + fmt12(s.start_time_aedt) + "</td>" +
           '<td data-label="Event">' + esc(s.event) + '<br><span class="muted small">' + esc([s.sport, s.competition].filter(Boolean).join(" · ")) + "</span>" +
-            (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + "</td>" +
+            (s.market ? '<br><span class="muted small">Market: ' + esc(s.market) + "</span>" : "") + tierTag(s) + "</td>" +
           '<td data-label="Selection" class="sel">' + esc(s.selection) + "</td>" +
           '<td data-label="Reasoning" class="reason">' + esc(s.reasoning) + (s.note ? '<br><span class="muted small">Note: ' + esc(s.note) + "</span>" : "") + "</td>" +
           '<td data-label="Confidence"><span class="badge">' + esc(s.confidence) + "</span></td>" +
@@ -223,7 +239,7 @@
       var who = [r.barrier != null ? "barrier " + r.barrier : "", r.jockey || ""].filter(Boolean).join(", ");
       h += "<tr>" +
         '<td data-label="Time (AEDT)" class="time">' + fmt12(r.start_time_aedt) + "</td>" +
-        '<td data-label="Race">' + esc(r.event) + "</td>" +
+        '<td data-label="Race">' + esc(r.event) + tierTag(r) + "</td>" +
         '<td data-label="Selection" class="sel">' + esc(r.horse) + (who ? '<br><span class="muted small">' + esc(who) + "</span>" : "") + "</td>" +
         '<td data-label="Reasoning" class="reason">' + esc(r.reasoning) + (r.note ? '<br><span class="muted small">Note: ' + esc(r.note) + "</span>" : "") + "</td>" +
         '<td data-label="Confidence"><span class="badge">' + esc(r.confidence) + "</span></td>" +
@@ -277,7 +293,7 @@
     var root = document.getElementById("results-root");
     Promise.resolve(pub.days || [])
       .then(function (daysData) {
-        var rows = [], staked = 0, wins = 0, pl = 0;
+        var rows = [], staked = 0, wins = 0, pl = 0, byTier = {};
         daysData.forEach(function (day) {
           if (!day) return;
           (day.selections || []).forEach(function (s) {
@@ -291,7 +307,10 @@
             else if (o === "won") { return; } // no valid odds recorded: skip rather than guess
             else { staked += 1; rowPL = -1; }
             if (rowPL !== null) pl += rowPL;
-            rows.push({ date: day.date, time: s.start_time_aedt, sel: String(s.selection).replace(/\s*\(.*\)\s*$/, ""), ev: String(s.event).replace(/\s*\(G\d.*$|\s*\((?!VIC|NSW|QLD|SA|WA|TAS|ACT|NT)[^)]*\)\s*$/, ""), outcome: o, odds: isNaN(odds) ? "" : odds.toFixed(2), pl: rowPL });
+            var tier = s.tier || "Top Rated";
+            var bt = byTier[tier] = byTier[tier] || { n: 0, w: 0, pl: 0 };
+            if (rowPL !== null) { bt.n += 1; bt.pl += rowPL; if (o === "won") bt.w += 1; }
+            rows.push({ tier: tier, date: day.date, time: s.start_time_aedt, sel: String(s.selection).replace(/\s*\(.*\)\s*$/, ""), ev: String(s.event).replace(/\s*\(G\d.*$|\s*\((?!VIC|NSW|QLD|SA|WA|TAS|ACT|NT)[^)]*\)\s*$/, ""), outcome: o, odds: isNaN(odds) ? "" : odds.toFixed(2), pl: rowPL });
           });
         });
         if (!staked) {
@@ -306,9 +325,15 @@
           '<div class="stat"><span class="muted small">Strike rate</span><b>' + sr.toFixed(1) + "%</b></div>" +
           '<div class="stat"><span class="muted small">Profit/loss (units)</span><b>' + sign(pl) + "</b></div>" +
           '<div class="stat"><span class="muted small">ROI</span><b>' + sign(roi) + "%</b></div></div>";
-        html += '<div class="table-scroll"><table class="data"><caption class="muted small" style="text-align:left;padding:.4rem 0">Recorded results (1 unit win stake each)</caption><thead><tr><th scope="col">Date</th><th scope="col">Selection</th><th scope="col">Race</th><th scope="col">Outcome</th><th scope="col">Odds</th><th scope="col">P/L (units)</th></tr></thead><tbody>';
+        html += '<div class="table-scroll"><table class="data"><caption class="muted small" style="text-align:left;padding:.4rem 0">By tier, tracked separately (cards before 23 Oct 2026 count as Top Rated)</caption><thead><tr><th scope="col">Tier</th><th scope="col">Settled</th><th scope="col">Winners</th><th scope="col">P/L (units)</th><th scope="col">ROI</th></tr></thead><tbody>';
+        ["Top Rated", "Best of the Day"].forEach(function (t) {
+          var b = byTier[t] || { n: 0, w: 0, pl: 0 };
+          html += "<tr><td>" + esc(t) + "</td><td>" + b.n + "</td><td>" + b.w + "</td><td>" + (b.n ? sign(b.pl) : "–") + "</td><td>" + (b.n ? sign(b.pl / b.n * 100) + "%" : "–") + "</td></tr>";
+        });
+        html += "</tbody></table></div>";
+        html += '<div class="table-scroll"><table class="data"><caption class="muted small" style="text-align:left;padding:.4rem 0">Recorded results (1 unit win stake each)</caption><thead><tr><th scope="col">Date</th><th scope="col">Tier</th><th scope="col">Selection</th><th scope="col">Race</th><th scope="col">Outcome</th><th scope="col">Odds</th><th scope="col">P/L (units)</th></tr></thead><tbody>';
         rows.forEach(function (r) {
-          html += "<tr><td>" + esc(r.date) + "</td><td>" + esc(r.sel) + "</td><td>" + esc(r.ev) + "</td><td>" + esc(r.outcome) +
+          html += "<tr><td>" + esc(r.date) + "</td><td>" + esc(r.tier) + "</td><td>" + esc(r.sel) + "</td><td>" + esc(r.ev) + "</td><td>" + esc(r.outcome) +
             "</td><td>" + esc(r.odds) + "</td><td>" + (r.pl === null ? "Excluded" : sign(r.pl)) + "</td></tr>";
         });
         root.innerHTML = html + "</tbody></table></div>";

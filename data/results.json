@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-22T09:17:32+11:00",
-  "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.",
+  "generated_at": "2026-10-23T09:26:26+11:00",
+  "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
     {
       "date": "2026-10-17",
@@ -9,6 +9,7 @@
           "event": "Gold Coast (QLD) – Race 3, Bob Marshall Handicap (Open, 1800m)",
           "start_time_aedt": "15:16",
           "selection": "Out Of Luck (barrier 5, Benjamin Osmond, Indiana Turner)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-17T20:48:35+11:00",
@@ -36,6 +37,7 @@
           "event": "Caulfield (VIC) – Race 4, Tobin Brothers Celebrating Lives Handicap (BM84, 2400m)",
           "start_time_aedt": "15:25",
           "selection": "Leonchroi (barrier 5, Blake Shinn, M Price & M Kent Jnr)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-14T20:46:41+11:00",
@@ -46,6 +48,7 @@
           "event": "Rosehill (NSW) – Race 5, Racing and Sports Handicap (BM72, 2400m)",
           "start_time_aedt": "15:50",
           "selection": "Grafton Street (barrier 1, Rachel King, Bjorn Baker)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-14T20:46:42+11:00",
@@ -56,6 +59,7 @@
           "event": "Caulfield (VIC) – Race 5, Stow Storage Solutions Handicap (BM84, 1440m)",
           "start_time_aedt": "16:00",
           "selection": "Jett Smash (barrier 7, Damian Lane, D T O'Brien)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-14T20:46:43+11:00",
@@ -71,6 +75,7 @@
           "event": "Kilmore (VIC) – Race 2, Adroit Countrywide Maiden Plate (3yo fillies, 1207m)",
           "start_time_aedt": "14:30",
           "selection": "Nishioka (barrier 7, Luke Currie, Robbie Griffiths)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "finish": "2nd",
@@ -86,6 +91,7 @@
           "event": "Kilmore (VIC) – Race 3, RMBL Investments Rising Stars Handicap (F&M BM56, 1207m)",
           "start_time_aedt": "15:00",
           "selection": "Sugar Schnapps (barrier 2, Nadia Daniels (a2), Ben, Will & JD Hayes)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "finish": "1st",
@@ -101,6 +107,7 @@
           "event": "Kilmore (VIC) – Race 4, C&M Build Group Handicap (BM56, 1207m)",
           "start_time_aedt": "15:30",
           "selection": "I Said So (barrier 6, Jason Maskiell, Wendy Kelly)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "finish": "2nd",
@@ -116,6 +123,7 @@
           "event": "Grafton (NSW) – Race 3, CRJC AGM 25 November Handicap (BM58, 2200m)",
           "start_time_aedt": "15:40",
           "selection": "Woodland Wonder (barrier 5, Georgina Cartwright, David & Marcus Scanes)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "finish": "4th",
@@ -131,6 +139,7 @@
           "event": "Grafton (NSW) – Race 5, Team Aidan Markets @ CRJC 22 November Handicap (Class 1, 1400m)",
           "start_time_aedt": "16:50",
           "selection": "Doingiteasy (barrier 7, Andrew Mallyon, Matthew Dunn)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "finish": "2nd",
@@ -151,6 +160,7 @@
           "event": "Tamworth (NSW) – Race 1, Barnson Tamworth Handicap (BM82, 2100m)",
           "start_time_aedt": "13:15",
           "selection": "Spenzalot (barrier 3, Mikayla Weir, Scott Singleton)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-12T20:47:53+11:00",
@@ -161,6 +171,7 @@
           "event": "Bairnsdale (VIC) – Race 2, Bet365 Same Race Multi Maiden Plate (1200m)",
           "start_time_aedt": "14:00",
           "selection": "Japanese Moka (barrier 4, Patrick Moloney, Matt Laurie)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-12T20:47:57+11:00",
@@ -171,6 +182,7 @@
           "event": "Tamworth (NSW) – Race 2, 92.9 Tamworth Maiden Plate (1400m)",
           "start_time_aedt": "13:50",
           "selection": "Usain Boss (barrier 2, Heavelon Van Der Hoven, Annabel & Rob Archibald)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-12T20:48:02+11:00"
@@ -180,6 +192,7 @@
           "event": "Tamworth (NSW) – Race 4, KCE Civil Contractors Maiden Plate (1000m)",
           "start_time_aedt": "15:05",
           "selection": "Boa Vista (barrier 7, Rory Hutchings, Brett & Georgie Cavanough)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-12T20:48:06+11:00"
@@ -194,6 +207,7 @@
           "event": "Seymour (VIC) – Race 6, Bezzy Eldo (BM62 Handicap, 1000m)",
           "start_time_aedt": "15:10",
           "selection": "Parcae (barrier 9, Michael Dee, Anthony & Sam Freedman)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-11T20:43:37+11:00",
@@ -204,6 +218,7 @@
           "event": "Seymour (VIC) – Race 8, Seymour Park (BM74 Handicap, 1100m)",
           "start_time_aedt": "16:20",
           "selection": "Educated (barrier 15, Celine Gaudray)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-11T20:43:41+11:00",
@@ -214,6 +229,7 @@
           "event": "Seymour (VIC) – Race 9, bet365 Seymour Cup (Listed, 1600m, 14 runners after scratchings)",
           "start_time_aedt": "16:55",
           "selection": "Detonator Jack (barrier 5, John Allen, Ciaron Maher)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-11T20:43:45+11:00"
@@ -223,6 +239,7 @@
           "event": "Coonamble (NSW) – Race 4, Nalder Family Country Boosted Showcase Handicap (Class 3, 1600m)",
           "start_time_aedt": "14:55",
           "selection": "Snow Dog (barrier 1, Jake Pracey-Holmes, Connie Greig)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-11T20:43:50+11:00"
@@ -232,6 +249,7 @@
           "event": "Queanbeyan (NSW) – Race 4, TAB Pump Handicap (BM74, 1600m)",
           "start_time_aedt": "15:05",
           "selection": "Miss Stalwart (barrier 5, Deon Le Roux (a2), Nick Olive)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-11T20:43:54+11:00",
@@ -242,6 +260,7 @@
           "event": "Cairns (QLD) – Race 5, Great Northern Brewing Co Handicap (Rating 0-55, 950m)",
           "start_time_aedt": "15:50",
           "selection": "Speedy Target (barrier 1, Ben Kennedy, Alex Malliff)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-11T20:43:58+11:00"
@@ -251,6 +270,7 @@
           "event": "Mindarie-Halidon (SA) – Race 7, Redden Electrical/WSB Distributors/Sandalwood Poll Merinos Benchmark 64 Handicap (1200m)",
           "start_time_aedt": "17:45",
           "selection": "Flirt (barrier 4, Jackson Murphy, Aaron Bain & Ned Taylor)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-11T20:44:01+11:00"
@@ -260,6 +280,7 @@
           "event": "Geraldton (WA) – Race 6, Great Western Insurance Brokers Ladies Day Sprint (Rating 58+, 1200m)",
           "start_time_aedt": "19:54",
           "selection": "In Situ (barrier 9, Natasha Faithfull, Bonnie Stokes)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-11T20:44:06+11:00"
@@ -274,6 +295,7 @@
           "event": "Caulfield (VIC) – Race 7, Might And Power (G1, 2000m, weight-for-age, 6 runners)",
           "start_time_aedt": "15:50",
           "selection": "Sheza Alibi (barrier 6, Luke Nolen, Peter Moody & Katherine Coleman)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-10T20:44:37+11:00"
@@ -283,6 +305,7 @@
           "event": "Caulfield (VIC) – Race 8, Caulfield Guineas (G1, 1600m, 3yo set weights, 11 runners)",
           "start_time_aedt": "16:30",
           "selection": "Warwoven (barrier 6, Rachel King, Bjorn Baker)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "won",
             "recorded_at": "2026-10-10T20:44:42+11:00",
@@ -293,6 +316,7 @@
           "event": "Rosehill (NSW) – Race 7, Hill Stakes (G2, 1900m, weight-for-age)",
           "start_time_aedt": "16:10",
           "selection": "Lindermann (barrier 8, Nash Rawiller, Chris Waller)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-10T20:44:46+11:00"
@@ -302,6 +326,7 @@
           "event": "Rosehill (NSW) – Race 8, Alan Brown Stakes (G3, 1400m, quality handicap)",
           "start_time_aedt": "16:50",
           "selection": "Headley Grange (barrier 3, Adam Hyeronimus, Joseph Pride)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-10T20:44:50+11:00"
@@ -311,6 +336,7 @@
           "event": "Caulfield (VIC) – Race 9, Toorak Handicap (G1, 1600m)",
           "start_time_aedt": "17:10",
           "selection": "Changing Colours (barrier 8, Luke Cartwright, Lucy Yeomans)",
+          "tier": "Top Rated",
           "result": {
             "outcome": "lost",
             "recorded_at": "2026-10-10T20:44:55+11:00"

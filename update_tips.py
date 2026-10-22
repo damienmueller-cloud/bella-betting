@@ -67,6 +67,13 @@ def validate(data, src):
         missing = [k for k in REQUIRED if not s.get(k)]
         if missing:
             die(f"{src}: selection {i} missing {', '.join(missing)}")
+    # Tiers (Damien, 22 Oct 2026): optional on older cards, but if present must be one of the two names.
+    for kind in ("selections", "roughies", "sports"):
+        for i, x in enumerate(data.get(kind) or [], 1):
+            if x.get("tier") not in (None, "Top Rated", "Best of the Day"):
+                die(f"{src}: {kind} {i} has unknown tier {x.get('tier')!r} (use 'Top Rated' or 'Best of the Day')")
+            if x.get("tier") == "Best of the Day" and not re.match(r"(?i)^\s*(low|medium)", str(x.get("confidence", ""))):
+                die(f"{src}: {kind} {i} is Best of the Day, so confidence must be Low or Medium")
     for i, r in enumerate(data.get("roughies") or [], 1):
         missing = [k for k in ("event", "start_time_aedt", "horse", "win_odds", "odds_source", "odds_checked_at") if r.get(k) in (None, "")]
         if missing:
@@ -161,14 +168,16 @@ def write_public(manifest):
                            for s in sels + (card.get("roughies") or []) if s.get("event")})
         teaser["days"].append({"date": d["date"], "racing_selections": len(sels), "roughies": len(card.get("roughies") or []),
                                "sport_selections": len(card.get("sports") or []), "meetings": meetings, "generated_at": card.get("generated_at"),
-                               "results_recorded": d["results_recorded"]})
-        settled = [{"event": s.get("event"), "start_time_aedt": s.get("start_time_aedt"), "selection": s.get("selection"), "result": s["result"]}
+                               "results_recorded": d["results_recorded"],
+                               "top_rated": sum(1 for s in sels + (card.get("roughies") or []) + (card.get("sports") or []) if s.get("tier") == "Top Rated"),
+                               "best_of_day": sum(1 for s in sels + (card.get("roughies") or []) + (card.get("sports") or []) if s.get("tier") == "Best of the Day")})
+        settled = [{"event": s.get("event"), "start_time_aedt": s.get("start_time_aedt"), "selection": s.get("selection"), "tier": s.get("tier") or "Top Rated", "result": s["result"]}
                    for s in sels if (s.get("result") or {}).get("outcome")]
         if settled:
             rdays.append({"date": d["date"], "selections": settled})
     teaser["days"] = teaser["days"][:30]
     save(SITE_DATA / "teaser.json", teaser)
-    save(SITE_DATA / "results.json", {"generated_at": manifest["generated_at"], "method": "All main selections, 1 unit win stake each; scratchings excluded; only settled selections are listed.", "days": rdays})
+    save(SITE_DATA / "results.json", {"generated_at": manifest["generated_at"], "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.", "days": rdays})
     print(f"public data/teaser.json + data/results.json written ({len(rdays)} day(s) with results)")
 
 
