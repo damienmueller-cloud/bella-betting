@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-10-23T09:26:26+11:00",
+  "generated_at": "2026-10-23T20:48:58+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-23",
+      "selections": [
+        {
+          "event": "Canberra (ACT) – Race 4, Carbine Club Remembering TC Handicap (Open, 1000m)",
+          "start_time_aedt": "15:06",
+          "selection": "Teylu (barrier 6, Nick Heywood, Gratz Vella)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-23T20:48:57+11:00",
+            "settled_odds": 3.8
+          }
+        },
+        {
+          "event": "Scone (NSW) – Race 3, TAB Magic Millions Gold Coast Carnival (BM82, 1600m)",
+          "start_time_aedt": "15:20",
+          "selection": "Nova Centauri (barrier 1, Reece Jones, Rodney Northam)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-23T20:48:58+11:00",
+            "settled_odds": 2.6
+          }
+        },
+        {
+          "event": "Launceston (TAS) – Race 4, Launceston Cup Packages BM68 (1220m)",
+          "start_time_aedt": "19:38",
+          "selection": "Mastretta (barrier 3, Kelvin Sanderson, Monica Ryan)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-23T20:48:58+11:00",
+            "settled_odds": 2.6
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-17",
       "selections": [
