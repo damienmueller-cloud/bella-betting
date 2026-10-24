@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-24T20:40:39+11:00",
+  "generated_at": "2026-10-25T09:18:54+11:00",
   "days": [
+    {
+      "date": "2026-10-25",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Northam (WA)",
+        "Port Macquarie (NSW)"
+      ],
+      "generated_at": "2026-10-25T09:40:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-10-24",
       "racing_selections": 3,
