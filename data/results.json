@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-10-24T09:29:42+11:00",
+  "generated_at": "2026-10-24T20:40:39+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-24",
+      "selections": [
+        {
+          "event": "Morphettville (SA) – Race 5, Peter Elberg Funerals Handicap (Rating 0–62, 1200m)",
+          "start_time_aedt": "15:12",
+          "selection": "Canny Miss (barrier 4, Connor Murtagh, Garret Lynch)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-24T20:40:37+11:00",
+            "settled_odds": 3.3
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Ladbrokes Moonee Valley Gold Cup (Open, 2500m)",
+          "start_time_aedt": "16:20",
+          "selection": "Pinhole (barrier 9, James McDonald, Chris Waller)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-24T20:40:38+11:00",
+            "settled_odds": 6.0
+          }
+        },
+        {
+          "event": "Kembla Grange (NSW) – Race 7, Benchmark 64 Handicap (1000m)",
+          "start_time_aedt": "17:16",
+          "selection": "Queen's Rhapsody (barrier 6, Louise Day, David Pfieffer)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-24T20:40:39+11:00",
+            "settled_odds": 5.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-23",
       "selections": [
