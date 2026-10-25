@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-10-26T09:27:08+11:00",
+  "generated_at": "2026-10-26T09:29:27+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-25",
+      "selections": [
+        {
+          "event": "Port Macquarie (NSW) – Race 4, MNC Solar Benchmark 58 Handicap (1500m)",
+          "start_time_aedt": "15:15",
+          "selection": "Under Twenty Two (barrier 8, Daniel Smith, Neil Godbolt)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-26T09:29:52+11:00",
+            "settled_odds": 5.5
+          }
+        },
+        {
+          "event": "Northam (WA) – Race 7, Western Racepix Handicap (Class 1, 1100m)",
+          "start_time_aedt": "19:20",
+          "selection": "London Rose (barrier 9, Natika Riordan (a2), Daniel O'Connor)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-26T09:29:53+11:00",
+            "settled_odds": 3.8
+          }
+        },
+        {
+          "event": "Northam (WA) – Race 9, Procon Developments Australia Northam Cup (Open, 1600m)",
+          "start_time_aedt": "20:25",
+          "selection": "Oly's Choice (barrier 3, Brad Parnham, D & B Pearce)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-26T09:29:54+11:00",
+            "settled_odds": 6.5
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-24",
       "selections": [
