@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-10-27T09:26:56+11:00",
+  "generated_at": "2026-10-27T20:40:12+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-27",
+      "selections": [
+        {
+          "event": "Hawkesbury (NSW) – Race 6, You Are Not Alone Midway (BM64, 1400m)",
+          "start_time_aedt": "16:20",
+          "selection": "Blow In (barrier 8, Siena Grima a1.5)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-27T20:40:12+11:00",
+            "settled_odds": 7.5
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-26",
       "selections": [
