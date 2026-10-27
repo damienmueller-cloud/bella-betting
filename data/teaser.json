@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-10-27T20:40:12+11:00",
+  "generated_at": "2026-10-28T09:23:52+11:00",
   "days": [
+    {
+      "date": "2026-10-28",
+      "racing_selections": 1,
+      "roughies": 0,
+      "sport_selections": 2,
+      "meetings": [
+        "Belmont Park (WA)"
+      ],
+      "generated_at": "2026-10-28T09:30:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-10-27",
       "racing_selections": 1,
