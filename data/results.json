@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-10-28T09:23:52+11:00",
+  "generated_at": "2026-10-28T20:46:02+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-28",
+      "selections": [
+        {
+          "event": "Belmont Park (WA) – Race 6, Glenroy Chaff Handicap (Class 3, 1400m)",
+          "start_time_aedt": "19:35",
+          "selection": "Seven Candles (barrier 6, Troy Turner)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-28T20:46:02+11:00",
+            "settled_odds": 6.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-27",
       "selections": [
