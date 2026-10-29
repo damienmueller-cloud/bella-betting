@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-28T20:46:02+11:00",
+  "generated_at": "2026-10-30T09:17:18+11:00",
   "days": [
+    {
+      "date": "2026-10-30",
+      "racing_selections": 2,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Kilmore (VIC)",
+        "Launceston (TAS)"
+      ],
+      "generated_at": "2026-10-30T09:20:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 2
+    },
     {
       "date": "2026-10-28",
       "racing_selections": 1,
