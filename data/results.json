@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-10-30T09:17:18+11:00",
+  "generated_at": "2026-10-30T20:45:29+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-30",
+      "selections": [
+        {
+          "event": "Kilmore (VIC) – Race 8, Stephen King Memorial (BM56, 1612m)",
+          "start_time_aedt": "17:30",
+          "selection": "Mahmudah (barrier 9, Brittany Button)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-30T20:45:24+11:00",
+            "settled_odds": 5.0
+          }
+        },
+        {
+          "event": "Launceston (TAS) – Race 3, Trevor Jones Maiden Plate (1100m)",
+          "start_time_aedt": "18:30",
+          "selection": "Jaggers Edge (barrier 7, Troy Baker)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-10-30T20:45:29+11:00",
+            "settled_odds": 3.3
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-28",
       "selections": [
