@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-30T20:45:29+11:00",
+  "generated_at": "2026-10-31T09:18:27+11:00",
   "days": [
+    {
+      "date": "2026-10-31",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Doomben (QLD)",
+        "Morphettville (SA)"
+      ],
+      "generated_at": "2026-10-31T09:25:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-10-30",
       "racing_selections": 2,
