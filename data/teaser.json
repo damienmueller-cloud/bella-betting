@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-31T20:49:58+11:00",
+  "generated_at": "2026-11-01T09:18:46+11:00",
   "days": [
+    {
+      "date": "2026-11-01",
+      "racing_selections": 2,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Mornington (VIC)",
+        "Naracoorte (SA)"
+      ],
+      "generated_at": "2026-11-01T09:30:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 2
+    },
     {
       "date": "2026-10-31",
       "racing_selections": 3,
