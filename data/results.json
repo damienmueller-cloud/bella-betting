@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-10-31T09:18:27+11:00",
+  "generated_at": "2026-10-31T20:49:58+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-10-31",
+      "selections": [
+        {
+          "event": "Doomben (QLD) – Race 4, Civilpipes Handicap (Rating 65, 1200m)",
+          "start_time_aedt": "14:52",
+          "selection": "Cardonette (barrier 4 after scratchings, Ben Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-31T20:49:48+11:00",
+            "settled_odds": 2.1
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 7, Century Pools (BM70, 1615m)",
+          "start_time_aedt": "16:52",
+          "selection": "Toro Strike (barrier 11 after scratchings, Ben Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-31T20:49:53+11:00",
+            "settled_odds": 3.4
+          }
+        },
+        {
+          "event": "Morphettville (SA) – Race 9, Peter Elberg Funerals (BM70, 1200m)",
+          "start_time_aedt": "17:59",
+          "selection": "Golden Cloud (barrier 12 after scratchings, Jake Toeroek)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-10-31T20:49:58+11:00",
+            "settled_odds": 4.2
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-30",
       "selections": [
