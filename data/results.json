@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-11-01T09:18:46+11:00",
+  "generated_at": "2026-11-01T20:42:50+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-01",
+      "selections": [
+        {
+          "event": "Mornington (VIC) – Race 9, Progress Signs (BM66, 1200m)",
+          "start_time_aedt": "17:32",
+          "selection": "Kokako (barrier 7 after scratchings, Jamie Melham)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-01T20:42:46+11:00",
+            "settled_odds": 2.7
+          }
+        },
+        {
+          "event": "Naracoorte (SA) – Race 2, Sportsbet Get On Extra Maiden Plate (1430m)",
+          "start_time_aedt": "15:05",
+          "selection": "Shujinko (barrier 4 after scratchings, Jacob Opperman)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-01T20:42:50+11:00",
+            "settled_odds": 3.3
+          }
+        }
+      ]
+    },
     {
       "date": "2026-10-31",
       "selections": [
