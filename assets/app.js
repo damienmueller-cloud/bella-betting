@@ -159,7 +159,7 @@
   function raceLabel(x) {
     var meet = x.meeting || String(x.event || "").split(/ \(| –/)[0];
     var m = /Race (\d+)/i.exec(x.event || "");
-    return meet + (m ? " R" + m[1] : "");
+    return '<b class="s-track">' + esc(meet.toUpperCase()) + "</b>" + (m ? ' <b class="s-race">Race ' + m[1] + "</b>" : "");
   }
   function simpleRank(it) {
     var x = it.x;
@@ -178,12 +178,13 @@
     items.forEach(function (it, i) {
       var x = it.x, bw = betWord(x, it.kind);
       if (bw === "EACH-WAY") ew = true; if (bw === "PLACE") pl = true;
-      var where = it.kind === "sport" ? esc(x.event) : esc(raceLabel(x));
+      var where = it.kind === "sport" ? '<b class="s-track">' + esc(x.event) + "</b>" : raceLabel(x);
       var name = it.kind === "roughie" ? x.horse : (x.horse || String(x.selection || "").replace(/ \(.*$/, ""));
+      var no = x.saddlecloth != null ? x.saddlecloth : x.tab_no;
       var st = itemStatus(x, date);
       var conf = simpleConf(x, it.kind);
       h += '<li class="simple-item' + (i === 0 ? " simple-best" : "") + '">' + (i === 0 ? '<span class="simple-tag">Best pick</span>' : "") +
-        '<span class="simple-line">' + where + ", " + fmt12(x.start_time_aedt) + " – " + esc(name) + " – " + bw + "</span>" +
+        '<span class="simple-line">' + where + ' <span class="s-time">· ' + fmt12(x.start_time_aedt) + '</span> <span class="s-dash">—</span> <b class="s-horse">' + (no != null && no !== "" ? "#" + esc(no) + " " : "") + esc(String(name).toUpperCase()) + '</b> <span class="s-dash">—</span> <b class="s-bet">' + bw + "</b></span>" +
         '<span class="simple-sub">' + esc(conf) + (x.tier === "Best of the Day" ? " (lower confidence)" : "") + (it.kind === "roughie" ? " (higher risk)" : "") +
         (st.key !== "upcoming" ? " · " + st.label : "") + "</span></li>";
     });
