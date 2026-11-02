@@ -112,7 +112,7 @@
         (date !== today && !wanted ? " <strong>No tips have been published for today yet; this is the most recent card.</strong>" : "") +
         (date < today ? " <strong>These races have already been run.</strong>" : "");
 
-      var html = cardHtml(day, date);
+      var html = simpleHtml(day, date) + '<details class="more-detail"><summary>More detail (horse numbers, jockeys, prices, reasons)</summary>' + cardHtml(day, date) + "</details>";
       if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
       root.innerHTML = html;
     });
@@ -132,6 +132,65 @@
     if (!nBod && !nTop) return "";
     return '<div class="notice" role="note"><p><strong>Top Rated:</strong> ' + (nTop ? nTop + " pick" + (nTop === 1 ? "" : "s") + " that pass every rule in our method." : "none today; nothing passed every rule in our method.") +
       "</p>" + (nBod ? "<p><strong>Best of the Day:</strong> " + nBod + " lower-confidence pick" + (nBod === 1 ? "" : "s") + ". These are the best value we could find, but the edge is small and they did not pass every rule. Treat them as lower confidence; most bets lose.</p>" : "") + "</div>";
+  }
+
+
+  /* ---------- Simple view (3 Nov 2026): one plain line per bet, best pick first. Spec: ../FORMAT.md ---------- */
+  function confNum(x) {
+    var m = /\((\d)\s*\/\s*5\)/.exec(x.confidence || "");
+    if (m) return +m[1];
+    var c = String(x.confidence || "").toLowerCase();
+    return /high/.test(c) ? 4 : /medium/.test(c) ? 3 : /low/.test(c) ? 1 : 2;
+  }
+  function simpleConf(x, kind) {
+    if (x.simple_confidence) return x.simple_confidence;
+    if (kind === "roughie") return "Long shot";
+    var n = confNum(x), w = n >= 4 ? "Strong" : n >= 2 ? "Fair" : "Long shot";
+    if (x.tier === "Best of the Day" && w === "Strong") w = "Fair";
+    return w;
+  }
+  function betWord(x, kind) {
+    var b = String(x.bet_type || x.market || (kind === "roughie" ? "win" : "")).toLowerCase();
+    if (/each/.test(b)) return "EACH-WAY";
+    if (/place/.test(b)) return "PLACE";
+    if (/win/.test(b) || kind !== "sport") return "WIN";
+    return esc(x.market || "").toUpperCase();
+  }
+  function raceLabel(x) {
+    var meet = x.meeting || String(x.event || "").split(/ \(| –/)[0];
+    var m = /Race (\d+)/i.exec(x.event || "");
+    return meet + (m ? " R" + m[1] : "");
+  }
+  function simpleRank(it) {
+    var x = it.x;
+    return (it.kind === "roughie" ? 20 : 0) + (x.tier === "Best of the Day" ? 10 : 0) + (5 - confNum(x));
+  }
+  function simpleHtml(day, date) {
+    var items = [];
+    (day.selections || []).forEach(function (x) { items.push({ x: x, kind: "race" }); });
+    (day.sports || []).forEach(function (x) { items.push({ x: x, kind: "sport" }); });
+    (day.roughies || []).forEach(function (x) { items.push({ x: x, kind: "roughie" }); });
+    if (!items.length) return '<section class="simple"><h2>Today’s bets</h2><p class="simple-none">No bets from us today. That’s OK – sometimes nothing is good enough.</p></section>';
+    items.sort(function (a, b) {
+      return simpleRank(a) - simpleRank(b) || (parseFloat(b.x.edge_pct) || 0) - (parseFloat(a.x.edge_pct) || 0) || (a.x.start_time_aedt || "").localeCompare(b.x.start_time_aedt || "");
+    });
+    var ew = false, pl = false, h = '<section class="simple" aria-labelledby="simple-h"><h2 id="simple-h">Today’s bets</h2><p class="simple-intro">Best pick first. Times are Sydney time.</p><ol class="simple-list">';
+    items.forEach(function (it, i) {
+      var x = it.x, bw = betWord(x, it.kind);
+      if (bw === "EACH-WAY") ew = true; if (bw === "PLACE") pl = true;
+      var where = it.kind === "sport" ? esc(x.event) : esc(raceLabel(x));
+      var name = it.kind === "roughie" ? x.horse : (x.horse || String(x.selection || "").replace(/ \(.*$/, ""));
+      var st = itemStatus(x, date);
+      var conf = simpleConf(x, it.kind);
+      h += '<li class="simple-item' + (i === 0 ? " simple-best" : "") + '">' + (i === 0 ? '<span class="simple-tag">Best pick</span>' : "") +
+        '<span class="simple-line">' + where + ", " + fmt12(x.start_time_aedt) + " – " + esc(name) + " – " + bw + "</span>" +
+        '<span class="simple-sub">' + esc(conf) + (x.tier === "Best of the Day" ? " (lower confidence)" : "") + (it.kind === "roughie" ? " (higher risk)" : "") +
+        (st.key !== "upcoming" ? " · " + st.label : "") + "</span></li>";
+    });
+    h += "</ol>";
+    h += '<p class="simple-key"><strong>Win</strong> = your pick must come first.' + (pl || ew ? " <strong>Place</strong> = your horse must finish in the top 3 (top 2 in small fields)." : "") + (ew ? " <strong>Each-way</strong> = a win bet and a place bet together (two bets)." : "") + "</p>";
+    h += '<p class="simple-key"><strong>Strong</strong>, <strong>Fair</strong> and <strong>Long shot</strong> are our opinion only. Most bets lose. Prices change, so check before you bet.</p></section>';
+    return h;
   }
 
   function cardHtml(day, date) {
