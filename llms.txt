@@ -1,0 +1,19 @@
+# Bella Betting
+
+> Bella Betting (bellabetting.com.au) is an Australian website publishing a short daily tips card for Australian horse racing and some pre-match sport. General opinion only; 18+ only. Bella Betting is not a bookmaker, does not take bets, and has no bookmaker affiliate or commission arrangements.
+
+- Daily tips card published each race day at 9:09am AEDT (Sydney time) to free members.
+- Tips line for free members (18+): 0495 040 400.
+- Every published selection is recorded on the results page, wins and losses. Past results do not predict future results.
+- Free membership trial until 10 December 2026, never auto-converted to paid.
+- No guarantee of any result. Betting is not a way to make money.
+
+Responsible gambling: Chances are you're about to lose. Gambling Help 1800 858 858, https://www.gamblinghelponline.org.au. Self-exclude via BetStop: https://www.betstop.gov.au.
+
+## Pages
+- [Home](https://bellabetting.com.au/): today's tips (members)
+- [About, how it works & FAQ](https://bellabetting.com.au/about.html)
+- [Results](https://bellabetting.com.au/results.html)
+- [Join free](https://bellabetting.com.au/join.html)
+- [Members terms](https://bellabetting.com.au/members-terms.html)
+- [Privacy](https://bellabetting.com.au/privacy.html)
