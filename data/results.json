@@ -1,7 +1,33 @@
 {
-  "generated_at": "2026-11-02T09:31:44+11:00",
+  "generated_at": "2026-11-02T20:45:31+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-02",
+      "selections": [
+        {
+          "event": "Ballina (NSW) – Race 1, Ballina Fair Country Boosted (BM58, 1000m)",
+          "start_time_aedt": "14:25",
+          "selection": "Amaya's Secret (barrier 1, Siabh Rigley)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-02T20:45:27+11:00",
+            "settled_odds": 3.0
+          }
+        },
+        {
+          "event": "Corowa (NSW) – Race 6, Balldale Hotel (BM58, 1600m)",
+          "start_time_aedt": "16:35",
+          "selection": "Belnera (barrier 6, Carly Frater)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "scratched",
+            "recorded_at": "2026-11-02T20:45:31+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-01",
       "selections": [
