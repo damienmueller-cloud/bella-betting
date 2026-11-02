@@ -229,7 +229,7 @@ table.data th{background:#1b2440;color:#fff}
 .simple-best{border:3px solid var(--brand)}
 .simple-tag{display:inline-block;background:var(--brand);color:#fff;border-radius:999px;padding:.05rem .6rem;font-size:.95rem;font-weight:700;margin-bottom:.3rem}
 .simple-line{display:block;font-size:1.35rem;font-weight:500;line-height:1.4;overflow-wrap:anywhere}
-.simple-line b{font-weight:800}.s-track,.s-horse{font-size:1.5rem;letter-spacing:.02em}.s-horse{color:var(--brand);display:inline}.s-bet{background:var(--brand);color:#fff;border-radius:6px;padding:0 .4rem}.s-time{white-space:nowrap}
+.simple-line b{font-weight:800}.s-track,.s-horse{font-size:1.5rem;letter-spacing:.02em}.s-horse{color:inherit;display:block;font-size:1.65rem;margin:.15rem 0}.s-bet{background:var(--brand);color:#fff;border-radius:6px;padding:0 .4rem}.s-time{white-space:nowrap}
 @media (max-width:480px){.simple-line{font-size:1.2rem}.s-track,.s-horse{font-size:1.35rem}}
 .simple-sub{display:block;font-size:1.1rem;color:var(--muted);margin-top:.2rem}
 .simple-key,.simple-none{font-size:1.1rem}

@@ -184,7 +184,7 @@
       var st = itemStatus(x, date);
       var conf = simpleConf(x, it.kind);
       h += '<li class="simple-item' + (i === 0 ? " simple-best" : "") + '">' + (i === 0 ? '<span class="simple-tag">Best pick</span>' : "") +
-        '<span class="simple-line">' + where + ' <span class="s-time">· ' + fmt12(x.start_time_aedt) + '</span> <span class="s-dash">—</span> <b class="s-horse">' + (no != null && no !== "" ? "#" + esc(no) + " " : "") + esc(String(name).toUpperCase()) + '</b> <span class="s-dash">—</span> <b class="s-bet">' + bw + "</b></span>" +
+        '<span class="simple-line">' + where + ' <span class="s-time">· ' + fmt12(x.start_time_aedt) + '</span> <span class="s-dash">—</span><b class="s-horse">' + (no != null && no !== "" ? "#" + esc(no) + " " : "") + esc(String(name).toUpperCase()) + '</b> <span class="s-dash">—</span> <b class="s-bet">' + bw + "</b></span>" +
         '<span class="simple-sub">' + esc(conf) + (x.tier === "Best of the Day" ? " (lower confidence)" : "") + (it.kind === "roughie" ? " (higher risk)" : "") +
         (st.key !== "upcoming" ? " · " + st.label : "") + "</span></li>";
     });
