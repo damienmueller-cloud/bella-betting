@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-03T20:49:14+11:00",
+  "generated_at": "2026-11-04T09:23:32+11:00",
   "days": [
+    {
+      "date": "2026-11-04",
+      "racing_selections": 10,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Coffs Harbour (NSW)",
+        "Kyneton (VIC)",
+        "Port Lincoln (SA)"
+      ],
+      "generated_at": "2026-11-04T09:05:00+11:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 10
+    },
     {
       "date": "2026-11-03",
       "racing_selections": 15,
