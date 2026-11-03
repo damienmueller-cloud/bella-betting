@@ -115,6 +115,7 @@
       var html = simpleHtml(day, date) + '<details class="more-detail"><summary>More detail (horse numbers, jockeys, prices, reasons)</summary>' + cardHtml(day, date) + "</details>";
       if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
       root.innerHTML = html;
+      if (token()) bindBacked(date);
     });
   }
 
@@ -167,6 +168,27 @@
     var x = it.x;
     return (it.kind === "roughie" ? 20 : 0) + (x.tier === "Best of the Day" ? 10 : 0) + (5 - confNum(x));
   }
+  function tipId(it) {
+    var x = it.x;
+    return (it.kind + "-" + (x.event || x.track || "") + "-" + (x.race_no || x.race || "") + "-" + (x.horse || x.selection || "")).toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 80);
+  }
+  function bindBacked(date) {
+    var boxes = document.querySelectorAll(".backed input");
+    if (!boxes.length) return;
+    var msg = document.getElementById("backed-msg");
+    member({ action: "backed_get", token: token(), date: date }).then(function (j) {
+      if (!j.ok) return;
+      boxes.forEach(function (b) { b.checked = (j.tids || []).indexOf(b.getAttribute("data-tid")) !== -1; });
+    }).catch(function () {});
+    boxes.forEach(function (b) {
+      b.addEventListener("change", function () {
+        member({ action: "backed_set", token: token(), date: date, tid: b.getAttribute("data-tid"), label: b.getAttribute("data-label"), on: b.checked ? "1" : "0" }).then(function (j) {
+          if (msg) msg.textContent = j.ok ? "Saved, thanks." : "Sorry, that didn\u2019t save. Please try again later.";
+          if (!j.ok) b.checked = !b.checked;
+        }).catch(function () { b.checked = !b.checked; if (msg) msg.textContent = "Sorry, that didn\u2019t save. Please try again later."; });
+      });
+    });
+  }
   function simpleHtml(day, date) {
     var items = [];
     (day.selections || []).forEach(function (x) { items.push({ x: x, kind: "race" }); });
@@ -188,9 +210,11 @@
       h += '<li class="simple-item' + (i === 0 ? " simple-best" : "") + '">' + (i === 0 ? '<span class="simple-tag">Best pick</span>' : "") +
         '<span class="simple-line">' + where + ' <span class="s-time">· ' + fmt12(x.start_time_aedt) + '</span> <span class="s-dash">—</span><b class="s-horse">' + (no != null && no !== "" ? "#" + esc(no) + " " : "") + esc(String(name).toUpperCase()) + '</b> <span class="s-dash">—</span> <b class="s-bet">' + bw + "</b></span>" +
         '<span class="simple-sub">' + esc(conf) + (x.tier === "Best of the Day" ? " (lower confidence)" : "") + (it.kind === "roughie" ? " (higher risk)" : "") +
-        (st.key !== "upcoming" ? " · " + st.label : "") + "</span></li>";
+        (st.key !== "upcoming" ? " · " + st.label : "") + "</span>" +
+        (token() ? '<label class="backed"><input type="checkbox" data-tid="' + esc(tipId(it)) + '" data-label="' + esc(it.kind + ": " + String(x.event || (x.track ? x.track + " R" + (x.race_no || x.race || "") : "")) + " " + name) + '"> I backed this</label>' : "") + "</li>";
     });
     h += "</ol>";
+    if (token()) h += '<p class="small muted backed-note">Optional: tick the tips you backed so we can see which ones members follow. Only Bella Betting sees this. <span id="backed-msg" role="status" aria-live="polite"></span></p>';
     h += '<p class="simple-key"><strong>Win</strong> = your pick must come first.' + (pl || ew ? " <strong>Place</strong> = your horse must finish in the top 3 (top 2 in small fields)." : "") + (ew ? " <strong>Each-way</strong> = a win bet and a place bet together (two bets)." : "") + "</p>";
     h += '<p class="simple-key"><strong>Strong</strong>, <strong>Fair</strong> and <strong>Long shot</strong> are our opinion only. Most bets lose. Prices change, so check before you bet.</p></section>';
     return h;

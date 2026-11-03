@@ -245,3 +245,7 @@ details.more-detail>summary{cursor:pointer;font-size:1.15rem;font-weight:600;pad
 .simple-best{border:2px solid var(--gold)}
 .simple-tag{background:var(--gold);color:#0b1020}
 .s-bet{background:var(--gold);color:#0b1020}
+
+/* "I backed this" tick (optional, members only) */
+.backed{display:inline-flex;align-items:center;gap:.4rem;margin-top:.45rem;font-size:.95rem;color:var(--muted);cursor:pointer}
+.backed input{width:1.2rem;height:1.2rem;accent-color:var(--gold)}
