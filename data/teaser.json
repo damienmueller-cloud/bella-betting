@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-03T10:59:47+11:00",
+  "generated_at": "2026-11-03T11:12:50+11:00",
   "days": [
     {
       "date": "2026-11-03",
-      "racing_selections": 10,
+      "racing_selections": 13,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
@@ -14,7 +14,7 @@
       "generated_at": "2026-11-03T09:25:00+11:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 10
+      "best_of_day": 13
     },
     {
       "date": "2026-11-02",
