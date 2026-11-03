@@ -501,10 +501,17 @@
       '<div id="login-code-row" hidden><label for="login-code">6-digit code we texted you</label><input id="login-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10"></div>' +
       '<p><button class="btn" type="submit" id="login-btn">Text me a code</button></p>' +
       '<p id="login-msg" class="small" role="status" aria-live="polite"></p></form>' +
-      '<p class="small muted">We text a one-time code to your member mobile. You stay logged in on this device for 30 days.</p>') + '</section>';
+      '<p class="small muted">We text a one-time code to your member mobile. You stay logged in on this device for 30 days. <a href="#" id="use-email">Log in with your email instead</a>.</p>') + '</section>';
     root.innerHTML = h;
     if (meta) meta.textContent = t ? fmtDate(t.date) + ". Log in to see the selections." : "";
     if (EMAIL_LOGIN) return bindEmailLogin();
+    function toEmail(note) {
+      var sec = root.querySelector(".gate"), f = document.getElementById("login-form");
+      var wrap = document.createElement("div"); wrap.innerHTML = emailLoginForm();
+      f.nextElementSibling && f.nextElementSibling.remove(); f.replaceWith.apply(f, Array.prototype.slice.call(wrap.childNodes));
+      bindEmailLogin(); if (note) document.getElementById("login-msg").textContent = note;
+    }
+    document.getElementById("use-email").addEventListener("click", function (e) { e.preventDefault(); toEmail(""); });
     var form = document.getElementById("login-form"), msg = document.getElementById("login-msg"), btn = document.getElementById("login-btn");
     var stage = "start";
     form.addEventListener("submit", function (e) {
@@ -519,10 +526,11 @@
           if (j.ok && j.sent) { stage = "check"; document.getElementById("login-code-row").hidden = false; btn.textContent = "Log in"; msg.textContent = "Code sent. Enter it above."; form.code.focus(); }
           else if (j.not_member) msg.innerHTML = 'We couldn’t find a membership for that number. <a href="join.html">Join free</a>.';
           else if (j.error === "rate_limited") msg.textContent = "Too many codes requested. Please try again later.";
+          else if (j.error === "sms_unavailable" || j.error === "sms_login_disabled") toEmail("We couldn\u2019t send a text just now, so please log in with your mobile and the email you joined with.");
           else msg.textContent = "Please check the mobile number (Australian mobile, e.g. 0412 345 678).";
         } else {
           if (j.ok && j.token) { setToken(j.token); location.reload(); }
-          else msg.textContent = "That code didn’t work. Check it and try again.";
+          else msg.textContent = "That code didn’t work or has expired (codes last 10 minutes). Check it, or tap Log in with your email instead.";
         }
       }).catch(function () { btn.disabled = false; msg.textContent = "Sorry, something went wrong. Please try again."; });
     });

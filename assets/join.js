@@ -50,6 +50,7 @@
             document.getElementById("join-done-text").innerHTML = "You're in" + (res.j.first_name ? ", " + res.j.first_name.replace(/[<>&"]/g, "") : "") +
               ". Your free membership is active and you're logged in on this device for 30 days. <a href=\"index.html\">See today's tips</a>." +
               " On another device, log in with your mobile and this email.";
+            if (res.j.verify) { document.getElementById("verify-mobile").textContent = res.j.mobile_masked; vform.hidden = false; }
             window.scrollTo(0, 0); return;
           }
           if (res.j.verify) { document.getElementById("verify-mobile").textContent = res.j.mobile_masked; vform.hidden = false; }
@@ -77,7 +78,7 @@
     var body = new URLSearchParams({ mobile: lastMobile, code: vform.elements.code.value.trim() });
     fetch(cfg.verifyEndpoint, { method: "POST", body: body }).then(function (r) { return r.json(); }).then(function (j) {
       if (j.ok) { vform.hidden = true; done.hidden = false; document.getElementById("join-done-text").textContent = "Your mobile is confirmed and your free membership is active."; }
-      else show(verr, j.error === "wrong_code" ? "That code didn't match. Please check the text message and try again." : "Sorry, we couldn't confirm the code. Please try again later.");
+      else show(verr, j.error === "wrong_code" ? "That code didn't match or has expired. Please check the text message and try again. You're already a member either way." : "Sorry, we couldn't confirm the code just now. No problem, you're already a member.");
     }).catch(function () { show(verr, "Sorry, we couldn't reach the members service."); });
   });
 })();
