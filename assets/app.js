@@ -151,6 +151,8 @@
   }
   function betWord(x, kind) {
     var b = String(x.bet_type || x.market || (kind === "roughie" ? "win" : "")).toLowerCase();
+    if (/trifecta/.test(b)) return "TRIFECTA BOX";
+    if (/multi/.test(b)) return "MULTI";
     if (/each/.test(b)) return "EACH-WAY";
     if (/place/.test(b)) return "PLACE";
     if (/win/.test(b) || kind !== "sport") return "WIN";
