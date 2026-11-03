@@ -432,10 +432,10 @@
   var TOKEN_KEY = "bb_member_session";
   function token() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
   function setToken(t) { try { t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); } catch (e) {} }
-  function member(params) {
+  function member(params, endpoint) {
     var body = new URLSearchParams(params);
     if (CFG.testToken) body.set("test", CFG.testToken);
-    return fetch(CFG.memberEndpoint, { method: "POST", body: body }).then(function (r) {
+    return fetch(endpoint || CFG.memberEndpoint, { method: "POST", body: body }).then(function (r) {
       return r.json().then(function (j) { j._status = r.status; return j; });
     });
   }
@@ -476,7 +476,10 @@
     if (!el) return;
     el.hidden = false;
     document.body.classList.add("is-member");
-    el.innerHTML = "Logged in as a member" + (name ? ", " + esc(name) : "") + '. <a href="#" id="logout">Log out</a>';
+    el.innerHTML = "Logged in as a member" + (name ? ", " + esc(name) : "") + '. <a href="#" id="logout">Log out</a><span id="admin-link"></span>';
+    if (CFG.adminEndpoint) member({ token: token(), check: "1" }, CFG.adminEndpoint).then(function (j) {
+      if (j && j.ok) document.getElementById("admin-link").innerHTML = ' · <a href="admin/">Members dashboard</a>';
+    }).catch(function () {});
     document.getElementById("logout").addEventListener("click", function (e) { e.preventDefault(); setToken(""); location.reload(); });
   }
   function renderGate(rootId, teaser) {
