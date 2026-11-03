@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-04T09:23:32+11:00",
+  "generated_at": "2026-11-04T09:32:30+11:00",
   "days": [
     {
       "date": "2026-11-04",
-      "racing_selections": 10,
+      "racing_selections": 9,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
@@ -11,10 +11,10 @@
         "Kyneton (VIC)",
         "Port Lincoln (SA)"
       ],
-      "generated_at": "2026-11-04T09:05:00+11:00",
+      "generated_at": "2026-11-04T08:32+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 10
+      "best_of_day": 9
     },
     {
       "date": "2026-11-03",
