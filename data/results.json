@@ -1,7 +1,167 @@
 {
-  "generated_at": "2026-11-03T11:13:53+11:00",
+  "generated_at": "2026-11-03T20:49:14+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-03",
+      "selections": [
+        {
+          "event": "Randwick (NSW) – Race 4, Toyota Forklifts Handicap (BM88, 1500m)",
+          "start_time_aedt": "13:40",
+          "selection": "Man Of Worth (barrier 2, Kerrin McEvoy)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-03T20:47:30+11:00",
+            "settled_odds": 2.35
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 10, Channel 9 Trophy (BM90, 1400m)",
+          "start_time_aedt": "17:15",
+          "selection": "Buccleuch (barrier 4, Billy Egan)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:47:35+11:00"
+          }
+        },
+        {
+          "event": "Ascot (WA) – Race 2, Mc Equine Surfaces Handicap (Class 1, 1000m)",
+          "start_time_aedt": "15:34",
+          "selection": "Flying Swagman (barrier 6, Paul Harvey)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:47:39+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Lexus Melbourne Cup (G1 Handicap, 3200m)",
+          "start_time_aedt": "15:00",
+          "selection": "Hopewell Rock (barrier 15, Zac Lloyd)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:47:44+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 3, TAB One Pool Trophy (Listed, 1800m)",
+          "start_time_aedt": "12:00",
+          "selection": "Star Of Macedon",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:47:50+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 4, The Schweppervescence Plate (1000m)",
+          "start_time_aedt": "12:40",
+          "selection": "Gin Twist",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:47:56+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 5, Australian Heritage Cup (2800m)",
+          "start_time_aedt": "13:20",
+          "selection": "Jennivamoose",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:48:01+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 6, Asahi Super Dry Plate (Listed, 1800m)",
+          "start_time_aedt": "13:55",
+          "selection": "Sabaj",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-03T20:48:06+11:00",
+            "settled_odds": 2.4
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 8, Crown Amanda Elliott (Listed, 1400m)",
+          "start_time_aedt": "15:50",
+          "selection": "Ranarsson",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-03T20:48:11+11:00",
+            "settled_odds": 2.05
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 9, The Hong Kong Jockey Club Stakes (G3, 1400m)",
+          "start_time_aedt": "16:35",
+          "selection": "Shadhavar",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-03T20:48:15+11:00",
+            "settled_odds": 3.2
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Lexus Melbourne Cup (G1 Handicap, 3200m)",
+          "start_time_aedt": "15:00",
+          "selection": "Mr Monaco",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:48:20+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Lexus Melbourne Cup (G1 Handicap, 3200m)",
+          "start_time_aedt": "15:00",
+          "selection": "Zakouma",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:48:25+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Lexus Melbourne Cup (G1 Handicap, 3200m)",
+          "start_time_aedt": "15:00",
+          "selection": "Goodie Two Shoes",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:49:03+11:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Lexus Melbourne Cup (G1 Handicap, 3200m)",
+          "start_time_aedt": "15:00",
+          "selection": "Trifecta box #12 Hopewell Rock, #22 Mr Monaco, #23 Zakouma, #10 Goodie Two Shoes",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-03T20:49:09+11:00"
+          }
+        },
+        {
+          "event": "3-leg multi (Randwick 4, Flemington 6 and Flemington 8)",
+          "start_time_aedt": "13:40",
+          "selection": "Multi: #6 Man Of Worth (Randwick R4) + #4 Sabaj (Flemington R6) + #5 Ranarsson (Flemington R8)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-03T20:49:14+11:00",
+            "settled_odds": 11.56
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-02",
       "selections": [
