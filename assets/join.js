@@ -56,7 +56,7 @@
           else {
             done.hidden = false;
             var txt = document.getElementById("join-done-text");
-            if (res.j.verify_deferred) txt.textContent = "Your free membership is saved. We couldn't send a confirmation code right now, so we'll confirm your number later (or you can confirm it next time you call the tips line).";
+            if (res.j.verify_deferred) txt.textContent = "You're in. Your free membership is saved. Log in on the Today's tips page with your mobile and this email.";
             else if (res.j.status === "updated") txt.textContent = "You were already on the list, so we've updated your details.";
           }
           window.scrollTo(0, 0);
@@ -65,10 +65,10 @@
         } else if (res.j.error === "number_already_registered") {
           show(err, "That mobile is already linked to a membership. To change details, email hello@bellabetting.com.au.");
         } else {
-          show(err, "Sorry, something went wrong. Please try again later.");
+          show(err, res.j.error === "rate_limited" ? "Lots of sign-ups from this connection just now. Please try again in an hour, or call 0495 040 400 and Bella can sign you up." : "Sorry, we couldn\u2019t finish your sign-up just now. Please try again in a few minutes, or call 0495 040 400 and Bella can sign you up.");
         }
       })
-      .catch(function () { btn.disabled = false; btn.textContent = "Join free"; show(err, "Sorry, we couldn't reach the members service. Please try again later."); });
+      .catch(function () { btn.disabled = false; btn.textContent = "Join free"; show(err, "Sorry, we couldn\u2019t connect just now. Check your internet and try again, or call 0495 040 400 and Bella can sign you up."); });
   });
 
   if (vform) vform.addEventListener("submit", function (e) {

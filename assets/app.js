@@ -442,9 +442,9 @@
       member({ action: "login_email", mobile: form.mobile.value, email: form.email.value, website: form.website.value }).then(function (j) {
         btn.disabled = false;
         if (j.ok && j.token) { setToken(j.token); location.reload(); }
-        else if (j.error === "rate_limited") msg.textContent = "Too many attempts. Please try again later.";
+        else if (j.error === "rate_limited") msg.textContent = "Too many attempts. Please wait an hour and try again, or call 0495 040 400 to hear today\u2019s tips.";
         else msg.innerHTML = 'That mobile and email don’t match a membership. Check both, or <a href="join.html">join free</a>.';
-      }).catch(function () { btn.disabled = false; msg.textContent = "Sorry, something went wrong. Please try again."; });
+      }).catch(function () { btn.disabled = false; msg.textContent = "Sorry, we couldn\u2019t connect just now. Please try again in a minute, or call 0495 040 400 to hear today\u2019s tips."; });
     });
   }
   function memberBar(name) {
@@ -506,7 +506,7 @@
 
   function fail(rootId, err) {
     var el = document.getElementById(rootId);
-    if (el) el.innerHTML = '<div class="notice"><p>Sorry, the tips data could not be loaded (' + esc(err.message) + ").</p></div>";
+    if (el) el.innerHTML = '<div class="notice"><p>Sorry, the tips didn\u2019t load just now. Please refresh the page in a minute, or call <a href="tel:+61495040400">0495 040 400</a> to hear them.</p></div>';
     var meta = document.getElementById("tips-meta");
     if (meta) meta.textContent = "";
   }
