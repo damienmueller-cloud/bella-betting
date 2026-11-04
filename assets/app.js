@@ -215,6 +215,18 @@
         (token() ? '<label class="backed"><input type="checkbox" data-tid="' + esc(tipId(it)) + '" data-label="' + esc(it.kind + ": " + String(x.event || (x.track ? x.track + " R" + (x.race_no || x.race || "") : "")) + " " + name) + '"> I backed this</label>' : "") + "</li>";
     });
     h += "</ol>";
+    var multis = day.multis || (day.multi ? [day.multi] : []);
+    if (multis.length) {
+      h += '<div class="simple-multis"><h3 class="simple-multi-h">Multi' + (multis.length > 1 ? "s" : "") + ' <span class="muted">(higher risk)</span></h3><ul class="simple-multi-list">';
+      multis.forEach(function (m) {
+        var legs = (m.legs || []).map(function (l) {
+          return "#" + esc(l.saddlecloth) + " " + esc(String(l.horse || "").toUpperCase()) + " (" + esc(String(l.meeting || "").toUpperCase()) + " R" + esc(l.race) + ")";
+        }).join(" + ");
+        h += '<li class="simple-multi-item"><span class="simple-line"><b class="s-bet">MULTI</b> <span class="s-dash">—</span> ' + legs + ' <span class="s-dash">—</span> higher risk</span>' +
+          '<span class="simple-sub">' + esc(m.simple_confidence || simpleConf(m, "race")) + " (lower confidence). Every leg must win.</span></li>";
+      });
+      h += "</ul></div>";
+    }
     if (token()) h += '<p class="small muted backed-note">Optional: tick the tips you backed so we can see which ones members follow. Only Bella Betting sees this. <span id="backed-msg" role="status" aria-live="polite"></span></p>';
     h += '<p class="simple-key"><strong>Win</strong> = your pick must come first.' + (pl || ew ? " <strong>Place</strong> = your horse must finish in the top 3 (top 2 in small fields)." : "") + (ew ? " <strong>Each-way</strong> = a win bet and a place bet together (two bets)." : "") + "</p>";
     h += '<p class="simple-key"><strong>Strong</strong>, <strong>Fair</strong> and <strong>Long shot</strong> are our opinion only. Most bets lose. Prices change, so check before you bet.</p></section>';

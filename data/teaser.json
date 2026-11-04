@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-04T20:52:03+11:00",
+  "generated_at": "2026-11-05T09:21:37+11:00",
   "days": [
+    {
+      "date": "2026-11-05",
+      "racing_selections": 10,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Flemington (VIC)",
+        "Gawler (SA)",
+        "Gosford (NSW)",
+        "Ipswich (QLD)",
+        "Sapphire Coast (NSW)"
+      ],
+      "generated_at": "2026-11-05T08:21+10:00",
+      "results_recorded": 0,
+      "top_rated": 2,
+      "best_of_day": 8
+    },
     {
       "date": "2026-11-04",
       "racing_selections": 9,
