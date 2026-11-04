@@ -1,7 +1,107 @@
 {
-  "generated_at": "2026-11-04T09:32:30+11:00",
+  "generated_at": "2026-11-04T20:52:03+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-04",
+      "selections": [
+        {
+          "event": "Kyneton (VIC) – Race 2, Macedon Ranges Glass - Emerging Stars Series Heat 1 Mdn Plate (1203m)",
+          "start_time_aedt": "13:25",
+          "selection": "Front Page Edition (#11, barrier 7, Beau Mertens)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-04T20:51:23+11:00",
+            "settled_odds": 10.0
+          }
+        },
+        {
+          "event": "Coffs Harbour (NSW) – Race 2, Remembering Shirley Kelly CB Jacaranda Mdn Hcp (1600m)",
+          "start_time_aedt": "14:25",
+          "selection": "Bravo Six (#3, barrier 1, Cassey Williams)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-04T20:51:29+11:00",
+            "settled_odds": 5.0
+          }
+        },
+        {
+          "event": "Kyneton (VIC) – Race 4, Kyneton Electrics (Bm74) (1203m)",
+          "start_time_aedt": "14:35",
+          "selection": "Arcandam (#4, barrier 6, Billy Egan)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-04T20:51:33+11:00",
+            "settled_odds": 6.75
+          }
+        },
+        {
+          "event": "Kyneton (VIC) – Race 5, 360 ONE Advisors & Accountants (Bm66) (1103m)",
+          "start_time_aedt": "15:10",
+          "selection": "Divine Empress (#6, barrier 3, Damian Lane)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-04T20:51:38+11:00"
+          }
+        },
+        {
+          "event": "Kyneton (VIC) – Race 6, Evolve Interiors (Bm66) (1856m)",
+          "start_time_aedt": "15:45",
+          "selection": "Who I Think I Am (#11, barrier 3, Carleen Hefel)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-04T20:51:43+11:00"
+          }
+        },
+        {
+          "event": "Kyneton (VIC) – Race 7, Woodside Park Classic (Bm70) (1454m)",
+          "start_time_aedt": "16:20",
+          "selection": "Seeyou Raider (#5, barrier 6, Chelsea Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-04T20:51:48+11:00"
+          }
+        },
+        {
+          "event": "Port Lincoln (SA) – Race 8, Wudinna Hotel (Bm68) (1350m)",
+          "start_time_aedt": "17:10",
+          "selection": "Chef Militaire (#1, barrier 8, Ashlee Stone)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-04T20:51:54+11:00"
+          }
+        },
+        {
+          "event": "Coffs Harbour (NSW) – Race 7, Jacaranda Cup (Bm82) (1200m)",
+          "start_time_aedt": "17:20",
+          "selection": "Rich Star (#7, barrier 5, Grace Palmer)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-04T20:51:58+11:00",
+            "settled_odds": 4.2
+          }
+        },
+        {
+          "event": "Coffs Harbour (NSW) – Race 8, Remembering Rowan Wicks CB (Bm58) (1400m)",
+          "start_time_aedt": "18:00",
+          "selection": "Star Of Winston (#2, barrier 9, Grace Palmer)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-04T20:52:03+11:00",
+            "settled_odds": 4.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-03",
       "selections": [
