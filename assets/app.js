@@ -195,10 +195,11 @@
     (day.sports || []).forEach(function (x) { items.push({ x: x, kind: "sport" }); });
     (day.roughies || []).forEach(function (x) { items.push({ x: x, kind: "roughie" }); });
     if (!items.length) return '<section class="simple"><h2>Today’s bets</h2><p class="simple-none">No bets from us today. That’s OK – sometimes nothing is good enough.</p></section>';
-    items.sort(function (a, b) {
-      return simpleRank(a) - simpleRank(b) || (parseFloat(b.x.edge_pct) || 0) - (parseFloat(a.x.edge_pct) || 0) || (a.x.start_time_aedt || "").localeCompare(b.x.start_time_aedt || "");
-    });
-    var ew = false, pl = false, h = '<section class="simple" aria-labelledby="simple-h"><h2 id="simple-h">Today’s bets</h2><p class="simple-intro">Best pick first. Times are Sydney time.</p><ol class="simple-list">';
+    var best = items.slice().sort(function (a, b) {
+      return simpleRank(a) - simpleRank(b) || (parseFloat(b.x.edge_pct) || 0) - (parseFloat(a.x.edge_pct) || 0);
+    })[0];
+    items.sort(function (a, b) { return (a.x.start_time_aedt || "").localeCompare(b.x.start_time_aedt || ""); });
+    var ew = false, pl = false, h = '<section class="simple" aria-labelledby="simple-h"><h2 id="simple-h">Today’s bets</h2><p class="simple-intro">In race-time order. Times are Sydney time.</p><ol class="simple-list">';
     items.forEach(function (it, i) {
       var x = it.x, bw = betWord(x, it.kind);
       if (bw === "EACH-WAY") ew = true; if (bw === "PLACE") pl = true;
@@ -207,7 +208,7 @@
       var no = x.saddlecloth != null ? x.saddlecloth : x.tab_no;
       var st = itemStatus(x, date);
       var conf = simpleConf(x, it.kind);
-      h += '<li class="simple-item' + (i === 0 ? " simple-best" : "") + '">' + (i === 0 ? '<span class="simple-tag">Best pick</span>' : "") +
+      h += '<li class="simple-item' + (it === best ? " simple-best" : "") + '">' + (it === best ? '<span class="simple-tag">Best pick</span>' : "") +
         '<span class="simple-line">' + where + ' <span class="s-time">· ' + fmt12(x.start_time_aedt) + '</span> <span class="s-dash">—</span><b class="s-horse">' + (no != null && no !== "" ? "#" + esc(no) + " " : "") + esc(String(name).toUpperCase()) + '</b> <span class="s-dash">—</span> <b class="s-bet">' + bw + "</b></span>" +
         '<span class="simple-sub">' + esc(conf) + (x.tier === "Best of the Day" ? " (lower confidence)" : "") + (it.kind === "roughie" ? " (higher risk)" : "") +
         (st.key !== "upcoming" ? " · " + st.label : "") + "</span>" +
@@ -222,7 +223,7 @@
 
   function cardHtml(day, date) {
     var sels = (day.selections || []).slice().sort(function (a, b) {
-      return tierRank(a) - tierRank(b) || (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
+      return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
     });
 
     var html = "";
@@ -238,7 +239,7 @@
     }
     html += tierNotice((day.selections || []).concat(day.roughies || [], day.sports || []));
     var nTop = sels.filter(function (x) { return isTopUp(day, x); }).length;
-    html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + (nTop ? " (" + (sels.length - nTop) + " morning, " + nTop + " " + esc((day.top_up.label || "top-up").toLowerCase()) + ")" : "") + ", " + (sels.some(function (x) { return x.tier; }) ? "Top Rated first, then race order" : "in race order") + "</caption>" +
+    html += '<table class="tips"><caption>' + sels.length + " selection" + (sels.length === 1 ? "" : "s") + (nTop ? " (" + (sels.length - nTop) + " morning, " + nTop + " " + esc((day.top_up.label || "top-up").toLowerCase()) + ")" : "") + ", " + "in race order" + "</caption>" +
       '<thead><tr><th scope="col">Time (AEDT)</th><th scope="col">Race</th><th scope="col">Selection</th><th scope="col">Reasoning</th><th scope="col">Confidence</th><th scope="col">Odds (at time checked)</th><th scope="col">Status</th></tr></thead><tbody>';
     sels.forEach(function (s) {
       html += "<tr>" +
