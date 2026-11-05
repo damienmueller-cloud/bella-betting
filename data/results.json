@@ -1,7 +1,162 @@
 {
-  "generated_at": "2026-11-05T09:21:37+11:00",
+  "generated_at": "2026-11-05T20:48:56+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-05",
+      "selections": [
+        {
+          "event": "Gosford (NSW) – Race 1, Paul Finn Memorial Midway Hcp (C1) (1200m)",
+          "start_time_aedt": "13:20",
+          "selection": "Prince De Vega (#7, barrier 2, Shannen Llewellyn)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th of 8",
+            "sp": 8.0,
+            "settled_odds": 6.5,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,NSW,Gosford",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Gosford (NSW) – Race 2, Central Coast Community News Super Mdn Plate (1200m)",
+          "start_time_aedt": "13:55",
+          "selection": "Pearl Of Dubai (#8, barrier 2, Jason Collett)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "3rd of 8",
+            "sp": 5.0,
+            "settled_odds": 4.2,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,NSW,Gosford",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 4, Inglis Bracelet (1600m)",
+          "start_time_aedt": "14:45",
+          "selection": "Bella Verona (#12, barrier 2, Patrick Moloney)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "finish": "1st of 7",
+            "sp": 10.0,
+            "settled_odds": 11.0,
+            "pl_units": 10.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,VIC,Flemington",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Ipswich (QLD) – Race 2, Barrier Reef Pools Hcp (C5) (1200m)",
+          "start_time_aedt": "15:12",
+          "selection": "Alpha Bravo (#1, barrier 3, Chelsea Baker)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th of 7",
+            "sp": 6.0,
+            "settled_odds": 6.0,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,QLD,Ipswich",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Sapphire Coast (NSW) – Race 4, Forbes Stynes Property Group Bermagui Cup (Bm82) (1000m)",
+          "start_time_aedt": "16:00",
+          "selection": "Christmas Star (#6, barrier 1, Pierre Boudvillain)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "finish": "2nd of 5",
+            "sp": 1.85,
+            "settled_odds": 3.2,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,NSW,Sapphire+Coast",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 7, Crown Red Roses Stakes (1100m)",
+          "start_time_aedt": "16:30",
+          "selection": "Scintillation (#2, barrier 2, Zac Lloyd)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "8th of 10",
+            "sp": 6.5,
+            "settled_odds": 6.5,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,VIC,Flemington",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Gosford (NSW) – Race 7, Mr & Mrs Duggan 44th Anniversary (Bm64) (1100m)",
+          "start_time_aedt": "16:50",
+          "selection": "Ex Wife (#1, barrier 8, Zac Wadick)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th of 7",
+            "sp": 8.0,
+            "settled_odds": 12.0,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,NSW,Gosford",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Ipswich (QLD) – Race 5, Schweppes (Bm60) (1350m)",
+          "start_time_aedt": "17:00",
+          "selection": "Super Intent (#7, barrier 4, Leslie Tilley)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th of 9",
+            "sp": 9.0,
+            "settled_odds": 4.8,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,QLD,Ipswich",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Gawler (SA) – Race 6, Sportsbet Racing Form Hcp (60) (1706m)",
+          "start_time_aedt": "17:26",
+          "selection": "Win To Retire (#6, barrier 11, Jake Toeroek)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "7th of 10",
+            "sp": 5.0,
+            "settled_odds": 6.5,
+            "pl_units": -1.0,
+            "source": "https://www.breednet.com.au/race-results/australia/gawler/2026-11-05",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        },
+        {
+          "event": "Flemington (VIC) – Race 9, G.H.Mumm Century Stakes (1000m)",
+          "start_time_aedt": "17:50",
+          "selection": "Bev's Nine (#3, barrier 7, Zac Lloyd)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "finish": "3rd of 11",
+            "sp": 4.0,
+            "settled_odds": 3.7,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov05,VIC,Flemington",
+            "recorded_at": "2026-11-05T19:48:00+10:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-04",
       "selections": [
