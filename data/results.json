@@ -1,7 +1,60 @@
 {
-  "generated_at": "2026-11-06T09:20:33+11:00",
+  "generated_at": "2026-11-06T20:47:14+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-06",
+      "selections": [
+        {
+          "event": "Warrnambool (VIC) – Race 5, Midland Irrigation (Bm62) (1000m)",
+          "start_time_aedt": "16:00",
+          "selection": "What Once Was (#9, barrier 7, Dean Yendall)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "4th of 9",
+            "sp": 13.0,
+            "settled_odds": 6.0,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov06,VIC,Warrnambool",
+            "recorded_at": "2026-11-06T19:47:19+10:00",
+            "note": "4th Warrnambool R5 Good 4; SP $13. Kid Dynamite won $1.50F. Multi leg also failed."
+          }
+        },
+        {
+          "event": "Warrnambool (VIC) – Race 6, Lifetime Trophies (Bm66) (1200m)",
+          "start_time_aedt": "16:30",
+          "selection": "Thinking Sensation (#4, barrier 8, Dean Yendall)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "6th of 9",
+            "sp": 8.0,
+            "settled_odds": 8.5,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov06,VIC,Warrnambool",
+            "recorded_at": "2026-11-06T19:47:19+10:00",
+            "note": "6th Warrnambool R6 Good 4; SP $8. Danzsin won $3.40F."
+          }
+        },
+        {
+          "event": "Gatton (QLD) – Race 6, Movember - Men's Health Month Hcp (58) (1400m)",
+          "start_time_aedt": "17:04",
+          "selection": "Kick On Charlie (#6, barrier 8, Danny Peisley)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "finish": "4th of 9",
+            "sp": 4.2,
+            "settled_odds": 3.2,
+            "pl_units": -1.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov06,QLD,Gatton",
+            "recorded_at": "2026-11-06T19:47:19+10:00",
+            "note": "4th Gatton R6 Good 4 (upgraded after R1 from Soft 5); SP $4.20EF. Switch To Go won $6. Multi leg also failed. Top Rated miss."
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-05",
       "selections": [
