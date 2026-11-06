@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T08:15:48+11:00",
+  "generated_at": "2026-11-07T09:19:09+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
     {
@@ -51,6 +51,22 @@
             "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov06,QLD,Gatton",
             "recorded_at": "2026-11-06T19:47:19+10:00",
             "note": "4th Gatton R6 Good 4 (upgraded after R1 from Soft 5); SP $4.20EF. Switch To Go won $6. Multi leg also failed. Top Rated miss."
+          }
+        },
+        {
+          "event": "Cranbourne (VIC) – Race 8, Drummond Golf Hcp (66) (1600m)",
+          "start_time_aedt": "21:45",
+          "selection": "Mount Sabyinyo (#1, barrier 10, Jett Stanley)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "2nd of 8",
+            "sp": 4.4,
+            "settled_odds": 4.4,
+            "pl_units": -1.0,
+            "source": "https://www.racingandsports.com.au/horse-racing-results/australia/cranbourne/2026-11-06/R8",
+            "recorded_at": "2026-11-07T08:19+10:00",
+            "note": "2nd Cranbourne R8; SP $4.40. Hedjet won ~$2.10–$2.25. Near-miss."
           }
         }
       ]
