@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-07T09:19:09+11:00",
+  "generated_at": "2026-11-08T12:47:06+11:00",
   "days": [
+    {
+      "date": "2026-11-08",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Armidale (NSW)",
+        "Warren (NSW)"
+      ],
+      "generated_at": "2026-11-08T11:46:24+10:00",
+      "results_recorded": 0,
+      "top_rated": 1,
+      "best_of_day": 2
+    },
     {
       "date": "2026-11-07",
       "racing_selections": 9,
@@ -15,7 +29,7 @@
         "Rosehill (NSW)"
       ],
       "generated_at": "2026-11-07T07:15+10:00",
-      "results_recorded": 0,
+      "results_recorded": 9,
       "top_rated": 3,
       "best_of_day": 6
     },

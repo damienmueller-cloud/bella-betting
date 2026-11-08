@@ -1,7 +1,156 @@
 {
-  "generated_at": "2026-11-07T09:19:09+11:00",
+  "generated_at": "2026-11-08T12:47:06+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-07",
+      "selections": [
+        {
+          "event": "Eagle Farm (QLD) – Race 1, Sky Racing \\ (1200m)",
+          "start_time_aedt": "12:32",
+          "selection": "Sort Cha Mess (#6, barrier 10, Ashley Butler)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "finish": "8th",
+            "sp": 6.5,
+            "settled_odds": 4.6,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,QLD,Eagle%20Farm",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Morphettville Parks (SA) – Race 2, Sportsbet Feed Mdn Plate (1400m)",
+          "start_time_aedt": "13:27",
+          "selection": "Intimus (#12, barrier 2, Teagan Voorham)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "finish": "1st",
+            "sp": 4.2,
+            "settled_odds": 5.5,
+            "pl_units": 4.5,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,SA,Morphettville%20Parks",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Rosehill (NSW) – Race 3, Ranvet (Bm78) (2400m)",
+          "start_time_aedt": "13:35",
+          "selection": "Criteria (#5, barrier 6, Regan Bayliss)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "7th",
+            "sp": 3.5,
+            "settled_odds": 5.5,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,NSW,Rosehill%20Gardens",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Goulburn (NSW) – Race 2, The Country Outfitters Mdn Plate (1300m)",
+          "start_time_aedt": "14:58",
+          "selection": "Three Wishes (#6, barrier 2, Deanne Panya)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th",
+            "sp": 5.0,
+            "settled_odds": 4.0,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,NSW,Goulburn",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Hawkesbury (NSW) – Race 4, Irresistible Pools And Spas Provincial Mdn Hcp (1100m)",
+          "start_time_aedt": "15:14",
+          "selection": "Ready Made Heir (#13, barrier 3, Andrew Gibbons)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "5th",
+            "sp": 15.0,
+            "settled_odds": 5.5,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,NSW,Hawkesbury",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Hawkesbury (NSW) – Race 5, Performance Access Resources Conditional (Bm68) (2000m)",
+          "start_time_aedt": "15:54",
+          "selection": "Valentiago (#4, barrier 4, Jean Van Overmeire)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "won",
+            "finish": "1st",
+            "sp": 5.5,
+            "settled_odds": 5.0,
+            "pl_units": 4.0,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,NSW,Hawkesbury",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Eagle Farm (QLD) – Race 7, Stand With Jai (Bm78) (1000m)",
+          "start_time_aedt": "16:22",
+          "selection": "Oohlalouvre (#10, barrier 11, Taylor Marshall)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "3rd",
+            "sp": 8.0,
+            "settled_odds": 9.5,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,QLD,Eagle%20Farm",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Ascot (WA) – Race 4, PPS Water Group (Rs1mw) (1400m)",
+          "start_time_aedt": "16:54",
+          "selection": "Snippety Legend (#3, barrier 5, Natasha Faithfull)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "3rd",
+            "sp": 13.0,
+            "settled_odds": 12.0,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,WA,Ascot",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        },
+        {
+          "event": "Ascot (WA) – Race 7, MC Equine Surfaces (Bm66+) (1200m)",
+          "start_time_aedt": "18:51",
+          "selection": "So Si God (#4, barrier 11, Chris Parnham)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "finish": "6th",
+            "sp": 5.5,
+            "settled_odds": 5.0,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov07,WA,Ascot",
+            "recorded_at": "2026-11-08T11:46:46+10:00",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns."
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-06",
       "selections": [
