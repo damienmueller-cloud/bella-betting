@@ -1,7 +1,63 @@
 {
-  "generated_at": "2026-11-08T12:47:06+11:00",
+  "generated_at": "2026-11-08T20:41:38+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-08",
+      "selections": [
+        {
+          "event": "Warren (NSW) – Race 5, Warren Services Club Hcp (C2) (1200m)",
+          "start_time_aedt": "16:05",
+          "selection": "Vicious Rumour (#6, barrier 8, Jacob Stiff)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-08T20:41:28+11:00",
+            "settled_odds": 8.0,
+            "finish": "6th of 10",
+            "sp": 7.0,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov08,NSW,Warren",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns. Marinera won $3.40F; Fearn Trick 2nd $8; Star Whisperer 3rd $10. Track Good 3 (upgraded after R2). 10 starters, so each-way place terms were top 3; 6th did not place.",
+            "clv_pct": 14.3
+          }
+        },
+        {
+          "event": "Armidale (NSW) – Race 5, Guyra Hotel Country Boosted Hcp (C1) (1300m)",
+          "start_time_aedt": "16:20",
+          "selection": "Bundoran (#5, barrier 5, Ben Looker)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-08T20:41:33+11:00",
+            "settled_odds": 5.0,
+            "finish": "4th of 10",
+            "sp": 4.4,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov08,NSW,Armidale",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns. Sharpen The Knives won $13; Big Brad 2nd $2.90F; Midnight Rhythm 3rd $3.60.",
+            "clv_pct": 13.6
+          }
+        },
+        {
+          "event": "Armidale (NSW) – Race 6, Watson McNamara & Watt Guyra Cup (1400m)",
+          "start_time_aedt": "16:55",
+          "selection": "Shamedy (#2, barrier 8, Luke Rolls)",
+          "tier": "Top Rated",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-08T20:41:38+11:00",
+            "settled_odds": 3.6,
+            "finish": "5th of 8",
+            "sp": 3.2,
+            "pl_units": -1,
+            "source": "https://racingaustralia.horse/FreeFields/Results.aspx?Key=2026Nov08,NSW,Armidale",
+            "note": "Public/running ROI convention is 1u win-only even for EW tips; not actual betting returns. Get Some Fun won $9.50; Ghost Walker 2nd $5.50; Haze 3rd $21. Best pick / Top Rated.",
+            "clv_pct": 12.5
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-07",
       "selections": [
