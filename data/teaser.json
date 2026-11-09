@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-09T20:48:47+11:00",
+  "generated_at": "2026-11-09T22:22:13+11:00",
   "days": [
+    {
+      "date": "2026-11-10",
+      "racing_selections": 5,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Mornington (VIC)",
+        "Queanbeyan (NSW)"
+      ],
+      "generated_at": "2026-11-09T21:22:06+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 5
+    },
     {
       "date": "2026-11-09",
       "racing_selections": 2,
@@ -403,22 +417,6 @@
       ],
       "generated_at": "2026-10-11T09:50:00+11:00",
       "results_recorded": 8,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-10",
-      "racing_selections": 5,
-      "roughies": 5,
-      "sport_selections": 2,
-      "meetings": [
-        "Caulfield",
-        "Caulfield (VIC)",
-        "Rosehill",
-        "Rosehill (NSW)"
-      ],
-      "generated_at": "2026-10-10T13:55:28+11:00",
-      "results_recorded": 5,
       "top_rated": 0,
       "best_of_day": 0
     }
