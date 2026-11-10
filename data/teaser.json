@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-10T20:45:03+11:00",
+  "generated_at": "2026-11-10T22:21:26+11:00",
   "days": [
+    {
+      "date": "2026-11-11",
+      "racing_selections": 6,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Balaklava (SA)",
+        "Ballarat (VIC)",
+        "Eagle Farm (QLD)",
+        "Launceston (TAS)",
+        "Warwick Farm (NSW)"
+      ],
+      "generated_at": "2026-11-10T21:21:22+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 6
+    },
     {
       "date": "2026-11-10",
       "racing_selections": 5,
@@ -399,24 +416,6 @@
       ],
       "generated_at": "2026-10-12T09:50:00+11:00",
       "results_recorded": 4,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-11",
-      "racing_selections": 8,
-      "roughies": 3,
-      "sport_selections": 0,
-      "meetings": [
-        "Cairns (QLD)",
-        "Coonamble (NSW)",
-        "Geraldton (WA)",
-        "Mindarie-Halidon (SA)",
-        "Queanbeyan (NSW)",
-        "Seymour (VIC)"
-      ],
-      "generated_at": "2026-10-11T09:50:00+11:00",
-      "results_recorded": 8,
       "top_rated": 0,
       "best_of_day": 0
     }
