@@ -1,22 +1,20 @@
 {
-  "generated_at": "2026-11-10T22:21:26+11:00",
+  "generated_at": "2026-11-11T09:18:00+11:00",
   "days": [
     {
       "date": "2026-11-11",
-      "racing_selections": 6,
+      "racing_selections": 4,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
-        "Balaklava (SA)",
         "Ballarat (VIC)",
-        "Eagle Farm (QLD)",
         "Launceston (TAS)",
         "Warwick Farm (NSW)"
       ],
       "generated_at": "2026-11-10T21:21:22+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 6
+      "best_of_day": 4
     },
     {
       "date": "2026-11-10",
