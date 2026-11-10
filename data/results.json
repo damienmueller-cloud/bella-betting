@@ -1,7 +1,67 @@
 {
-  "generated_at": "2026-11-09T22:22:13+11:00",
+  "generated_at": "2026-11-10T20:45:03+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-10",
+      "selections": [
+        {
+          "event": "Mornington (VIC) – Race 1, Sportsbet Race Previews Mdn Plate (2430m)",
+          "start_time_aedt": "13:30",
+          "selection": "Sentaloa (#9, barrier 1, Damien Thornton)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-10T20:44:44+11:00",
+            "settled_odds": 2.5
+          }
+        },
+        {
+          "event": "Mornington (VIC) – Race 3, BetaVet Mdn Plate (1000m)",
+          "start_time_aedt": "14:30",
+          "selection": "Pinamilloy (#8, barrier 5, Zac Spain)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-10T20:44:49+11:00",
+            "settled_odds": 2.9
+          }
+        },
+        {
+          "event": "Mornington (VIC) – Race 6, Sportsbet Fixed Odds Exotics (Bm56) (1000m)",
+          "start_time_aedt": "16:00",
+          "selection": "Ilovediamonds (#1, barrier 13, Sam Kennedy)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-10T20:44:54+11:00",
+            "settled_odds": 3.2
+          }
+        },
+        {
+          "event": "Queanbeyan (NSW) – Race 6, Crestwood (Bm82) (1600m)",
+          "start_time_aedt": "16:15",
+          "selection": "Pearler (#6, barrier 2, Molly Bourke)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-10T20:44:59+11:00",
+            "settled_odds": 4.0
+          }
+        },
+        {
+          "event": "Queanbeyan (NSW) – Race 8, Queanbeyan Cup 27 Nov (Bm58) (1200m)",
+          "start_time_aedt": "17:30",
+          "selection": "Royal Memory (#4, barrier 2, Damon Budler)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-10T20:45:03+11:00",
+            "settled_odds": 6.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-09",
       "selections": [
