@@ -1,19 +1,20 @@
 {
-  "generated_at": "2026-11-11T22:18:03+11:00",
+  "generated_at": "2026-11-12T09:14:58+11:00",
   "days": [
     {
       "date": "2026-11-12",
-      "racing_selections": 2,
+      "racing_selections": 3,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
         "Bunbury (WA)",
+        "Eagle Farm (QLD)",
         "Port Macquarie (NSW)"
       ],
       "generated_at": "2026-11-11T21:17:59+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 2
+      "best_of_day": 3
     },
     {
       "date": "2026-11-11",
