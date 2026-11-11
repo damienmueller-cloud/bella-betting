@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-11T20:45:08+11:00",
+  "generated_at": "2026-11-11T22:18:03+11:00",
   "days": [
+    {
+      "date": "2026-11-12",
+      "racing_selections": 2,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Bunbury (WA)",
+        "Port Macquarie (NSW)"
+      ],
+      "generated_at": "2026-11-11T21:17:59+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 2
+    },
     {
       "date": "2026-11-11",
       "racing_selections": 4,
@@ -400,20 +414,6 @@
       ],
       "generated_at": "2026-10-13T09:55:00+11:00",
       "results_recorded": 5,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-12",
-      "racing_selections": 4,
-      "roughies": 3,
-      "sport_selections": 0,
-      "meetings": [
-        "Bairnsdale (VIC)",
-        "Tamworth (NSW)"
-      ],
-      "generated_at": "2026-10-12T09:50:00+11:00",
-      "results_recorded": 4,
       "top_rated": 0,
       "best_of_day": 0
     }
