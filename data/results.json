@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-11-11T09:18:00+11:00",
+  "generated_at": "2026-11-11T20:45:08+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-11",
+      "selections": [
+        {
+          "event": "Warwick Farm (NSW) – Race 4, TAB (Bm72) (2110m)",
+          "start_time_aedt": "16:05",
+          "selection": "Zonkstar (#3, barrier 5, Rachel King)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-11T20:44:58+11:00",
+            "settled_odds": 4.4
+          }
+        },
+        {
+          "event": "Ballarat (VIC) – Race 4, Hygain Edge (Bm66) (1400m)",
+          "start_time_aedt": "17:25",
+          "selection": "Centenary Florin (#4, barrier 8, Declan Bates)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-11T20:45:03+11:00",
+            "settled_odds": 3.5
+          }
+        },
+        {
+          "event": "Launceston (TAS) – Race 3, Belle Blacker Hcp (C3) (1200m)",
+          "start_time_aedt": "19:10",
+          "selection": "The Trine (#1, barrier 2, Anthony Darmanin)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-11T20:45:08+11:00",
+            "settled_odds": 4.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-10",
       "selections": [
