@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-11-12T09:14:58+11:00",
+  "generated_at": "2026-11-12T20:45:57+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-12",
+      "selections": [
+        {
+          "event": "Eagle Farm (QLD) – Race 4, Higgins Coatings (Bm70) (1000m)",
+          "start_time_aedt": "13:42",
+          "selection": "Boss Mode (#9, barrier 2, Ryan Maloney)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-12T20:45:41+11:00",
+            "settled_odds": 3.7
+          }
+        },
+        {
+          "event": "Port Macquarie (NSW) – Race 1, Beechwood Hotel (Bm66) (1500m)",
+          "start_time_aedt": "13:50",
+          "selection": "Rose Water (#2, barrier 8, Ashley Morgan)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-12T20:45:47+11:00",
+            "settled_odds": 4.4
+          }
+        },
+        {
+          "event": "Bunbury (WA) – Race 2, Duncan Equine Group Hcp (C3) (1685m)",
+          "start_time_aedt": "17:22",
+          "selection": "Pincer Movement (#4, barrier 8, William Pike)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-12T20:45:52+11:00",
+            "settled_odds": 3.4
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-11",
       "selections": [
@@ -36,6 +74,17 @@
             "outcome": "lost",
             "recorded_at": "2026-11-11T20:45:08+11:00",
             "settled_odds": 4.0
+          }
+        },
+        {
+          "event": "Launceston (TAS) – Race 6, John Blacker – Premiership Trainer Hcp (1400m)",
+          "start_time_aedt": "20:57",
+          "selection": "Sh'bourne Midnight (#5, barrier 7, Craig Newitt)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-12T20:45:57+11:00",
+            "settled_odds": 6.0
           }
         }
       ]

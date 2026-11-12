@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T09:14:58+11:00",
+  "generated_at": "2026-11-12T20:45:57+11:00",
   "days": [
     {
       "date": "2026-11-12",
@@ -12,7 +12,7 @@
         "Port Macquarie (NSW)"
       ],
       "generated_at": "2026-11-11T21:17:59+10:00",
-      "results_recorded": 0,
+      "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 3
     },
@@ -27,7 +27,7 @@
         "Warwick Farm (NSW)"
       ],
       "generated_at": "2026-11-10T21:21:22+10:00",
-      "results_recorded": 3,
+      "results_recorded": 4,
       "top_rated": 0,
       "best_of_day": 4
     },
