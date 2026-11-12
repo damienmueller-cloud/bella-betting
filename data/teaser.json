@@ -1,6 +1,22 @@
 {
-  "generated_at": "2026-11-12T20:45:57+11:00",
+  "generated_at": "2026-11-12T22:21:56+11:00",
   "days": [
+    {
+      "date": "2026-11-13",
+      "racing_selections": 7,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Albany (WA)",
+        "Ballina (NSW)",
+        "Rockhampton (QLD)",
+        "Sunshine Coast (QLD)"
+      ],
+      "generated_at": "2026-11-12T21:21:41+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 7
+    },
     {
       "date": "2026-11-12",
       "racing_selections": 3,
@@ -401,20 +417,6 @@
       ],
       "generated_at": "2026-10-14T09:22:49+11:00",
       "results_recorded": 3,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-13",
-      "racing_selections": 5,
-      "roughies": 2,
-      "sport_selections": 0,
-      "meetings": [
-        "Grafton (NSW)",
-        "Kilmore (VIC)"
-      ],
-      "generated_at": "2026-10-13T09:55:00+11:00",
-      "results_recorded": 5,
       "top_rated": 0,
       "best_of_day": 0
     }
