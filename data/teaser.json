@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-13T20:42:51+11:00",
+  "generated_at": "2026-11-13T22:28:21+11:00",
   "days": [
+    {
+      "date": "2026-11-14",
+      "racing_selections": 9,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Ascot (WA)",
+        "Doomben (QLD)",
+        "Newcastle (NSW)"
+      ],
+      "generated_at": "2026-11-13T21:28:15+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 9
+    },
     {
       "date": "2026-11-13",
       "racing_selections": 6,
@@ -403,20 +418,6 @@
       ],
       "generated_at": "2026-10-15T09:24:00+11:00",
       "results_recorded": 0,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-14",
-      "racing_selections": 3,
-      "roughies": 1,
-      "sport_selections": 0,
-      "meetings": [
-        "Caulfield (VIC)",
-        "Rosehill (NSW)"
-      ],
-      "generated_at": "2026-10-14T09:22:49+11:00",
-      "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 0
     }
