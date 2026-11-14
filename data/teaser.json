@@ -1,22 +1,20 @@
 {
-  "generated_at": "2026-11-14T22:16:09+11:00",
+  "generated_at": "2026-11-15T09:18:05+11:00",
   "days": [
     {
       "date": "2026-11-15",
-      "racing_selections": 6,
+      "racing_selections": 3,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
-        "Donald (VIC)",
         "Geraldton (WA)",
         "Hobart (TAS)",
-        "Moe (VIC)",
         "Wyong (NSW)"
       ],
       "generated_at": "2026-11-14T21:16:06+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 6
+      "best_of_day": 3
     },
     {
       "date": "2026-11-14",
