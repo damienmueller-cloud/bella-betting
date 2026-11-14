@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-14T20:47:57+11:00",
+  "generated_at": "2026-11-14T22:16:09+11:00",
   "days": [
+    {
+      "date": "2026-11-15",
+      "racing_selections": 6,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Donald (VIC)",
+        "Geraldton (WA)",
+        "Hobart (TAS)",
+        "Moe (VIC)",
+        "Wyong (NSW)"
+      ],
+      "generated_at": "2026-11-14T21:16:06+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 6
+    },
     {
       "date": "2026-11-14",
       "racing_selections": 8,
@@ -404,19 +421,6 @@
         "Taree (NSW)"
       ],
       "generated_at": "2026-10-16T09:24:00+11:00",
-      "results_recorded": 0,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-15",
-      "racing_selections": 0,
-      "roughies": 1,
-      "sport_selections": 0,
-      "meetings": [
-        "Warrnambool (VIC)"
-      ],
-      "generated_at": "2026-10-15T09:24:00+11:00",
       "results_recorded": 0,
       "top_rated": 0,
       "best_of_day": 0
