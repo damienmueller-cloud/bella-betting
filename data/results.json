@@ -1,7 +1,100 @@
 {
-  "generated_at": "2026-11-14T09:12:22+11:00",
+  "generated_at": "2026-11-14T20:47:57+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-14",
+      "selections": [
+        {
+          "event": "Doomben (QLD) – Race 1, Become A BRC Member Hcp (1110m)",
+          "start_time_aedt": "12:05",
+          "selection": "La Bella Queen (#2, barrier 2, Tiffani Brooker)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "placed",
+            "recorded_at": "2026-11-14T20:47:20+11:00",
+            "settled_odds": 3.0
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 3, XXXX (Bm72) (1600m)",
+          "start_time_aedt": "13:18",
+          "selection": "Toro Strike (#4, barrier 2, Ben E Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-14T20:47:25+11:00",
+            "settled_odds": 2.7
+          }
+        },
+        {
+          "event": "Newcastle (NSW) – Race 4, Express Glass Midway (Bm72) (1600m)",
+          "start_time_aedt": "14:20",
+          "selection": "Cabbucio (#10, barrier 5, Andrew Adkins)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:30+11:00",
+            "settled_odds": 3.3
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 7, Canadian Club (Bm70) (1350m)",
+          "start_time_aedt": "15:38",
+          "selection": "The Torque Xpress (#5, barrier 2, Jett Newman)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:35+11:00",
+            "settled_odds": 12.0
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 9, Higgins Coatings Plate (C6) (1200m)",
+          "start_time_aedt": "16:57",
+          "selection": "Balance The Books (#8, barrier 10, Ben E Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:40+11:00",
+            "settled_odds": 2.4
+          }
+        },
+        {
+          "event": "Newcastle (NSW) – Race 9, NJC The Beauford (2300m)",
+          "start_time_aedt": "17:20",
+          "selection": "Savvy Spy (#8, barrier 4, L P Beuzelin)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:46+11:00",
+            "settled_odds": 2.45
+          }
+        },
+        {
+          "event": "Ascot (WA) – Race 7, A Class Earthmoving - Colonel Reeves Stakes (1100m)",
+          "start_time_aedt": "18:45",
+          "selection": "Bassett Hound (#10, barrier 1, Patrick Carbery)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:51+11:00",
+            "settled_odds": 3.2
+          }
+        },
+        {
+          "event": "Ascot (WA) – Race 10, Leveltek - R.J. Peters Stakes (1500m)",
+          "start_time_aedt": "20:35",
+          "selection": "Western Miss (#12, barrier 6, William Pike)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-14T20:47:57+11:00",
+            "settled_odds": 3.8
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-13",
       "selections": [
