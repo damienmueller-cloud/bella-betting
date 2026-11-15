@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-11-15T09:18:05+11:00",
+  "generated_at": "2026-11-15T20:45:18+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-15",
+      "selections": [
+        {
+          "event": "Wyong (NSW) – Race 3, Milangall Park Kulnura Cup (Bm64) (1600m)",
+          "start_time_aedt": "14:30",
+          "selection": "Alabama Showdown (#2, barrier 8, Alysha Collett)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-15T20:45:08+11:00",
+            "settled_odds": 3.2
+          }
+        },
+        {
+          "event": "Hobart (TAS) – Race 5, Tony Carrick Hcp (C2) (1380m)",
+          "start_time_aedt": "15:15",
+          "selection": "Kion's Kingdom (#1, barrier 1, Erica Byrne Burke)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-15T20:45:13+11:00",
+            "settled_odds": 2.8
+          }
+        },
+        {
+          "event": "Geraldton (WA) – Race 7, Geraldton Toyota Batavia Sprint (Bm72+) (1200m)",
+          "start_time_aedt": "20:05",
+          "selection": "Bolta (#7, barrier 9, Natasha Faithfull)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-15T20:45:18+11:00",
+            "settled_odds": 5.5
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-14",
       "selections": [
