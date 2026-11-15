@@ -32,6 +32,11 @@ except Exception:  # pragma: no cover
     SYD = None
 
 SITE = Path(__file__).resolve().parent
+# Method V3: each-way only at $6+ in fields of 8+. Applied on every card publish
+# (night-before and morning routines both call copy_card).
+if str(SITE.parent) not in sys.path:
+    sys.path.insert(0, str(SITE.parent))
+from method_v3_rules import apply_each_way_rule
 SITE_TIPS = SITE.parent / "cards"          # PRIVATE (vault, not in the public repo)
 SITE_DATA = SITE / "data"                   # public: teaser.json + results.json
 TWILIO_ENV = Path("/workspace/project-vaults/MatchMyAgent/secrets/twilio-api.env")
@@ -231,16 +236,16 @@ def copy_card(arg):
     if not src.is_file():
         die(f"tips file not found: {src}")
     data = load(src)
+    ew_fixed = apply_each_way_rule(data)
+    if ew_fixed:
+        print("Method V3 each-way rule: coerced to win (need $6+ and 8+ field): " + ", ".join(ew_fixed))
+        save(src, data)
     date = validate(data, src)
     dest = SITE_TIPS / f"{date}.json"
     SITE_TIPS.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         merge_results(data, load(dest))
-        save(dest, data)
-    elif any(s.get("result") for s in data["selections"]):
-        save(dest, data)
-    else:
-        shutil.copyfile(src, dest)
+    save(dest, data)
     print(f"copied {src} -> {dest} (private)")
     sync_upload([date], reindex())
 
