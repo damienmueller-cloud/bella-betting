@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-17T20:47:38+11:00",
+  "generated_at": "2026-11-17T22:19:51+11:00",
   "days": [
+    {
+      "date": "2026-11-18",
+      "racing_selections": 9,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Belmont (WA)",
+        "Doomben (QLD)",
+        "Gawler (SA)",
+        "Sandown Lakeside (VIC)",
+        "Warwick Farm (NSW)"
+      ],
+      "generated_at": "2026-11-17T21:19:45+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 9
+    },
     {
       "date": "2026-11-17",
       "racing_selections": 2,
@@ -408,19 +425,6 @@
       "sport_selections": 0,
       "meetings": [],
       "generated_at": "2026-10-19T09:40:00+11:00",
-      "results_recorded": 0,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-18",
-      "racing_selections": 0,
-      "roughies": 1,
-      "sport_selections": 0,
-      "meetings": [
-        "Moe (VIC)"
-      ],
-      "generated_at": "2026-10-18T09:20:00+11:00",
       "results_recorded": 0,
       "top_rated": 0,
       "best_of_day": 0
