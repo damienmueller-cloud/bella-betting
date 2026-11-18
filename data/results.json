@@ -1,7 +1,94 @@
 {
-  "generated_at": "2026-11-18T09:16:35+11:00",
+  "generated_at": "2026-11-18T20:50:22+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-18",
+      "selections": [
+        {
+          "event": "Warwick Farm (NSW) – Race 2, Izzy's Gift (Bm68) (1600m)",
+          "start_time_aedt": "15:30",
+          "selection": "Accidental Bid (#1, barrier 7, Shannen Llewellyn)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-18T20:49:43+11:00"
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 2, Deb Isaak Classic Mdn Hcp (1350m)",
+          "start_time_aedt": "15:48",
+          "selection": "Filthy (#1, barrier 11, Ryan Maloney)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-18T20:49:49+11:00"
+          }
+        },
+        {
+          "event": "Warwick Farm (NSW) – Race 4, Asahi Super Dry (Bm72) (1100m)",
+          "start_time_aedt": "16:40",
+          "selection": "Sociable (#3, barrier 3, Nash Rawiller)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-18T20:49:55+11:00",
+            "settled_odds": 3.3
+          }
+        },
+        {
+          "event": "Belmont (WA) – Race 1, Lawn Pride Australia (Rs0ly) (1200m)",
+          "start_time_aedt": "17:09",
+          "selection": "Merivale Louvain (#1, barrier 6, Joey Azzopardi)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-18T20:50:00+11:00"
+          }
+        },
+        {
+          "event": "Doomben (QLD) – Race 5, XXXX Gold Hcp (C2) (1650m)",
+          "start_time_aedt": "17:33",
+          "selection": "Wedding Vow (#5, barrier 8, Emily Pozman)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "placed",
+            "recorded_at": "2026-11-18T20:50:07+11:00"
+          }
+        },
+        {
+          "event": "Gawler (SA) – Race 4, Sportsbet Feed Plate (C1) (2121m)",
+          "start_time_aedt": "17:40",
+          "selection": "Swan Dance (#6, barrier 7, Alysha Warren)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-18T20:50:12+11:00",
+            "settled_odds": 3.7
+          }
+        },
+        {
+          "event": "Gawler (SA) – Race 5, Life Members Appreciation (Bm58) (1719m)",
+          "start_time_aedt": "18:10",
+          "selection": "Shogun Chikara (#3, barrier 4, Jackson Murphy)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-18T20:50:17+11:00"
+          }
+        },
+        {
+          "event": "Belmont (WA) – Race 5, Liquor Barons Hcp (C1) (1400m)",
+          "start_time_aedt": "19:20",
+          "selection": "Arizona Sky (#1, barrier 5, Chloe Azzopardi)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-18T20:50:22+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-17",
       "selections": [
