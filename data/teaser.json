@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-11-18T22:22:59+11:00",
+  "generated_at": "2026-11-19T09:21:26+11:00",
   "days": [
     {
       "date": "2026-11-19",
-      "racing_selections": 6,
+      "racing_selections": 5,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
+        "Mackay (QLD)",
         "Mornington (VIC)",
         "Narrogin (WA)",
         "Newcastle (NSW)"
@@ -14,7 +15,7 @@
       "generated_at": "2026-11-18T21:22:47+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 6
+      "best_of_day": 5
     },
     {
       "date": "2026-11-18",
