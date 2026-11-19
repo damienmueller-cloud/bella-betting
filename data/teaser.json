@@ -1,13 +1,12 @@
 {
-  "generated_at": "2026-11-19T22:26:02+11:00",
+  "generated_at": "2026-11-20T08:18:05+11:00",
   "days": [
     {
       "date": "2026-11-20",
-      "racing_selections": 10,
+      "racing_selections": 7,
       "roughies": 0,
       "sport_selections": 0,
       "meetings": [
-        "Gold Coast (QLD)",
         "Grafton (NSW)",
         "Launceston (TAS)",
         "Orange (NSW)",
@@ -17,7 +16,7 @@
       "generated_at": "2026-11-19T21:25:52+10:00",
       "results_recorded": 0,
       "top_rated": 0,
-      "best_of_day": 10
+      "best_of_day": 7
     },
     {
       "date": "2026-11-19",
