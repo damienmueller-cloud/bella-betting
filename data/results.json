@@ -1,7 +1,67 @@
 {
-  "generated_at": "2026-11-20T08:18:05+11:00",
+  "generated_at": "2026-11-20T20:43:08+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-20",
+      "selections": [
+        {
+          "event": "Swan Hill (VIC) – Race 2, Jarrod Arentz Electrical & Solar Solutions Mdn Plate (1200m)",
+          "start_time_aedt": "13:45",
+          "selection": "Big Storm (#1, barrier 8, Mitchell Aitken)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-20T20:42:46+11:00",
+            "settled_odds": 0.0
+          }
+        },
+        {
+          "event": "Orange (NSW) – Race 2, Whites Transport (Bm66) (2100m)",
+          "start_time_aedt": "13:49",
+          "selection": "Lady Tino (#2, barrier 4, Emma Ly)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-20T20:42:52+11:00",
+            "settled_odds": 0.0
+          }
+        },
+        {
+          "event": "Orange (NSW) – Race 3, Spanline Home Additions Orange Country Boosted Mdn Plate (1300m)",
+          "start_time_aedt": "14:24",
+          "selection": "My Smurf (#11, barrier 7, Jacob Stiff)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-20T20:42:57+11:00",
+            "settled_odds": 0.0
+          }
+        },
+        {
+          "event": "Grafton (NSW) – Race 8, Happy 80th Birthday Terry Commerford Country Boosted (Bm58) (1610m)",
+          "start_time_aedt": "17:20",
+          "selection": "Highwire Girl (#12, barrier 8, Luke Rolls)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-20T20:43:02+11:00",
+            "settled_odds": 0.0
+          }
+        },
+        {
+          "event": "Launceston (TAS) – Race 6, The Baker Group Tasmanian Cup (1200m)",
+          "start_time_aedt": "20:00",
+          "selection": "Aristopolos (#1, barrier 5, Erica Byrne Burke)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-20T20:43:08+11:00",
+            "settled_odds": 0.0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-19",
       "selections": [
