@@ -1,6 +1,26 @@
 {
-  "generated_at": "2026-11-20T20:43:08+11:00",
+  "generated_at": "2026-11-20T22:20:15+11:00",
   "days": [
+    {
+      "date": "2026-11-21",
+      "racing_selections": 12,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Ascot (WA)",
+        "Beaudesert (QLD)",
+        "Cranbourne (VIC)",
+        "Gosford (NSW)",
+        "Kembla Grange (NSW)",
+        "Morphettville (SA)",
+        "Sunshine Coast (QLD)",
+        "Toowoomba (QLD)"
+      ],
+      "generated_at": "2026-11-20T21:19:51+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 12
+    },
     {
       "date": "2026-11-20",
       "racing_selections": 7,
@@ -424,17 +444,6 @@
       "sport_selections": 0,
       "meetings": [],
       "generated_at": "2026-10-22T09:35:00+11:00",
-      "results_recorded": 0,
-      "top_rated": 0,
-      "best_of_day": 0
-    },
-    {
-      "date": "2026-10-21",
-      "racing_selections": 0,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [],
-      "generated_at": "2026-10-21T09:35:00+11:00",
       "results_recorded": 0,
       "top_rated": 0,
       "best_of_day": 0
