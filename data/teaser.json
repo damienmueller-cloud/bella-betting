@@ -1,6 +1,23 @@
 {
-  "generated_at": "2026-11-21T20:48:07+11:00",
+  "generated_at": "2026-11-21T22:20:32+11:00",
   "days": [
+    {
+      "date": "2026-11-22",
+      "racing_selections": 11,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Bunbury (WA)",
+        "Cairns (QLD)",
+        "Canberra (ACT)",
+        "Clare (SA)",
+        "Taree (NSW)"
+      ],
+      "generated_at": "2026-11-21T21:20:25+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 11
+    },
     {
       "date": "2026-11-21",
       "racing_selections": 10,
@@ -436,17 +453,6 @@
       "results_recorded": 4,
       "top_rated": 0,
       "best_of_day": 4
-    },
-    {
-      "date": "2026-10-22",
-      "racing_selections": 0,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [],
-      "generated_at": "2026-10-22T09:35:00+11:00",
-      "results_recorded": 0,
-      "top_rated": 0,
-      "best_of_day": 0
     }
   ]
 }
