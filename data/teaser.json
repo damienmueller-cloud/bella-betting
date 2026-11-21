@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T08:18:24+11:00",
+  "generated_at": "2026-11-21T20:48:07+11:00",
   "days": [
     {
       "date": "2026-11-21",
@@ -17,7 +17,7 @@
         "Toowoomba (QLD)"
       ],
       "generated_at": "2026-11-20T21:19:51+10:00",
-      "results_recorded": 0,
+      "results_recorded": 10,
       "top_rated": 0,
       "best_of_day": 10
     },
@@ -34,7 +34,7 @@
         "Swan Hill (VIC)"
       ],
       "generated_at": "2026-11-19T21:25:52+10:00",
-      "results_recorded": 5,
+      "results_recorded": 7,
       "top_rated": 0,
       "best_of_day": 7
     },
