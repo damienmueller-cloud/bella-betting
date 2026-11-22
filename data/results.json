@@ -1,7 +1,100 @@
 {
-  "generated_at": "2026-11-22T08:17:30+11:00",
+  "generated_at": "2026-11-22T21:21:02+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-22",
+      "selections": [
+        {
+          "event": "Canberra (ACT) – Race 2, Izzy's Gift Mdn Hcp (1000m)",
+          "start_time_aedt": "13:40",
+          "selection": "Our Lady Peace (#2, barrier 2, Jason Collett)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-22T21:20:25+11:00",
+            "settled_odds": 3.0
+          }
+        },
+        {
+          "event": "Taree (NSW) – Race 1, Precise Automotive Classic Car Cup (Bm74) (2000m)",
+          "start_time_aedt": "13:55",
+          "selection": "Brilliant Knight (#4, barrier 5, Luke Rolls)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:20:30+11:00",
+            "settled_odds": 3.0
+          }
+        },
+        {
+          "event": "Taree (NSW) – Race 2, Christmas @ MVRC 20 December Country Boosted Mdn Plate (1000m)",
+          "start_time_aedt": "14:30",
+          "selection": "Sideact (#4, barrier 1, Daniel Smith)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:20:36+11:00",
+            "settled_odds": 3.4
+          }
+        },
+        {
+          "event": "Cairns (QLD) – Race 5, Ladbrokes Turn On Flex Multi Plate (C3) (1250m)",
+          "start_time_aedt": "15:50",
+          "selection": "Deep Stealth (#8, barrier 4, Ben Kennedy)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-22T21:20:41+11:00",
+            "settled_odds": 3.9
+          }
+        },
+        {
+          "event": "Canberra (ACT) – Race 7, Canberra Community Chest Qlty (1400m)",
+          "start_time_aedt": "16:41",
+          "selection": "Brave Xena (#5, barrier 5, Winona Costin)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:20:46+11:00",
+            "settled_odds": 7.5
+          }
+        },
+        {
+          "event": "Clare (SA) – Race 6, Jim Barry Clare Valley Cup (Bm72) (1800m)",
+          "start_time_aedt": "17:05",
+          "selection": "Kikorangi (#5, barrier 3, Margaret Collett)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:20:51+11:00",
+            "settled_odds": 3.7
+          }
+        },
+        {
+          "event": "Canberra (ACT) – Race 8, NVS Paving & Landscaping Plate (C2) (1300m)",
+          "start_time_aedt": "17:20",
+          "selection": "Rockthevelio (#13, barrier 4, Alysha Collett)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:20:57+11:00",
+            "settled_odds": 3.9
+          }
+        },
+        {
+          "event": "Bunbury (WA) – Race 8, Real Punters Play Here TABtouch Hcp (C3) (1200m)",
+          "start_time_aedt": "21:01",
+          "selection": "Articole (#2, barrier 6, Jefferson Tsang)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-22T21:21:11+11:00",
+            "settled_odds": 3.1
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-21",
       "selections": [
