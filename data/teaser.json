@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-11-22T21:21:02+11:00",
+  "generated_at": "2026-11-22T22:17:08+11:00",
   "days": [
+    {
+      "date": "2026-11-23",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Ballina (NSW)"
+      ],
+      "generated_at": "2026-11-22T21:16:49+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-11-22",
       "racing_selections": 8,
@@ -437,22 +450,6 @@
       "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 3
-    },
-    {
-      "date": "2026-10-23",
-      "racing_selections": 4,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [
-        "Canberra (ACT)",
-        "Cranbourne (VIC)",
-        "Launceston (TAS)",
-        "Scone (NSW)"
-      ],
-      "generated_at": "2026-10-23T09:50:00+11:00",
-      "results_recorded": 4,
-      "top_rated": 0,
-      "best_of_day": 4
     }
   ]
 }
