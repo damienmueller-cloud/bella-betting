@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-23T20:49:43+11:00",
+  "generated_at": "2026-11-23T22:25:56+11:00",
   "days": [
+    {
+      "date": "2026-11-24",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Ararat (VIC)",
+        "Tamworth (NSW)"
+      ],
+      "generated_at": "2026-11-23T21:25:50+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-11-23",
       "racing_selections": 3,
@@ -432,21 +446,6 @@
         "Port Macquarie (NSW)"
       ],
       "generated_at": "2026-10-25T09:40:00+11:00",
-      "results_recorded": 3,
-      "top_rated": 0,
-      "best_of_day": 3
-    },
-    {
-      "date": "2026-10-24",
-      "racing_selections": 3,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [
-        "Flemington (VIC)",
-        "Kembla Grange (NSW)",
-        "Morphettville (SA)"
-      ],
-      "generated_at": "2026-10-24T09:26:00+11:00",
       "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 3
