@@ -1,6 +1,22 @@
 {
-  "generated_at": "2026-11-24T20:44:17+11:00",
+  "generated_at": "2026-11-24T22:25:15+11:00",
   "days": [
+    {
+      "date": "2026-11-25",
+      "racing_selections": 5,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Albany (WA)",
+        "Geelong (VIC)",
+        "Ipswich (QLD)",
+        "Launceston (TAS)"
+      ],
+      "generated_at": "2026-11-24T21:25:06+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 5
+    },
     {
       "date": "2026-11-24",
       "racing_selections": 2,
@@ -433,20 +449,6 @@
       ],
       "generated_at": "2026-10-26T09:27:00+11:00",
       "results_recorded": 1,
-      "top_rated": 0,
-      "best_of_day": 3
-    },
-    {
-      "date": "2026-10-25",
-      "racing_selections": 3,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [
-        "Northam (WA)",
-        "Port Macquarie (NSW)"
-      ],
-      "generated_at": "2026-10-25T09:40:00+11:00",
-      "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 3
     }
