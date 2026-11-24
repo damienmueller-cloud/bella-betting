@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-11-24T08:20:11+11:00",
+  "generated_at": "2026-11-24T20:44:17+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-24",
+      "selections": [
+        {
+          "event": "Ararat (VIC) – Race 2, Russ Studio Jewellers Hwt (Bm56) (2200m)",
+          "start_time_aedt": "14:00",
+          "selection": "Ned Kelly (#2, barrier 6, Darryl Horner)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-24T20:44:11+11:00",
+            "settled_odds": 3.8
+          }
+        },
+        {
+          "event": "Tamworth (NSW) – Race 6, Concrete Industry Supplies (Bm82) (1200m)",
+          "start_time_aedt": "16:15",
+          "selection": "Need A Miracle (#6, barrier 1, Rory Hutchings)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-24T20:44:17+11:00",
+            "settled_odds": 5.5
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-23",
       "selections": [
