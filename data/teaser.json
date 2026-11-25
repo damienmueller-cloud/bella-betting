@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-25T20:43:54+11:00",
+  "generated_at": "2026-11-25T22:18:20+11:00",
   "days": [
+    {
+      "date": "2026-11-26",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Hawkesbury (NSW)",
+        "Rockhampton (QLD)"
+      ],
+      "generated_at": "2026-11-25T21:18:14+10:00",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-11-25",
       "racing_selections": 5,
@@ -438,19 +452,6 @@
       "results_recorded": 1,
       "top_rated": 0,
       "best_of_day": 2
-    },
-    {
-      "date": "2026-10-26",
-      "racing_selections": 1,
-      "roughies": 0,
-      "sport_selections": 2,
-      "meetings": [
-        "Beaumont, Newcastle (NSW)"
-      ],
-      "generated_at": "2026-10-26T09:27:00+11:00",
-      "results_recorded": 1,
-      "top_rated": 0,
-      "best_of_day": 3
     }
   ]
 }
