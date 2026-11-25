@@ -1,7 +1,56 @@
 {
-  "generated_at": "2026-11-24T22:25:15+11:00",
+  "generated_at": "2026-11-25T20:43:54+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-25",
+      "selections": [
+        {
+          "event": "Ipswich (QLD) – Race 7, The Lawn Shed (Bm70) (1200m)",
+          "start_time_aedt": "17:33",
+          "selection": "Tasman Bay (#15, barrier 6, Anthony Allen)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-25T20:43:39+11:00",
+            "settled_odds": 4.2
+          }
+        },
+        {
+          "event": "Geelong (VIC) – Race 7, Mittys (Bm62) (1300m)",
+          "start_time_aedt": "18:00",
+          "selection": "Jackpot Park (#1, barrier 10, Billy Egan)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-25T20:43:44+11:00",
+            "settled_odds": 3.7
+          }
+        },
+        {
+          "event": "Albany (WA) – Race 4, TABtouch Better Your Bet (Bm70+) (1230m)",
+          "start_time_aedt": "18:49",
+          "selection": "Flick The Switch (#2, barrier 1, Natasha Faithfull)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-25T20:43:49+11:00",
+            "settled_odds": 4.8
+          }
+        },
+        {
+          "event": "Albany (WA) – Race 5, Western Racepix (Bm58+) (1600m)",
+          "start_time_aedt": "19:22",
+          "selection": "Kidding Me (#6, barrier 5, Natasha Faithfull)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-25T20:43:54+11:00",
+            "settled_odds": 2.6
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-24",
       "selections": [
