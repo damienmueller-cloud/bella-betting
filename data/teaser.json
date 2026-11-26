@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-26T20:40:20+11:00",
+  "generated_at": "2026-11-26T22:28:31+11:00",
   "days": [
+    {
+      "date": "2026-11-27",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Canterbury (NSW)",
+        "Pakenham (VIC)",
+        "Queanbeyan (NSW)"
+      ],
+      "generated_at": "2026-11-26T21:58:18+10:30",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-11-26",
       "racing_selections": 4,
@@ -440,19 +455,6 @@
       "results_recorded": 1,
       "top_rated": 0,
       "best_of_day": 3
-    },
-    {
-      "date": "2026-10-27",
-      "racing_selections": 1,
-      "roughies": 0,
-      "sport_selections": 1,
-      "meetings": [
-        "Hawkesbury (NSW)"
-      ],
-      "generated_at": "2026-10-27T09:27:00+11:00",
-      "results_recorded": 1,
-      "top_rated": 0,
-      "best_of_day": 2
     }
   ]
 }
