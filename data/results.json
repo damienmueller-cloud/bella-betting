@@ -1,7 +1,56 @@
 {
-  "generated_at": "2026-11-26T08:25:23+11:00",
+  "generated_at": "2026-11-26T20:40:20+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-26",
+      "selections": [
+        {
+          "event": "Hawkesbury (NSW) – Race 2, Dynamo Services Mdn Hcp (1300m)",
+          "start_time_aedt": "14:25",
+          "selection": "Flying Party (#1, barrier 10, Louise Day)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-26T20:40:05+11:00",
+            "settled_odds": 3.3
+          }
+        },
+        {
+          "event": "Hawkesbury (NSW) – Race 3, Clarendon Tavern (Bm64) (1800m)",
+          "start_time_aedt": "15:00",
+          "selection": "Alabama Showdown (#1, barrier 8, Andrew Adkins)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-26T20:40:10+11:00",
+            "settled_odds": 5.0
+          }
+        },
+        {
+          "event": "Rockhampton (QLD) – Race 2, TAB (Bm55) (1800m)",
+          "start_time_aedt": "15:20",
+          "selection": "Latin Love (#5, barrier 5, Nikki Olzard)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-26T20:40:15+11:00",
+            "settled_odds": 4.2
+          }
+        },
+        {
+          "event": "Mornington (VIC) – Race 7, Melbourne's Christmas Wonderland (Bm62) (1000m)",
+          "start_time_aedt": "18:00",
+          "selection": "Ilovediamonds (#3, barrier 6, Sam Kennedy)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-26T20:40:20+11:00",
+            "settled_odds": 4.2
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-25",
       "selections": [
