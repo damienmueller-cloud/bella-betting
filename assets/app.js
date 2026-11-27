@@ -112,7 +112,8 @@
         (date !== today && !wanted ? " <strong>No tips have been published for today yet; this is the most recent card.</strong>" : "") +
         (date < today ? " <strong>These races have already been run.</strong>" : "");
 
-      var html = simpleHtml(day, date) + '<details class="more-detail"><summary>More detail (horse numbers, jockeys, prices, reasons)</summary>' + cardHtml(day, date) + "</details>";
+      var html = noBets(day) ? cardHtml(day, date)
+        : simpleHtml(day, date) + '<details class="more-detail"><summary>More detail (horse numbers, jockeys, prices, reasons)</summary>' + cardHtml(day, date) + "</details>";
       if (dates.length > 1) html += '<p><a href="archive.html">See past tips in the archive</a></p>';
       root.innerHTML = html;
       if (token()) bindBacked(date);
@@ -233,7 +234,21 @@
     return h;
   }
 
+  /* No-bet day (Method V4, 28 Nov 2026): no racing, roughie or sport tips on the card. */
+  function noBets(day) {
+    return !((day.selections || []).length || (day.roughies || []).length || (day.sports || []).length);
+  }
+  function noBetsHtml(day) {
+    var h = '<section class="simple" aria-labelledby="nobets-h"><h2 id="nobets-h">No bets today</h2>' +
+      '<p class="simple-none">Nothing met our standards today, so there are no bets from us. That’s OK – sometimes nothing is good enough.</p>' +
+      '<p class="small muted">Check back tomorrow morning for the next card.</p></section>';
+    var notes = cardNotes(day.responsible_gambling);
+    if (notes.length) h += '<div class="notice" role="note">' + notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") + "</div>";
+    return h;
+  }
+
   function cardHtml(day, date) {
+    if (noBets(day)) return noBetsHtml(day);
     var sels = (day.selections || []).slice().sort(function (a, b) {
       return (a.start_time_aedt || "").localeCompare(b.start_time_aedt || "");
     });

@@ -37,6 +37,8 @@ SITE = Path(__file__).resolve().parent
 if str(SITE.parent) not in sys.path:
     sys.path.insert(0, str(SITE.parent))
 from method_v3_rules import apply_each_way_rule, apply_multi_leg_rule
+# Method V4 (Damien, 27 Nov 2026): filter applied first on publish runs from 28 Nov 00:00 Sydney (see method_v4_rules.py).
+from method_v4_rules import apply_v4_filter, v4_active, strip_hidden
 SITE_TIPS = SITE.parent / "cards"          # PRIVATE (vault, not in the public repo)
 SITE_DATA = SITE / "data"                   # public: teaser.json + results.json
 TWILIO_ENV = Path("/workspace/project-vaults/MatchMyAgent/secrets/twilio-api.env")
@@ -211,7 +213,7 @@ def sync_upload(dates, manifest):
     ss = json.loads(MEMBERS_DEPLOY.read_text())["sync_service_sid"]
     base = f"https://sync.twilio.com/v1/Services/{ss}"
     for date in dates:
-        card = load(SITE_TIPS / f"{date}.json")
+        card = strip_hidden(load(SITE_TIPS / f"{date}.json"))  # never upload hidden V4 dropped picks
         z = base64.b64encode(gzip.compress(json.dumps(card, ensure_ascii=False, separators=(",", ":")).encode())).decode()
         data = json.dumps({"z": z, "date": date})
         if len(data) > 15500: die(f"card {date} too large for Sync even compressed ({len(data)} bytes)")
@@ -236,8 +238,19 @@ def copy_card(arg):
     if not src.is_file():
         die(f"tips file not found: {src}")
     data = load(src)
+    v4_changed = False
+    if v4_active():
+        before = json.dumps(data, sort_keys=True)
+        for horse, reasons in apply_v4_filter(data):
+            print(f"Method V4 dropped {horse}: {'; '.join(reasons)} (kept hidden in v4_dropped)")
+        print(f"Method V4: {len(data['selections'])} tip(s) kept" + (" - NO BETS TODAY" if not data["selections"] else ""))
+        v4_changed = json.dumps(data, sort_keys=True) != before
+    else:
+        print("Method V3 card (V4 starts 28 Nov 2026 00:00 Sydney)")
     ew_fixed = apply_each_way_rule(data)
     multi_reason = apply_multi_leg_rule(data)
+    if v4_changed and not (ew_fixed or multi_reason):
+        save(src, data)  # tips/<date>.json now holds the V4 card the SMS and phone scripts read
     if ew_fixed or multi_reason:
         if ew_fixed:
             print("Method V3 each-way rule: coerced to win (need $6+ and 8+ field): " + ", ".join(ew_fixed))
