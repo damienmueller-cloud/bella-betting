@@ -1,7 +1,45 @@
 {
-  "generated_at": "2026-11-26T22:28:31+11:00",
+  "generated_at": "2026-11-27T20:44:35+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-27",
+      "selections": [
+        {
+          "event": "Queanbeyan (NSW) – Race 3, Resort Trailers Showcase (Bm58) (1460m)",
+          "start_time_aedt": "14:10",
+          "selection": "In Circles (#4, barrier 5, Louise Day)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-27T20:44:27+11:00",
+            "settled_odds": 3.7
+          }
+        },
+        {
+          "event": "Canterbury (NSW) – Race 3, The Agency Real Estate Mdn Plate (1550m)",
+          "start_time_aedt": "19:00",
+          "selection": "Darn Sure (#4, barrier 6, James McDonald)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-27T20:44:31+11:00",
+            "settled_odds": 2.6
+          }
+        },
+        {
+          "event": "Pakenham (VIC) – Race 5, Ladbrokes Pakenham Cup Day 12 December (Bm66) (1600m)",
+          "start_time_aedt": "20:15",
+          "selection": "Mount Sabyinyo (#3, barrier 9, Lachlan Neindorf)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-27T20:44:35+11:00",
+            "settled_odds": 3.6
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-26",
       "selections": [
