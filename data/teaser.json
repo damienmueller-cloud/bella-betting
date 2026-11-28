@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-28T20:47:04+11:00",
+  "generated_at": "2026-11-28T22:20:19+11:00",
   "days": [
+    {
+      "date": "2026-11-29",
+      "racing_selections": 3,
+      "roughies": 0,
+      "sport_selections": 0,
+      "meetings": [
+        "Bunbury (WA)",
+        "Hobart (TAS)",
+        "Warrnambool (VIC)"
+      ],
+      "generated_at": "2026-11-28T21:50:15+10:30",
+      "results_recorded": 0,
+      "top_rated": 0,
+      "best_of_day": 3
+    },
     {
       "date": "2026-11-28",
       "racing_selections": 3,
@@ -443,20 +458,6 @@
       "results_recorded": 3,
       "top_rated": 0,
       "best_of_day": 3
-    },
-    {
-      "date": "2026-10-30",
-      "racing_selections": 2,
-      "roughies": 0,
-      "sport_selections": 0,
-      "meetings": [
-        "Kilmore (VIC)",
-        "Launceston (TAS)"
-      ],
-      "generated_at": "2026-10-30T09:20:00+11:00",
-      "results_recorded": 2,
-      "top_rated": 0,
-      "best_of_day": 2
     }
   ]
 }
