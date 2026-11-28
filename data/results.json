@@ -1,7 +1,43 @@
 {
-  "generated_at": "2026-11-27T22:27:27+11:00",
+  "generated_at": "2026-11-28T20:47:04+11:00",
   "method": "All main racing selections, 1 unit win stake each; scratchings excluded; only settled selections are listed. tier: Top Rated (passes every method-v2 rule) or Best of the Day (lower-confidence best-value plays, from 23 Oct 2026); cards before 23 Oct count as Top Rated.",
   "days": [
+    {
+      "date": "2026-11-28",
+      "selections": [
+        {
+          "event": "Doomben (QLD) – Race 6, Tattersall's Lambart Cup (Bm85) (1600m)",
+          "start_time_aedt": "15:38",
+          "selection": "Toro Strike (#9, barrier 8, Ben E Thompson)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "won",
+            "recorded_at": "2026-11-28T20:46:44+11:00",
+            "settled_odds": 2.3
+          }
+        },
+        {
+          "event": "Kempsey (NSW) – Race 6, Percy & Russell Sands Memorial (Bm50) (1250m)",
+          "start_time_aedt": "17:28",
+          "selection": "Son Sillage (#7, barrier 12, Jose Severo)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-28T20:47:00+11:00"
+          }
+        },
+        {
+          "event": "Toowoomba (QLD) – Race 4, Brown Family Wine Group (Bm60) (1910m)",
+          "start_time_aedt": "20:25",
+          "selection": "Sir Goldalot (#2, barrier 1, Sophie Potter)",
+          "tier": "Best of the Day",
+          "result": {
+            "outcome": "lost",
+            "recorded_at": "2026-11-28T20:47:04+11:00"
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-27",
       "selections": [
